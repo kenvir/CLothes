@@ -7,6 +7,7 @@ import { ImFacebook, ImPinterest } from 'react-icons/im';
 import { RiInstagramFill } from 'react-icons/ri';
 import { FaTiktok, FaUser } from 'react-icons/fa';
 import { MdOutlineExpandMore } from 'react-icons/md';
+import { BiSearch } from 'react-icons/bi';
 
 const cx = classNames.bind(style);
 
@@ -57,7 +58,7 @@ function Header() {
                 <form action="#" className={cx('input-group')}>
                   <input type="text" placeholder="What do you need?" />
                   <button type="button">
-                    <i className={cx('ti-search')}></i>
+                    <BiSearch className={cx('btn-search')}/>
                   </button>
                 </form>
               </div>
@@ -65,9 +66,11 @@ function Header() {
             <div className={cx('cart')}>
               <div className={cx('heart')}>
                 <BsHeart />
+                <span className={cx('cart-number')}>1</span>
               </div>
               <div className={cx('cart-icon')}>
                 <BsClipboardPlus />
+                <span className={cx('cart-number')}>3</span>
               </div>
               <div className={cx('price')}>$150.00</div>
             </div>
