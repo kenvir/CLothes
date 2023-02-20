@@ -80,6 +80,7 @@
   font-size: 18px;
   display: inline-block;
   margin-left: 15px;
+  cursor: pointer;
 }
 
 .language {
@@ -98,6 +99,7 @@
   border-left: 1px solid #e5e5e5;
   padding-top: 18px;
   padding-bottom: 15px;
+  cursor: pointer;
 }
 
 .login svg {
@@ -126,6 +128,7 @@
 .logo {
   max-width: 16.666667%;
   padding-right: 15px;
+  cursor: pointer;
 }
 
 .search {
@@ -158,6 +161,7 @@
 
   span {
     padding-right: 35px;
+    cursor: pointer;
   }
 
   &::before {
@@ -198,6 +202,7 @@
     width: 14%;
     border: none;
     background-color: #e7ab3c;
+    cursor: pointer;
 
     .btn-search {
       font-size: 18px;
@@ -219,6 +224,7 @@
   text-align: right;
   margin-right: 15px;
   position: relative;
+  cursor: pointer;
 }
 
 .price {
@@ -227,6 +233,7 @@
   font-weight: 700;
   line-height: 27px;
   margin-right: 0;
+  cursor: auto;
 }
 
 .cart-number {
