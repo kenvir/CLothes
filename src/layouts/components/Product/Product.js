@@ -2,8 +2,8 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import style from './Product.module.scss';
 
-import img1 from '~/assets/imgs/women-large.jpg.webp';
-import img2 from '~/assets/imgs/women-4.jpg.webp';
+import img1 from '~/assets/imgs/women-large.jpg';
+import img2 from '~/assets/imgs/women-4.jpg';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import { BsClipboard, BsHeart } from 'react-icons/bs';
 import { FaRandom } from 'react-icons/fa';
@@ -74,7 +74,7 @@ function Product(children) {
                             <div className={cx('product-img')}>
                                 <img src={img2} alt="women" />
                             </div>
-                            <BsHeart className={cx('product-favorite')}/>
+                            <BsHeart className={cx('product-favorite')} />
                             <div className={cx('product-option')}>
                                 <BsClipboard className={cx('option-icon')} />
                                 <span>+ Quick View</span>
