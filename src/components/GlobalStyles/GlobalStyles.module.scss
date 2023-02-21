@@ -1,11 +1,12 @@
 @import-normalize;
+@import url(https://fonts.googleapis.com/css?family=Muli:400,500,600,700&display=swap);
 
 :root {
     --primary: #fe2c55;
     --black: #000;
     --white: #fff;
     --text-color: #161823;
-    --font-family: 'ProximaNova', sans-serif;
+    --font-family: 'Muli', sans-serif;;
 
     // Default layout
     --default-layout-header-height: 50px;
@@ -62,28 +63,21 @@ a {
 
 //Fonts embeded
 @font-face {
-    font-family: ProximaNova;
-    src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+    font-family: Muli;
+    src: url('../../assets/fonts/muli-1gdlj.ttf');
     font-weight: 400;
 }
-
 @font-face {
-    font-family: ProximaNova;
-    src: url('/assets/fonts/ProximaNova-Semibold.woff2');
+    font-family: Muli;
+    src: url('../../assets/fonts/mulibold-yzevy.ttf');
     font-weight: 600;
 }
-
 @font-face {
-    font-family: ProximaNova;
-    src: url('/assets/fonts/Proxima-Nova-Bold.woff');
-    font-weight: 700;
+    font-family: Muli;
+    src: url('../../assets/fonts/mulisemibold-bw0dg.ttf');
+    font-weight: 500;
 }
 
-@font-face {
-    font-family: SofiaPro;
-    src: url('/assets/fonts/sofiapro-bold.woff');
-    font-weight: 700;
-}
 
 //Custom ToolTip
 body {
