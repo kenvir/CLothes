@@ -58,7 +58,7 @@ function Header() {
                 <form action="#" className={cx('input-group')}>
                   <input type="text" placeholder="What do you need?" />
                   <button type="button">
-                    <BiSearch className={cx('btn-search')}/>
+                    <BiSearch className={cx('btn-search')} />
                   </button>
                 </form>
               </div>

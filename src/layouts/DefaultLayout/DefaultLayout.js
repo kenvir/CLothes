@@ -1,6 +1,10 @@
 import classNames from 'classnames/bind';
-import Header from '~/layouts/components/Header/Header';
 import styles from './DefaultLayout.module.scss';
+
+import Header from '~/layouts/components/Header/Header';
+import Footer from '~/layouts/components/Footer/Footer';
+import PartnerLogo from '~/layouts/components/PartnerLogo/PartnerLogo';
+import BannerSection from '~/layouts/components/BannerSection/BannerSection';
 
 const cx = classNames.bind(styles);
 
@@ -8,9 +12,12 @@ function DefaultLayout({ children }) {
   return (
     <div className={cx('wrapper')}>
       <Header />
-      <div className={cx('container')}>
+      <diav className={cx('container')}>
         <div className={cx('content')}>{children}</div>
-      </div>
+      </diav>
+      <BannerSection />
+      <PartnerLogo />
+      <Footer />
     </div>
   );
 }
