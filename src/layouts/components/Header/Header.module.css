@@ -3,11 +3,10 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
   background-color: white;
   border-bottom: 1px solid #e5e5e5;
-
-  font-family: 'Muli', sans-serif;
+  font-family: "Muli", sans-serif;
 }
 
 .header-top {
@@ -60,6 +59,7 @@
   padding: 15px 20px 15px 0px;
   text-align: left;
 }
+
 .phone {
   display: flex;
   align-items: center;
@@ -160,21 +160,19 @@
   font-size: 16px;
   color: #252525;
   position: relative;
-
-  span {
-    padding-right: 35px;
-    cursor: pointer;
-  }
-
-  &::before {
-    position: absolute;
-    right: 0;
-    top: 14px;
-    width: 1px;
-    height: 20px;
-    background: #e5e5e5;
-    content: '';
-  }
+}
+.category-btn span {
+  padding-right: 35px;
+  cursor: pointer;
+}
+.category-btn::before {
+  position: absolute;
+  right: 0;
+  top: 14px;
+  width: 1px;
+  height: 20px;
+  background: #e5e5e5;
+  content: "";
 }
 
 .input-group {
@@ -183,33 +181,29 @@
   width: 100%;
   height: 100%;
   padding-left: 5%;
-
-  input {
-    border: none;
-    outline: none;
-    height: 96%;
-    width: 85%;
-    font-size: 15px;
-
-    &:focus-visible {
-      outline: none;
-    }
-  }
-
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 15%;
-    border: none;
-    background-color: var(--primary);
-    cursor: pointer;
-
-    .btn-search {
-      font-size: 18px;
-    }
-  }
+}
+.input-group input {
+  border: none;
+  outline: none;
+  height: 96%;
+  width: 85%;
+  font-size: 15px;
+}
+.input-group input:focus-visible {
+  outline: none;
+}
+.input-group button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 15%;
+  border: none;
+  background-color: var(--primary);
+  cursor: pointer;
+}
+.input-group button .btn-search {
+  font-size: 18px;
 }
 
 .cart {
@@ -247,4 +241,4 @@
   border-radius: 50%;
   padding: 1px 7px;
   font-size: 12px;
-}
+}/*# sourceMappingURL=Header.module.css.map */
