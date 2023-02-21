@@ -4,9 +4,11 @@ import style from './Product.module.scss';
 
 import img1 from '~/assets/imgs/women-large.jpg.webp';
 import img2 from '~/assets/imgs/women-4.jpg.webp';
+
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import { BsClipboard, BsHeart } from 'react-icons/bs';
-import { FaRandom } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShuffle } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(style);
 
@@ -39,7 +41,7 @@ function Product(children) {
                             <div className={cx('product-option')}>
                                 <BsClipboard className={cx('option-icon')} />
                                 <span>+ Quick View</span>
-                                <FaRandom />
+                                <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
                             </div>
                             <div className={cx('product-text')}>
                                 <span className={cx('product-type')}>TOWEL</span>
@@ -59,7 +61,7 @@ function Product(children) {
                             <div className={cx('product-option')}>
                                 <BsClipboard className={cx('option-icon')} />
                                 <span>+ Quick View</span>
-                                <FaRandom />
+                                <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
                             </div>
                             <div className={cx('product-text')}>
                                 <span className={cx('product-type')}>TOWEL</span>
@@ -74,11 +76,11 @@ function Product(children) {
                             <div className={cx('product-img')}>
                                 <img src={img2} alt="women" />
                             </div>
-                            <BsHeart className={cx('product-favorite')}/>
+                            <BsHeart className={cx('product-favorite')} />
                             <div className={cx('product-option')}>
                                 <BsClipboard className={cx('option-icon')} />
                                 <span>+ Quick View</span>
-                                <FaRandom />
+                                <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
                             </div>
                             <div className={cx('product-text')}>
                                 <span className={cx('product-type')}>TOWEL</span>
