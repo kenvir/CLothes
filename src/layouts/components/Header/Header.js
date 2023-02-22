@@ -47,7 +47,9 @@ function Header() {
             <div className={cx('header-bot')}>
                 <div className={cx('inner-header')}>
                     <div className={cx('logo')}>
-                        <img src="https://preview.colorlib.com/theme/fashi/img/logo.png" alt=""></img>
+                        <a href="./">
+                            <img src="https://preview.colorlib.com/theme/fashi/img/logo.png" alt="" />
+                        </a>
                     </div>
                     <div className={cx('search')}>
                         <div className={cx('advanced-search')}>

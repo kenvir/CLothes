@@ -32,6 +32,8 @@
     top: 23px;
     transition: all 0.3s linear;
     transform: scale(0);
+    border: 0px solid #ffffff;
+    
 }
 
 .single-banner:hover::before {

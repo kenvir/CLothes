@@ -1,10 +1,9 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import style from './Product.module.scss';
+import style from './Product1.module.scss';
 
-import img1 from '~/assets/imgs/women-large.jpg.webp';
-import img2 from '~/assets/imgs/women-4.jpg.webp';
-
+import img1 from '~/assets/imgs/women-large.jpg';
+import img2 from '~/assets/imgs/women-4.jpg';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import { BsClipboard, BsHeart } from 'react-icons/bs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,16 +11,16 @@ import { faShuffle } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(style);
 
-function Product(children) {
+function Product(props) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('product')}>
                 <div className={cx('product-left')}>
                     <img src={img1} alt="women" />
-                    <div className={cx('intro')}>
-                        <h1>Women's</h1>
-                        <span>Discover More</span>
-                    </div>
+                    {/* <div className={cx('intro')}> */}
+                    <div className={cx('intro')}>Women's</div>
+                    <span className={cx('more')}>Discover More</span>
+                    {/* </div> */}
                 </div>
                 <div className={cx('product-right')}>
                     <div className={cx('right-option')}>
