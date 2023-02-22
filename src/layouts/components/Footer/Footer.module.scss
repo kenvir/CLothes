@@ -92,6 +92,10 @@ a {
     width: 17%;
 }
 
+.footer-widget ul a {
+    color: #b2b2b2 !important; 
+}
+
 .newslatter-item {
     width: 33%;
 }
@@ -104,13 +108,13 @@ a {
     margin-bottom: 24px;
 }
 
-h5 {
+.content-inner h5 {
     text-align: left;
     color: #ffff;
     font-size: 18px;
     font-weight: 700;
     line-height: 22px;
-    margin-bottom: 26px;
+    margin-bottom: 26px !important;
 }
 .mail-input {
     color: #b2b2b2;

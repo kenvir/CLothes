@@ -30,9 +30,9 @@
     content: "";
     left: 28px;
     top: 23px;
-    transition: all 0.3s linear;
+    transition: all 0.3s ease-in-out;
     transform: scale(0);
-    border: 0px solid #ffffff;
+    border: #ffffff;
     
 }
 
@@ -41,6 +41,7 @@
     height: calc(100% - 74px);
     border: 14px solid #ffffff;
     transform: scale(1);
+    transition: all 0.3s ;
     opacity: 0.3;
 }
 
