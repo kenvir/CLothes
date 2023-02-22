@@ -7,6 +7,8 @@ import PartnerLogo from '~/layouts/components/PartnerLogo/PartnerLogo';
 import BannerSection from '~/layouts/components/BannerSection/BannerSection';
 import Slider from '~/components/Slider/Slider';
 import Product from '../components/Product/Product';
+import SampleShow from '../components/SampleShow/SampleShow';
+import HomeBlog from '../components/HomeBlog/HomeBlog';
 
 const cx = classNames.bind(styles);
 
@@ -20,6 +22,8 @@ function DefaultLayout({ children }) {
             </div>
             <BannerSection />
             <Product />
+            <SampleShow />
+            <HomeBlog />
             <PartnerLogo />
             <Footer />
         </div>
