@@ -6,7 +6,7 @@ import { IoHome } from 'react-icons/io5';
 
 const cx = classNames.bind(style);
 
-function Crumb() {
+function Crumb(props) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('crumb')}>
@@ -15,7 +15,10 @@ function Crumb() {
                 <a href="/#" className={cx('home')}>
                     Home &nbsp;
                 </a>
-                <span className={cx('page')}> {'>'} Shop</span>
+                <span className={cx('page')}>
+                    {' '}
+                    {'>'} {props.title}
+                </span>
             </div>
         </div>
     );
