@@ -1,13 +1,14 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import style from './Header.module.scss';
-import { GrMail } from 'react-icons/gr';
 import { BsFillTelephoneFill, BsHeart, BsClipboardPlus } from 'react-icons/bs';
 import { ImFacebook, ImPinterest } from 'react-icons/im';
 import { RiInstagramFill } from 'react-icons/ri';
 import { FaTiktok, FaUser } from 'react-icons/fa';
 import { MdOutlineExpandMore } from 'react-icons/md';
 import { BiSearch } from 'react-icons/bi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(style);
 
@@ -18,7 +19,7 @@ function Header() {
                 <div className={cx('container')}>
                     <div className={cx('header-left')}>
                         <div className={cx('email')}>
-                            <GrMail className={cx('icon')} />
+                            <FontAwesomeIcon className={cx('icon')}  icon={faEnvelope} />
                             <span className={cx('mail-address')}>hello.colorlib@gmail.com</span>
                         </div>
                         <div className={cx('phone')}>
@@ -68,11 +69,11 @@ function Header() {
                     <div className={cx('cart')}>
                         <div className={cx('heart')}>
                             <BsHeart />
-                            <span className={cx('cart-number')}>1</span>
+                            <span className={cx('cart-number')}><div>1</div></span>
                         </div>
                         <div className={cx('cart-icon')}>
                             <BsClipboardPlus />
-                            <span className={cx('cart-number')}>3</span>
+                            <span className={cx('cart-number')}><div>3</div></span>
                         </div>
                         <div className={cx('price')}>$150.00</div>
                     </div>

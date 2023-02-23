@@ -1,12 +1,12 @@
-a {
-    color: #b2b2b2 !important;
-}
-
 .wrapper {
     width: 100%;
     color: #b2b2b2;
     background-color: #191919;
     // height: 400px;
+}
+
+.wrapper a {
+    color: #b2b2b2 !important;
 }
 
 .wrapper ul {
@@ -93,7 +93,7 @@ a {
 }
 
 .footer-widget ul a {
-    color: #b2b2b2 !important; 
+    color: #b2b2b2 !important;
 }
 
 .newslatter-item {
@@ -164,5 +164,5 @@ a {
 }
 
 .footer-social a:hover {
-    background-color: #e7ab3c;;
+    background-color: #e7ab3c;
 }
