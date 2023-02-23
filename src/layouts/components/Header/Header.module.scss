@@ -2,29 +2,38 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 100%;
+    max-width: 100%;
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     background-color: white;
     border-bottom: 1px solid #e5e5e5;
-
     font-family: 'Muli', sans-serif;
 }
 
 .header-top {
     display: flex;
+    justify-content: space-between;
+    margin: 0 190px;
+}
+
+.line {
     border-bottom: 1px solid #e5e5e5;
 }
 
-.container,
 .header-bot {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 1144px;
+    margin: 0 190px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     // padding-right: 15px;
     // padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    // margin: 0 auto;
 }
 
 .header-left {
@@ -50,9 +59,8 @@
 }
 
 .icon {
-    font-size: 20px;
+    font-size: inherit;
     margin-right: 5px;
-    margin-top: 5px;
 }
 
 .mail-address {
@@ -109,16 +117,14 @@
     margin-right: 8px;
 }
 
-.header-bot {
-    padding: 0;
-    margin: 0 auto;
-}
-
 .inner-header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 39px 0;
     width: 100%;
+    // margin-right: auto;
+    // margin-left: auto;
 }
 
 .row {
@@ -216,6 +222,7 @@
 .cart {
     display: flex;
     align-items: center;
+    max-width: 23%;
 }
 
 .heart,

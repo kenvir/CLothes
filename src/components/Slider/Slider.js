@@ -31,7 +31,7 @@ function Slider() {
                                     <button className={cx('btn')}>SHOP NOW</button>
                                 </div>
                             </div>
-                            <div classNames={cx('slider-right')}>
+                            <div className={cx('slider-right')}>
                                 <div className={cx('circle-sale')}>
                                     <h2>SALE 50%</h2>
                                 </div>
@@ -55,7 +55,7 @@ function Slider() {
                                     <button className={cx('btn')}>SHOP NOW</button>
                                 </div>
                             </div>
-                            <div classNames={cx('slider-right')}>
+                            <div className={cx('slider-right')}>
                                 <div className={cx('circle-sale')}>
                                     <h2>SALE 50%</h2>
                                 </div>
