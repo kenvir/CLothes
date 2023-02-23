@@ -1,0 +1,115 @@
+.wrapper {
+    width: 22%;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 28px;
+}
+
+.filter-type {
+    color: #252525;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0px 0px 4px;
+    text-align: left;
+}
+
+.classify {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+
+    span {
+        color: #636363;
+        line-height: 32px;
+        text-align: left;
+        width: max-content;
+        cursor: pointer;
+    }
+}
+
+.brand-classify {
+    input {
+        color: #636363;
+        line-height: 32px;
+        text-align: left;
+        margin-right: 4%;
+        cursor: pointer;
+    }
+
+    label {
+        color: #636363;
+        line-height: 32px;
+        text-align: left;
+        cursor: pointer;
+    }
+}
+
+.classify-color {
+    display: flex;
+    flex-wrap: wrap;
+
+    .sc-item {
+        margin-right: 3%;
+    }
+
+    input {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    label {
+        display: inline-block;
+        font-size: 16px;
+        color: #636363;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+    }
+}
+
+.classify-size {
+    display: flex;
+    flex-wrap: wrap;
+
+    .sc-item {
+        margin-right: 3%;
+    }
+
+    input {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    label {
+        display: inline-block;
+        font-size: 16px;
+        color: #252525;
+        font-weight: 700;
+        height: 40px;
+        width: 47px;
+        border: 1px solid #ebebeb;
+        text-align: center;
+        line-height: 40px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
+
+.classify-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+        width: max-content;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: white;
+        border: 1px solid #ebebeb;
+        padding: 5px 15px;
+        color: #636363 !important;
+        margin: 0 3% 3% 0;
+    }
+}
