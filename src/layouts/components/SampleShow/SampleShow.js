@@ -20,7 +20,7 @@ function Product(children) {
             <div className={cx('insta-item')}>
                 <img src={insta1} alt="sample" />
                 <div className={cx('inside-text')}>
-                    <TfiInstagram className={cx('ti-instagram')}></TfiInstagram>
+                    <TfiInstagram className={cx('ti-instagram')} />
                     <h5>
                         <a href="#">colorlib_Collection</a>
                     </h5>
@@ -29,7 +29,7 @@ function Product(children) {
             <div className={cx('insta-item')}>
                 <img src={insta2} alt="sample" />
                 <div className={cx('inside-text')}>
-                    <TfiInstagram className={cx('ti-instagram')}></TfiInstagram>
+                    <TfiInstagram className={cx('ti-instagram')} />
                     <h5>
                         <a href="#">colorlib_Collection</a>
                     </h5>
@@ -38,7 +38,7 @@ function Product(children) {
             <div className={cx('insta-item')}>
                 <img src={insta3} alt="sample" />
                 <div className={cx('inside-text')}>
-                    <TfiInstagram className={cx('ti-instagram')}></TfiInstagram>
+                    <TfiInstagram className={cx('ti-instagram')} />
                     <h5>
                         <a href="#">colorlib_Collection</a>
                     </h5>
@@ -47,7 +47,7 @@ function Product(children) {
             <div className={cx('insta-item')}>
                 <img src={insta4} alt="sample" />
                 <div className={cx('inside-text')}>
-                    <TfiInstagram className={cx('ti-instagram')}></TfiInstagram>
+                    <TfiInstagram className={cx('ti-instagram')} />
                     <h5>
                         <a href="#">colorlib_Collection</a>
                     </h5>
@@ -56,7 +56,7 @@ function Product(children) {
             <div className={cx('insta-item')}>
                 <img src={insta5} alt="sample" />
                 <div className={cx('inside-text')}>
-                    <TfiInstagram className={cx('ti-instagram')}></TfiInstagram>
+                    <TfiInstagram className={cx('ti-instagram')} />
                     <h5>
                         <a href="#">colorlib_Collection</a>
                     </h5>
@@ -65,7 +65,7 @@ function Product(children) {
             <div className={cx('insta-item')}>
                 <img src={insta6} alt="sample" />
                 <div className={cx('inside-text')}>
-                    <TfiInstagram className={cx('ti-instagram')}></TfiInstagram>
+                    <TfiInstagram className={cx('ti-instagram')} />
                     <h5>
                         <a href="#">colorlib_Collection</a>
                     </h5>

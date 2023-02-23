@@ -34,13 +34,21 @@ function Product(props) {
                         <div className={cx('product-item')}>
                             <div className={cx('product-img')}>
                                 <img src={img2} alt="women" />
-                            </div>
-                            <BsHeart className={cx('product-favorite')} />
-                            <div className={cx('product-sale')}>SALE</div>
-                            <div className={cx('product-option')}>
-                                <BsClipboard className={cx('option-icon')} />
-                                <span>+ Quick View</span>
-                                <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
+                                <BsHeart className={cx('product-favorite')} />
+                                <div className={cx('product-sale')}>SALE</div>
+                                <div className={cx('product-option')}>
+                                    <div className={cx('product-option-inner')}>
+                                        <div className={cx('option-icon-wrapper')}>
+                                            <BsClipboard className={cx('option-icon')} />
+                                        </div>
+                                        <div className={cx('option-content')}>
+                                            <span>+ Quick View</span>
+                                        </div>
+                                        <div className={cx('option-shuffle-wrapper')}>
+                                            <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div className={cx('product-text')}>
                                 <span className={cx('product-type')}>TOWEL</span>
@@ -54,13 +62,21 @@ function Product(props) {
                         <div className={cx('product-item')}>
                             <div className={cx('product-img')}>
                                 <img src={img2} alt="women" />
-                            </div>
-                            <BsHeart className={cx('product-favorite')} />
-                            <div className={cx('product-sale')}>SALE</div>
-                            <div className={cx('product-option')}>
-                                <BsClipboard className={cx('option-icon')} />
-                                <span>+ Quick View</span>
-                                <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
+                                <BsHeart className={cx('product-favorite')} />
+                                <div className={cx('product-sale')}>SALE</div>
+                                <div className={cx('product-option')}>
+                                    <div className={cx('product-option-inner')}>
+                                        <div className={cx('option-icon-wrapper')}>
+                                            <BsClipboard className={cx('option-icon')} />
+                                        </div>
+                                        <div className={cx('option-content')}>
+                                            <span>+ Quick View</span>
+                                        </div>
+                                        <div className={cx('option-shuffle-wrapper')}>
+                                            <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div className={cx('product-text')}>
                                 <span className={cx('product-type')}>TOWEL</span>
@@ -74,13 +90,23 @@ function Product(props) {
                         <div className={cx('product-item')}>
                             <div className={cx('product-img')}>
                                 <img src={img2} alt="women" />
+                                <BsHeart className={cx('product-favorite')} />
+                                <div className={cx('product-sale')}>SALE</div>
+                                <div className={cx('product-option')}>
+                                    <div className={cx('product-option-inner')}>
+                                        <div className={cx('option-icon-wrapper')}>
+                                            <BsClipboard className={cx('option-icon')} />
+                                        </div>
+                                        <div className={cx('option-content')}>
+                                            <span>+ Quick View</span>
+                                        </div>
+                                        <div className={cx('option-shuffle-wrapper')}>
+                                            <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <BsHeart className={cx('product-favorite')} />
-                            <div className={cx('product-option')}>
-                                <BsClipboard className={cx('option-icon')} />
-                                <span>+ Quick View</span>
-                                <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
-                            </div>
+
                             <div className={cx('product-text')}>
                                 <span className={cx('product-type')}>TOWEL</span>
                                 <span className={cx('product-name')}>Converse Shoes</span>
