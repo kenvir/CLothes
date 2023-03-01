@@ -5,6 +5,7 @@
 }
 
 .wrapper a {
+    background-color: #252525;
     color: #ffff !important;
 }
 
@@ -21,25 +22,14 @@
 }
 
 .menu-list {
+    display: flex;
+    align-items: center;
     padding: 15px 45px;
-    cursor: pointer;
     position: relative;
-    transition: all 0.4s  ease-in-out;
+    transition: all 0.4s ease-in-out;
     border-right: 2px solid #3b3b3b;
-
-    &:first-child {
-        padding: 15px 22px 15px 13px;
-        background-color: #3b3b3b;
-        transition: all 0.4s  ease-in-out;
-
-        &:hover {
-            background-color: #3b3b3b;
-        }
-
-        span {
-            margin: 0 16px;
-        }
-    }
+    background-color: #252525;
+    cursor: pointer;
 
     &:hover {
         transition: 0.75s;
@@ -47,8 +37,35 @@
     }
 }
 
-.list-item-title {
-    color: white;
+.list-items {
+    display: flex;
+    align-items: center;
+    padding: 14px 50px;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    background-color: #3b3b3b;
+    cursor: pointer;
+
+    &:hover {
+        .item-lists {
+            position: absolute;
+            display: block;
+            z-index: 10;
+            top: 54px;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.menu {
+    position: absolute;
+    left: 5%;
+}
+
+.arrow {
+    position: absolute;
+    right: 5%;
 }
 
 .active {
@@ -68,9 +85,9 @@
     padding-bottom: 29px;
     -webkit-box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
     box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
-    -webkit-transition: all 0.4s  ease-in-out;
-    -o-transition: all 0.4s  ease-in-out;
-    transition: all 0.4s  ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 
     li {
         font-weight: 300;
@@ -91,5 +108,17 @@
         top: 54px;
         opacity: 1;
         visibility: visible;
+    }
+}
+
+@media only screen and (min-width: 951px) and (max-width: 1250px) {
+    .menu-list {
+        padding: 15px 28px;
+    }
+}
+
+@media only screen and (min-width: 650px) and (max-width: 950px) {
+    .menu-list {
+        padding: 15px;
     }
 }

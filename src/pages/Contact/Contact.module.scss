@@ -150,7 +150,7 @@
     justify-content: space-between;
 }
 
-input {
+.form-wrapper input {
     margin: 16px 0;
     padding: 10px 10px 10px 20px;
     width: 47%;
@@ -161,7 +161,7 @@ input {
     color: #606060;
     border: none;
     border-radius: 3px;
-    outline: 1px rgb(206, 206, 206) solid !important;
+    outline: 1px #ebebeb solid !important;
     transition: all 0.1s ease-in-out;
 
     &:hover {
@@ -173,6 +173,7 @@ input {
 }
 
 .message {
+    font-family: var(--font-family);
     margin: 16px 0 20px 0;
     padding: 10px 10px 10px 20px;
     width: 100%;
@@ -182,8 +183,9 @@ input {
     color: #606060;
     border: none;
     border-radius: 3px;
-    outline: 1px rgb(206, 206, 206) solid;
+    outline: 1px #ebebeb solid;
     transition: all 0.1s ease-in-out;
+    resize: none;
 
     &:hover {
         outline: #ffc200 1px solid !important;
