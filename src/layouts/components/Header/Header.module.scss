@@ -164,8 +164,10 @@
 
 .category-btn {
     display: flex;
+    align-items: center;
     max-width: 45%;
     width: 42%;
+    height: 100%;
     float: left;
     background: transparent;
     border: none;
@@ -202,7 +204,7 @@
     input {
         border: none;
         outline: none;
-        height: 96%;
+        height: 100%;
         width: 85%;
         font-size: 15px;
 
