@@ -60,7 +60,7 @@ function Menu() {
                         <li>Shopping Cart</li>
                         <li>Checkout</li>
                         <li>Faq</li>
-                        <li>Register</li>
+                        <Link to='/register'><li>Register</li></Link>
                     </ul>
                 </li>
             </ul>

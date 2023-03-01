@@ -4,6 +4,7 @@ const routes = {
     blog: '/blog',
     contact: '/contact',
     login: '/login',
+    register: '/register',
 };
 
 export default routes;
