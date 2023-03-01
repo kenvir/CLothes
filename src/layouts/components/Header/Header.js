@@ -9,6 +9,7 @@ import { MdOutlineExpandMore } from 'react-icons/md';
 import { BiSearch } from 'react-icons/bi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
@@ -19,7 +20,7 @@ function Header() {
                 <div className={cx('container')}>
                     <div className={cx('header-left')}>
                         <div className={cx('email')}>
-                            <FontAwesomeIcon className={cx('icon')}  icon={faEnvelope} />
+                            <FontAwesomeIcon className={cx('icon')} icon={faEnvelope} />
                             <span className={cx('mail-address')}>hello.colorlib@gmail.com</span>
                         </div>
                         <div className={cx('phone')}>
@@ -39,7 +40,9 @@ function Header() {
                         </div>
                         <div className={cx('login')}>
                             <FaUser />
-                            <span>Login</span>
+                            <span>
+                                <Link to="/login">Login</Link>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -69,11 +72,15 @@ function Header() {
                     <div className={cx('cart')}>
                         <div className={cx('heart')}>
                             <BsHeart />
-                            <span className={cx('cart-number')}><div>1</div></span>
+                            <span className={cx('cart-number')}>
+                                <div>1</div>
+                            </span>
                         </div>
                         <div className={cx('cart-icon')}>
                             <BsClipboardPlus />
-                            <span className={cx('cart-number')}><div>3</div></span>
+                            <span className={cx('cart-number')}>
+                                <div>3</div>
+                            </span>
                         </div>
                         <div className={cx('price')}>$150.00</div>
                     </div>
