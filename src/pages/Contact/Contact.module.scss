@@ -5,12 +5,15 @@
     justify-content: center;
 }
 
+.crumb-wrapper {
+    width: calc(100% - 380px);
+}
+
 .inner {
-    padding: 0 15px;
     display: flex;
     flex-wrap: wrap;
     margin: 50px auto;
-    width: 80%;
+    width: calc(100% - 380px);
 }
 
 .map-container {
@@ -165,10 +168,10 @@
     transition: all 0.1s ease-in-out;
 
     &:hover {
-        outline: #ffc200 1px solid !important;
+        outline: #e7ab3c 1px solid !important;
     }
     &:focus-visible {
-        outline: #ffc200 1px solid !important;
+        outline: #e7ab3c 1px solid !important;
     }
 }
 
@@ -188,10 +191,10 @@
     resize: none;
 
     &:hover {
-        outline: #ffc200 1px solid !important;
+        outline: #e7ab3c 1px solid !important;
     }
     &:focus-visible {
-        outline: #ffc200 1px solid !important;
+        outline: #e7ab3c 1px solid !important;
     }
 }
 
