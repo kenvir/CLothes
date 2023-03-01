@@ -22,7 +22,6 @@ function Menu() {
                         <li>Women's Clothing</li>
                         <li>Men's Clothing</li>
                         <li>Kid's Clothing</li>
-                        <li>Underwear</li>
                         <li>Accessories/Shoes</li>
                     </ul>
                 </li>
