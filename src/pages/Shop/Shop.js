@@ -16,7 +16,9 @@ function Shop() {
         <div className={cx('wrapper')}>
             <Crumb title="Shop" />
             <div className={cx('content')}>
-                <Filter />
+                <div className={cx('filter')}>
+                    <Filter isCategory isBrand isPrice isColor isSize isTags />
+                </div>
                 <Product />
                 {/* <Pagination totalPosts={transferList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page}/> */}
             </div>

@@ -4,7 +4,16 @@
     margin: 0 190px;
 }
 
-.content {
+.contents {
     display: flex;
     margin-top: 4%;
+}
+
+.filter {
+    width: 64%;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
 }
