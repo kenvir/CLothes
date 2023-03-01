@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './Menu.module.scss';
 
-import config from '~/config';
-
 import { BsList } from 'react-icons/bs';
 import { MdExpandMore } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
 function Menu() {
+    const navLinkStyle = ({ isActive }) => {
+        return {
+            backgroundColor: isActive ? '#e7ab3c' : '#252525',
+        };
+    };
+
     return (
         <div className={cx('wrapper')}>
             <ul className={cx('menu-lists')}>
                 <li className={cx('list-items')}>
-                    <BsList className={cx('menu')}/>
+                    <BsList className={cx('menu')} />
                     <span className={cx('list-item')}>ALL DEPARTMENT</span>
-                    <MdExpandMore className={cx('arrow')}/>
+                    <MdExpandMore className={cx('arrow')} />
                     <ul className={cx('item-lists')}>
                         <li>Women's Clothing</li>
                         <li>Men's Clothing</li>
@@ -25,16 +29,16 @@ function Menu() {
                         <li>Accessories/Shoes</li>
                     </ul>
                 </li>
-                <Link className={cx('list-item--title')} to="/">
+                <NavLink style={navLinkStyle} className={cx('list-item--title')} to="/">
                     <li className={cx('menu-list')}>
                         <span className={cx('list-item')}>HOME</span>
                     </li>
-                </Link>
-                <Link className={cx('list-item--title')} to="/shop">
+                </NavLink>
+                <NavLink style={navLinkStyle} className={cx('list-item--title')} to="/shop">
                     <li className={cx('menu-list')}>
                         <span className={cx('list-item')}>SHOP</span>
                     </li>
-                </Link>
+                </NavLink>
                 <li className={cx('menu-list')}>
                     <span className={cx('list-item')}>COLLECTION</span>
                     <ul className={cx('item-lists')}>
@@ -43,23 +47,25 @@ function Menu() {
                         <li>Kid's</li>
                     </ul>
                 </li>
-                <Link className={cx('list-item--title')} to="/blog">
+                <NavLink style={navLinkStyle} className={cx('list-item--title')} to="/blog">
                     <li className={cx('menu-list')}>
                         <span className={cx('list-item')}>BLOG</span>
                     </li>
-                </Link>
-                <Link className={cx('list-item--title')} to="/contact">
+                </NavLink>
+                <NavLink style={navLinkStyle} className={cx('list-item--title')} to="/contact">
                     <li className={cx('menu-list')}>
                         <span className={cx('list-item')}>CONTACT</span>
                     </li>
-                </Link>
+                </NavLink>
                 <li className={cx('menu-list')}>
                     <span className={cx('list-item')}>PAGES</span>
                     <ul className={cx('item-lists')}>
                         <li>Shopping Cart</li>
                         <li>Checkout</li>
                         <li>Faq</li>
-                        <Link to='/register'><li>Register</li></Link>
+                        <Link to="/register">
+                            <li>Register</li>
+                        </Link>
                     </ul>
                 </li>
             </ul>

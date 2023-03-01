@@ -28,11 +28,15 @@
     position: relative;
     transition: all 0.4s ease-in-out;
     border-right: 2px solid #3b3b3b;
-    background-color: #252525;
+    // background-color: #252525;
     cursor: pointer;
 
     &:hover {
         transition: 0.75s;
+        background-color: var(--primary);
+    }
+
+    .active {
         background-color: var(--primary);
     }
 }
@@ -105,10 +109,11 @@
     .item-lists {
         position: absolute;
         display: block;
-        z-index: 10;
+        width: max-content;
         top: 54px;
         opacity: 1;
         visibility: visible;
+        z-index: 10;
     }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import ClassNames from 'classnames';
 import classNames from 'classnames/bind';
 import style from './Crumb.module.scss';
 
@@ -6,9 +7,9 @@ import { IoHome } from 'react-icons/io5';
 
 const cx = classNames.bind(style);
 
-function Crumb(props) {
+function Crumb({className, ...props }) {
     return (
-        <div className={cx('wrapper')}>
+        <div className={ClassNames(style.wrapper, className)}>
             <div className={cx('crumb')}>
                 <IoHome className={cx('icon')} />
                 &nbsp;
