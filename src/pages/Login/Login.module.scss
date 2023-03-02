@@ -108,3 +108,26 @@
     margin-top: 5px;
     cursor: pointer;
 }
+
+.switch {
+    text-align: center;
+    margin-top: 22px;
+}
+
+.switch-login {
+    color: #252525;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background: #9f9f9f;
+        content: '';
+    }
+}

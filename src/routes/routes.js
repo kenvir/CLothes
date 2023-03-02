@@ -6,6 +6,8 @@ import Blog from '~/pages/Blog/Blog';
 import Contact from '~/pages/Contact/Contact';
 import Login from '~/pages/Login/Login';
 import Register from '~/pages/Register/Register';
+import Cart from '~/pages/Cart/Cart';
+import FAQ from '~/pages/FAQ/FAQ';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -14,6 +16,8 @@ const publicRoutes = [
     { path: config.routes.contact, component: Contact },
     { path: config.routes.login, component: Login },
     { path: config.routes.register, component: Register },
+    { path: config.routes.cart, component: Cart },
+    { path: config.routes.faq, component: FAQ },
 ];
 
 const privateRoutes = [];

@@ -26,7 +26,7 @@ function Menu() {
                         <li>Women's Clothing</li>
                         <li>Men's Clothing</li>
                         <li>Kid's Clothing</li>
-                        <li>Accessories/Shoes</li>
+                        <li>Shoes</li>
                     </ul>
                 </li>
                 <NavLink style={navLinkStyle} className={cx('list-item--title')} to="/">
@@ -60,9 +60,15 @@ function Menu() {
                 <li className={cx('menu-list')}>
                     <span className={cx('list-item')}>PAGES</span>
                     <ul className={cx('item-lists')}>
-                        <li>Shopping Cart</li>
-                        <li>Checkout</li>
-                        <li>Faq</li>
+                        <Link to="/cart">
+                            <li>Shopping Cart</li>
+                        </Link>
+                        <Link>
+                            <li>Checkout</li>
+                        </Link>
+                        <Link to='/faq'>
+                            <li>Faq</li>
+                        </Link>
                         <Link to="/register">
                             <li>Register</li>
                         </Link>

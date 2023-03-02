@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import classNames from 'classnames/bind';
 import style from './Login.module.scss';
 
@@ -47,6 +49,10 @@ function Login() {
                 </div>
 
                 <button className={cx('submit')}>SIGN IN</button>
+
+                <div className={cx('switch')}>
+                    <Link to="/login" className={cx('switch-login')}>Or Create An Account</Link>
+                </div>
             </form>
         </div>
     );
