@@ -14,40 +14,42 @@ function App() {
         setTimeout(() => {
             setIsLoading(false);
         }, 1000);
+
+        // return setIsLoading(false);
     }, [isLoading]);
 
     return (
         <Router>
             <div className="App">
-                {isLoading ? (
+                {/* {isLoading ? (
                     <LoadingSpinner />
-                ) : (
-                    <Routes>
-                        {publicRoutes.map((route, index) => {
-                            const Page = route.component;
+                ) : ( */}
+                <Routes>
+                    {publicRoutes.map((route, index) => {
+                        const Page = route.component;
 
-                            let Layout = DefaultLayout;
+                        let Layout = DefaultLayout;
 
-                            if (route.layout) {
-                                Layout = route.layout;
-                            } else if (route.layout === null) {
-                                Layout = Fragment;
-                            }
+                        if (route.layout) {
+                            Layout = route.layout;
+                        } else if (route.layout === null) {
+                            Layout = Fragment;
+                        }
 
-                            return (
-                                <Route
-                                    key={index}
-                                    path={route.path}
-                                    element={
-                                        <Layout>
-                                            <Page />
-                                        </Layout>
-                                    }
-                                />
-                            );
-                        })}
-                    </Routes>
-                )}
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    <Layout>
+                                        <Page />
+                                    </Layout>
+                                }
+                            />
+                        );
+                    })}
+                </Routes>
+                {/* )} */}
             </div>
         </Router>
     );
