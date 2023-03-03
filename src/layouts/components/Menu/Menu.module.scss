@@ -123,8 +123,14 @@
     }
 }
 
-@media only screen and (min-width: 650px) and (max-width: 950px) {
+@media only screen and (min-width: 851px) and (max-width: 950px) {
     .menu-list {
         padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 851px) {
+    .wrapper {
+        display: none;
     }
 }
