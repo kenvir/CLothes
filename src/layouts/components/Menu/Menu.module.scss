@@ -50,6 +50,10 @@
     background-color: #3b3b3b;
     cursor: pointer;
 
+    .item-lists {
+        width: 105%;
+    }
+
     &:hover {
         .item-lists {
             position: absolute;
@@ -58,6 +62,7 @@
             top: 54px;
             opacity: 1;
             visibility: visible;
+            width: 105%;
         }
     }
 }
@@ -79,7 +84,7 @@
 .item-lists {
     list-style: none;
     color: black;
-    width: 105%;
+    width: 100%;
     position: absolute;
     background: #fff;
     left: 0;
@@ -92,6 +97,7 @@
     -webkit-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
+    z-index: 10;
 
     li {
         font-weight: 300;
@@ -109,7 +115,49 @@
     .item-lists {
         position: absolute;
         display: block;
+<<<<<<< HEAD
         // width: max-content;
+=======
+        width: 100%;
+        top: 54px;
+        opacity: 1;
+        visibility: visible;
+        z-index: 10;
+    }
+}
+
+.menu-list:first-child {
+    .item-lists {
+        width: 140%;
+        z-index: 10;
+    }
+}
+
+.menu-list:last-child:hover {
+    .item-lists {
+        position: absolute;
+        display: block;
+        width: 140%;
+        top: 54px;
+        opacity: 1;
+        visibility: visible;
+        z-index: 10;
+    }
+}
+
+.menu-list:last-child {
+    .item-lists {
+        width: 140%;
+        z-index: 10;
+    }
+}
+
+.menu-list:last-child:hover {
+    .item-lists {
+        position: absolute;
+        display: block;
+        width: 140%;
+>>>>>>> 6286436ad3830c17a4d7001cca7e3758d0c9b8a6
         top: 54px;
         opacity: 1;
         visibility: visible;
