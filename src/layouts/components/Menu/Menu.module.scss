@@ -115,49 +115,7 @@
     .item-lists {
         position: absolute;
         display: block;
-<<<<<<< HEAD
         // width: max-content;
-=======
-        width: 100%;
-        top: 54px;
-        opacity: 1;
-        visibility: visible;
-        z-index: 10;
-    }
-}
-
-.menu-list:first-child {
-    .item-lists {
-        width: 140%;
-        z-index: 10;
-    }
-}
-
-.menu-list:last-child:hover {
-    .item-lists {
-        position: absolute;
-        display: block;
-        width: 140%;
-        top: 54px;
-        opacity: 1;
-        visibility: visible;
-        z-index: 10;
-    }
-}
-
-.menu-list:last-child {
-    .item-lists {
-        width: 140%;
-        z-index: 10;
-    }
-}
-
-.menu-list:last-child:hover {
-    .item-lists {
-        position: absolute;
-        display: block;
-        width: 140%;
->>>>>>> 6286436ad3830c17a4d7001cca7e3758d0c9b8a6
         top: 54px;
         opacity: 1;
         visibility: visible;
