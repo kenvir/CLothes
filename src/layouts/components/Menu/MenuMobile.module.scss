@@ -55,6 +55,7 @@
     font-size: 0.875em;
 
     ul {
+        // display: none;
         list-style: none;
     }
 }
@@ -71,6 +72,7 @@
     align-items: center;
     padding: 5px 10px;
     margin: 2px 5px;
+    cursor: pointer;
 
     &:hover {
         border-radius: 6px;
@@ -83,7 +85,7 @@
     margin-left: 8px;
 }
 
-.active {
+.actives {
     color: #fff;
     padding: 5px 10px;
     margin: 2px 5px;
@@ -93,4 +95,8 @@
         background-color: #ccc;
         color: rgb(0, 0, 0);
     }
+}
+
+.slick-hidden {
+    display: none;
 }

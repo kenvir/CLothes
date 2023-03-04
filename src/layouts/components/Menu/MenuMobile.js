@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './MenuMobile.module.scss';
 
@@ -9,62 +9,67 @@ import { FiMenu } from 'react-icons/fi';
 const cx = classNames.bind(style);
 
 function MenuMobile() {
+    const [show, setShow] = useState('none');
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('mobile-menu-wrap')}>
                 <div className={cx('slick-menu')}>
-                    <div className={cx('menu')}>
+                    <div
+                        className={cx('menu', { active: show })}
+                        onClick={() => (show === 'none' ? setShow('block') : setShow('none'))}
+                    >
                         <span className={cx('menu-txt')}>MENU</span>
                         <FiMenu className={cx('menu-icon')} />
                     </div>
                     <nav className={cx('slick-nav')}>
-                        <ul>
+                        <ul style={{ display: show }}>
                             <Link to="/" className={cx('slick-collapsed')}>
-                                <li className={cx('active')}>Home</li>
+                                <li className={cx('actives')}>Home</li>
                             </Link>
                             <Link to="/shop" className={cx('slick-collapsed')}>
-                                <li className={cx('active')}>Shop</li>
+                                <li className={cx('actives')}>Shop</li>
                             </Link>
                             <li className={cx('slick-collapsed')}>
                                 <div href="#!" tabIndex="-1" className={cx('slick-item')}>
                                     <div href="#!">Collection</div>
                                     <span className={cx('slick-arrow')}>►</span>
                                 </div>
-                                <ul className="slick-hidden">
+                                <ul className={cx('slick-hidden')}>
                                     <Link to="/">
-                                        <li className={cx('active')}>Men's</li>
+                                        <li className={cx('actives')}>Men's</li>
                                     </Link>
                                     <Link to="/">
-                                        <li className={cx('active')}>Women's</li>
+                                        <li className={cx('actives')}>Women's</li>
                                     </Link>
                                     <Link to="/">
-                                        <li className={cx('active')}>Kid's</li>
+                                        <li className={cx('actives')}>Kid's</li>
                                     </Link>
                                 </ul>
                             </li>
                             <Link to="/blog" className={cx('slick-collapsed')}>
-                                <li className={cx('active')}>Blog</li>
+                                <li className={cx('actives')}>Blog</li>
                             </Link>
                             <Link to="/contact" className={cx('slick-collapsed')}>
-                                <li className={cx('active')}>Contact</li>
+                                <li className={cx('actives')}>Contact</li>
                             </Link>
                             <li className={cx('slick-collapsed')}>
                                 <div href="#!" tabIndex="-1" className={cx('slick-item')}>
                                     <div href="#!">Pages</div>
                                     <span className={cx('slick-arrow')}>►</span>
                                 </div>
-                                <ul className="slick-hidden">
+                                <ul className={cx('slick-hidden')}>
                                     <Link to="/cart">
-                                        <li className={cx('active')}>Shopping Cart</li>
+                                        <li className={cx('actives')}>Shopping Cart</li>
                                     </Link>
                                     <Link to="/">
-                                        <li className={cx('active')}>Check Out</li>
+                                        <li className={cx('actives')}>Check Out</li>
                                     </Link>
                                     <Link to="/faq">
-                                        <li className={cx('active')}>FAG</li>
+                                        <li className={cx('actives')}>FAG</li>
                                     </Link>
                                     <Link to="/register">
-                                        <li className={cx('active')}>Register</li>
+                                        <li className={cx('actives')}>Register</li>
                                     </Link>
                                 </ul>
                             </li>
