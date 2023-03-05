@@ -98,3 +98,38 @@
     text-transform: uppercase;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 851px) {
+    .content-title {
+        font-size: 28px;
+    }
+
+    .content-intro {
+        // text-overflow: ellipsis;
+        // overflow: hidden;
+        // display: -webkit-box;
+        // -webkit-box-orient: vertical;
+        // -webkit-line-clamp: 2;
+        // line-height: 24px;
+        // height: 48px;
+        display: none;
+    }
+
+    .content-price {
+        font-size: 22px;
+        margin-top: 0;
+    }
+
+    .content-time {
+        padding: 2px 10px;
+        margin-bottom: 2%;
+    }
+
+    .content-time div span:nth-child(1) {
+        font-size: 22px;
+    }
+
+    .content-time div span:nth-child(2) {
+        font-size: 12px;
+    }
+}

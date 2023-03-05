@@ -11,6 +11,8 @@ const cx = classNames.bind(style);
 function MenuMobile() {
     const [show, setShow] = useState('none');
 
+    const [showMenu, setShowMenu] = useState('none');
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('mobile-menu-wrap')}>
@@ -31,7 +33,12 @@ function MenuMobile() {
                                 <li className={cx('actives')}>Shop</li>
                             </Link>
                             <li className={cx('slick-collapsed')}>
-                                <div href="#!" tabIndex="-1" className={cx('slick-item')}>
+                                <div
+                                    href="#!"
+                                    tabIndex="-1"
+                                    className={cx('slick-item', { active: show })}
+                                    onClick={() => (showMenu === 'none' ? setShowMenu('block') : setShowMenu('none'))}
+                                >
                                     <div href="#!">Collection</div>
                                     <span className={cx('slick-arrow')}>►</span>
                                 </div>

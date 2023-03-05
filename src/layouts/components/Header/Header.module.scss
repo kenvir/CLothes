@@ -273,3 +273,18 @@
     height: 15px;
     line-height: 9px;
 }
+
+@media only screen and (max-width: 1200px) {
+    .header-top,
+    .header-bot {
+        width: 85%;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 851px) {
+    .header-top,
+    .header-bot {
+        margin: 0 50px;
+    }
+}
