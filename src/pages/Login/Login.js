@@ -5,24 +5,44 @@ import classNames from 'classnames/bind';
 import style from './Login.module.scss';
 
 import Crumb from '../../components/Crumb/Crumb';
+import { useForm } from 'react-hook-form';
 
 const cx = classNames.bind(style);
 
 function Login() {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();
+
     return (
         <div className={cx('wrapper')}>
             <Crumb title="Login" />
-            <form className={cx('form')}>
+            <form className={cx('form')} onSubmit={handleSubmit()}>
                 <h2 className={cx('form-title')}>Login</h2>
                 <div className={cx('form-group')}>
                     <label for="fullname" className={cx('form-label')}>
-                        Username or email address *
+                        Email address *
                     </label>
                     <input
                         type="text"
-                        // placeholder="VD: Thế Việt"
                         className={cx('form-control')}
+                        placeholder="example: viet02092001@gmail.com"
+                        {...register('Email', {
+                            required: true,
+                            pattern: {
+                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                            },
+                        })}
                     />
+                    {errors.Email && errors.Email.type === 'required' && (
+                        <span className={cx('error-message')}>Email cannot be empty !</span>
+                    )}
+                    {errors.Email && errors.Email.type === 'pattern' && (
+                        <span className={cx('error-message')}>Invalid email !</span>
+                    )}
                 </div>
                 <div className={cx('form-group')}>
                     <label for="password" className={cx('form-label')}>
@@ -30,9 +50,17 @@ function Login() {
                     </label>
                     <input
                         type="password"
-                        // placeholder="VD: Thế Việt"
                         className={cx('form-control')}
+                        autoComplete="on"
+                        {...register('Password', {
+                            required: true,
+                            minLength: 6,
+                            maxLength: 30,
+                        })}
                     />
+                    {errors.Password && errors.Password.type === 'required' && (
+                        <span className={cx('error-message')}>Password cannot be empty !</span>
+                    )}
                 </div>
 
                 <div className={cx('form-group')}>
@@ -40,9 +68,9 @@ function Login() {
                         <label className={cx('save-pass')} for="save-pass">
                             Save Password
                             <input type="checkbox" id="save-pass" />
-                            <span className={cx("checkmark")}></span>
+                            <span className={cx('checkmark')}></span>
                         </label>
-                        <a href="#!" className={cx("forget-pass")}>
+                        <a href="#!" className={cx('forget-pass')}>
                             Forget your Password
                         </a>
                     </div>
@@ -51,7 +79,9 @@ function Login() {
                 <button className={cx('submit')}>SIGN IN</button>
 
                 <div className={cx('switch')}>
-                    <Link to="/login" className={cx('switch-login')}>Or Create An Account</Link>
+                    <Link to="/register" className={cx('switch-login')}>
+                        Or Create An Account
+                    </Link>
                 </div>
             </form>
         </div>
