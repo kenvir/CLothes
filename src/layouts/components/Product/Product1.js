@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from 'react';
+
 import classNames from 'classnames/bind';
 import style from './Product1.module.scss';
 
@@ -11,7 +13,13 @@ import { faShuffle } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(style);
 
+const listProduct = ['Clothing', 'HandBag', 'Shoes', 'Accessories'];
+
 function Product(props) {
+    const [productActive, setProductActive] = useState(0);
+
+    const [product, setProduct] = useState('Clothing');
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('product')}>
@@ -24,10 +32,18 @@ function Product(props) {
                 </div>
                 <div className={cx('product-right')}>
                     <div className={cx('right-option')}>
-                        <span>Clothings</span>
-                        <span>HandBag</span>
-                        <span>Shoes</span>
-                        <span>Accessories</span>
+                        {listProduct.map((d, i) => (
+                            <span
+                                className={cx('btn', productActive === i ? 'active' : null)}
+                                onClick={() => {
+                                    setProductActive(i);
+                                    setProduct(d);
+                                }}
+                                key={i}
+                            >
+                                {d}{' '}
+                            </span>
+                        ))}
                     </div>
                     <div className={cx('right-content')}>
                         <SlArrowLeft className={cx('back')} />
