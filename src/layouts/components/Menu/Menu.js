@@ -63,10 +63,10 @@ function Menu() {
                         <Link to="/cart">
                             <li>Shopping Cart</li>
                         </Link>
-                        <Link>
+                        <Link to="/checkout">
                             <li>Checkout</li>
                         </Link>
-                        <Link to='/faq'>
+                        <Link to="/faq">
                             <li>Faq</li>
                         </Link>
                         <Link to="/register">

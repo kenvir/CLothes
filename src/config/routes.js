@@ -6,6 +6,7 @@ const routes = {
     login: '/login',
     register: '/register',
     cart: '/cart',
+    checkout: '/checkout',
     faq: '/faq',
 };
 

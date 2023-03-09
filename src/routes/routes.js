@@ -7,6 +7,7 @@ import Contact from '~/pages/Contact/Contact';
 import Login from '~/pages/Login/Login';
 import Register from '~/pages/Register/Register';
 import Cart from '~/pages/Cart/Cart';
+import CheckOut from '~/pages/CheckOut/CheckOut';
 import FAQ from '~/pages/FAQ/FAQ';
 
 const publicRoutes = [
@@ -17,6 +18,7 @@ const publicRoutes = [
     { path: config.routes.login, component: Login },
     { path: config.routes.register, component: Register },
     { path: config.routes.cart, component: Cart },
+    { path: config.routes.checkout, component: CheckOut },
     { path: config.routes.faq, component: FAQ },
 ];
 
