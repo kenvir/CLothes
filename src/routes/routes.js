@@ -9,6 +9,7 @@ import Register from '~/pages/Register/Register';
 import Cart from '~/pages/Cart/Cart';
 import CheckOut from '~/pages/CheckOut/CheckOut';
 import FAQ from '~/pages/FAQ/FAQ';
+import ProductDetail from '~/pages/ProductDetail/ProductDetail';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -20,6 +21,7 @@ const publicRoutes = [
     { path: config.routes.cart, component: Cart },
     { path: config.routes.checkout, component: CheckOut },
     { path: config.routes.faq, component: FAQ },
+    { path: config.routes.productDetail, component: ProductDetail },
 ];
 
 const privateRoutes = [];

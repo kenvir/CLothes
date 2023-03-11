@@ -15,7 +15,7 @@ const cx = classNames.bind(style);
 
 const listProduct = ['Clothing', 'HandBag', 'Shoes', 'Accessories'];
 
-function Product(props) {
+function Product1(props) {
     const [productActive, setProductActive] = useState(0);
 
     const [product, setProduct] = useState('Clothing');
@@ -137,4 +137,4 @@ function Product(props) {
     );
 }
 
-export default Product;
+export default Product1;

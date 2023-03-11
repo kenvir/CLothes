@@ -19,7 +19,7 @@ function Shop() {
                 <div className={cx('filter')}>
                     <Filter isCategory isBrand isPrice isColor isSize isTags />
                 </div>
-                <Product />
+                <Product to />
                 {/* <Pagination totalPosts={transferList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page}/> */}
             </div>
         </div>
