@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './Header.module.scss';
 import { BsFillTelephoneFill, BsHeart, BsClipboardPlus } from 'react-icons/bs';
 import { ImFacebook, ImPinterest } from 'react-icons/im';
 import { RiInstagramFill } from 'react-icons/ri';
 import { FaTiktok, FaUser } from 'react-icons/fa';
-import { MdOutlineExpandMore } from 'react-icons/md';
-import { BiSearch } from 'react-icons/bi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import Search from '~/components/Search/Search';
 
 const cx = classNames.bind(style);
 
 function Header() {
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header-top')}>
@@ -55,20 +55,7 @@ function Header() {
                             <img src="https://preview.colorlib.com/theme/fashi/img/logo.png" alt="" />
                         </a>
                     </div>
-                    <div className={cx('search')}>
-                        <div className={cx('advanced-search')}>
-                            <button type="button" className={cx('category-btn')}>
-                                <span>All Categories</span>
-                                <MdOutlineExpandMore />
-                            </button>
-                            <form action="#" className={cx('input-group')}>
-                                <input type="text" placeholder="What do you need?" />
-                                <button type="button">
-                                    <BiSearch className={cx('btn-search')} />
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                    <Search />
                     <div className={cx('cart')}>
                         <div className={cx('heart')}>
                             <BsHeart />
@@ -76,12 +63,12 @@ function Header() {
                                 <div>1</div>
                             </span>
                         </div>
-                        <div className={cx('cart-icon')}>
+                        <Link to="/cart" className={cx('cart-icon')}>
                             <BsClipboardPlus />
                             <span className={cx('cart-number')}>
-                                <div>3</div>
+                                <span>3</span>
                             </span>
-                        </div>
+                        </Link>
                         <div className={cx('price')}>$150.00</div>
                     </div>
                 </div>

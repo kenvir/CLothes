@@ -44,7 +44,7 @@ function Cart({ className }) {
                                         <div className={cx('quantity')}>
                                             <div className={cx('pro-qty')}>
                                                 <span className={cx('qtybtn')}>-</span>
-                                                <input type="text" value="1" />
+                                                <input type="text" defaultValue="1" />
                                                 <span className={cx('qtybtn')}>+</span>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@ function Cart({ className }) {
                                         <div className={cx('quantity')}>
                                             <div className={cx('pro-qty')}>
                                                 <span className={cx('qtybtn')}>-</span>
-                                                <input type="text" value="1" />
+                                                <input type="text" defaultValue="1" />
                                                 <span className={cx('inc qtybtn')}>+</span>
                                             </div>
                                         </div>
@@ -109,7 +109,7 @@ function Cart({ className }) {
                                     Total <span>$240.00</span>
                                 </li>
                             </ul>
-                            <Link to="/" className={cx('proceed-btn')}>
+                            <Link to="/checkout" className={cx('proceed-btn')}>
                                 PROCEED TO CHECK OUT
                             </Link>
                         </div>
