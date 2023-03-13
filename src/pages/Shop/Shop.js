@@ -7,9 +7,11 @@ import Product from '~/layouts/components/Product/Product';
 import Crumb from '~/components/Crumb/Crumb';
 import { Pagination } from 'swiper';
 
+import product from '~/pages/API/Product.json';
+
 const cx = classNames.bind(style);
 
-function Shop() {
+function Shop({ data }) {
     const [page, setPage] = useState(1);
 
     return (
@@ -17,9 +19,9 @@ function Shop() {
             <Crumb title="Shop" />
             <div className={cx('content')}>
                 <div className={cx('filter')}>
-                    <Filter isCategory isBrand isPrice isColor isSize isTags />
+                    <Filter isCategory isPrice isColor isSize isTags />
                 </div>
-                <Product to />
+                <Product data />
                 {/* <Pagination totalPosts={transferList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page}/> */}
             </div>
         </div>

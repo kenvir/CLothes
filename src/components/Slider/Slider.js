@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
@@ -28,7 +29,9 @@ function Slider() {
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore
                                     </p>
-                                    <button className={cx('btn')}>SHOP NOW</button>
+                                    <Link to="/shop" className={cx('btn')}>
+                                        SHOP NOW
+                                    </Link>
                                 </div>
                             </div>
                             <div className={cx('slider-right')}>
@@ -52,7 +55,9 @@ function Slider() {
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore
                                     </p>
-                                    <button className={cx('btn')}>SHOP NOW</button>
+                                    <Link to="/shop" className={cx('btn')}>
+                                        SHOP NOW
+                                    </Link>
                                 </div>
                             </div>
                             <div className={cx('slider-right')}>

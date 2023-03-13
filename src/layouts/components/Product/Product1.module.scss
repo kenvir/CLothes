@@ -208,16 +208,20 @@
 .product-price {
     display: flex;
     align-items: center;
-    color: #e7ab3c;
-    font-size: 20px;
-    font-weight: 700;
 
+    .price-sale {
+        color: #e7ab3c;
+        font-size: 20px;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    
     span {
+        margin-left: 12%;
         font-size: 14px;
         font-weight: 400;
         color: #b2b2b2;
         text-decoration: line-through;
-        margin-left: 12%;
     }
 }
 

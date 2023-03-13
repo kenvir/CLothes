@@ -10,6 +10,9 @@ import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import { BsClipboard, BsHeart } from 'react-icons/bs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShuffle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
+import Product from '~/pages/API/Product.json';
 
 const cx = classNames.bind(style);
 
@@ -47,89 +50,37 @@ function Product1(props) {
                     </div>
                     <div className={cx('right-content')}>
                         <SlArrowLeft className={cx('back')} />
-                        <div className={cx('product-item')}>
-                            <div className={cx('product-img')}>
-                                <img src={img2} alt="women" />
-                                <BsHeart className={cx('product-favorite')} />
-                                <div className={cx('product-sale')}>SALE</div>
-                                <div className={cx('product-option')}>
-                                    <div className={cx('product-option-inner')}>
-                                        <div className={cx('option-icon-wrapper')}>
-                                            <BsClipboard className={cx('option-icon')} />
-                                        </div>
-                                        <div className={cx('option-content')}>
-                                            <span>+ Quick View</span>
-                                        </div>
-                                        <div className={cx('option-shuffle-wrapper')}>
-                                            <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={cx('product-text')}>
-                                <span className={cx('product-type')}>TOWEL</span>
-                                <span className={cx('product-name')}>Converse Shoes</span>
-                                <div className={cx('product-price')}>
-                                    $20
-                                    <span>$14</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={cx('product-item')}>
-                            <div className={cx('product-img')}>
-                                <img src={img2} alt="women" />
-                                <BsHeart className={cx('product-favorite')} />
-                                <div className={cx('product-sale')}>SALE</div>
-                                <div className={cx('product-option')}>
-                                    <div className={cx('product-option-inner')}>
-                                        <div className={cx('option-icon-wrapper')}>
-                                            <BsClipboard className={cx('option-icon')} />
-                                        </div>
-                                        <div className={cx('option-content')}>
-                                            <span>+ Quick View</span>
-                                        </div>
-                                        <div className={cx('option-shuffle-wrapper')}>
-                                            <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
+                        {Product.slice(0, 3).map((d, item) => (
+                            <div className={cx('product-item')} key={d.id}>
+                                <div className={cx('product-img')}>
+                                    <img src={d.img} alt="women" />
+                                    <BsHeart className={cx('product-favorite')} />
+                                    <div className={cx('product-sale')}>SALE</div>
+                                    <div className={cx('product-option')}>
+                                        <div className={cx('product-option-inner')}>
+                                            <div className={cx('option-icon-wrapper')}>
+                                                <BsClipboard className={cx('option-icon')} />
+                                            </div>
+                                            <div className={cx('option-content')}>
+                                                <span>+ Quick View</span>
+                                            </div>
+                                            <div className={cx('option-shuffle-wrapper')}>
+                                                <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={cx('product-text')}>
-                                <span className={cx('product-type')}>TOWEL</span>
-                                <span className={cx('product-name')}>Converse Shoes</span>
-                                <div className={cx('product-price')}>
-                                    $20
-                                    <span>$14</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={cx('product-item')}>
-                            <div className={cx('product-img')}>
-                                <img src={img2} alt="women" />
-                                <BsHeart className={cx('product-favorite')} />
-                                <div className={cx('product-sale')}>SALE</div>
-                                <div className={cx('product-option')}>
-                                    <div className={cx('product-option-inner')}>
-                                        <div className={cx('option-icon-wrapper')}>
-                                            <BsClipboard className={cx('option-icon')} />
-                                        </div>
-                                        <div className={cx('option-content')}>
-                                            <span>+ Quick View</span>
-                                        </div>
-                                        <div className={cx('option-shuffle-wrapper')}>
-                                            <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
-                                        </div>
+                                <div className={cx('product-text')}>
+                                    <span className={cx('product-type')}>{d.type}</span>
+                                    <span className={cx('product-name')}>{d.name}</span>
+                                    <div className={cx('product-price')}>
+                                        <span className={cx('price-sale')}>{(d.price * parseFloat(d.sale)) / 100}</span>
+                                        <span>{d.price}</span>
                                     </div>
                                 </div>
                             </div>
-
-                            <div className={cx('product-text')}>
-                                <span className={cx('product-type')}>TOWEL</span>
-                                <span className={cx('product-name')}>Converse Shoes</span>
-                                <div className={cx('product-price')}>$20</div>
-                            </div>
-                        </div>
-                        <SlArrowRight />
+                        ))}
+                        <SlArrowRight className={cx('back')} />
                     </div>
                 </div>
             </div>
