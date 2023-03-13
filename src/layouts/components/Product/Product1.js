@@ -55,7 +55,9 @@ function Product1(props) {
                                 <div className={cx('product-img')}>
                                     <img src={d.img} alt="women" />
                                     <BsHeart className={cx('product-favorite')} />
-                                    <div className={cx('product-sale')}>SALE</div>
+                                    {d.sale && d.sale !== 0 && d.sale !== 'null' && (
+                                        <div className={cx('product-sale')}>SALE</div>
+                                    )}
                                     <div className={cx('product-option')}>
                                         <div className={cx('product-option-inner')}>
                                             <div className={cx('option-icon-wrapper')}>
@@ -74,7 +76,9 @@ function Product1(props) {
                                     <span className={cx('product-type')}>{d.type}</span>
                                     <span className={cx('product-name')}>{d.name}</span>
                                     <div className={cx('product-price')}>
-                                        <span className={cx('price-sale')}>{(d.price * parseFloat(d.sale)) / 100}</span>
+                                        <span className={cx('price-sale')}>
+                                            {d.sale === 0 ? d.price : (d.price * d.sale) / 100}
+                                        </span>
                                         <span>{d.price}</span>
                                     </div>
                                 </div>
