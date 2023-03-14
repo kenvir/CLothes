@@ -16,7 +16,21 @@ function Product() {
 
     const sortProduct = (Data) => {
         if (sort === 'Ascending') {
-            return Data.sort((a, b) => console.log('test', a.price));
+            return Data.sort((a, b) => {
+                if (
+                    (a.sale === 0 ? a.price : (a.price * a.sale) / 100) <
+                    (b.sale === 0 ? b.price : (b.price * b.sale) / 100)
+                ) {
+                    return -1;
+                }
+                if (
+                    (a.sale === 0 ? a.price : (a.price * a.sale) / 100) >
+                    (b.sale === 0 ? b.price : (b.price * b.sale) / 100)
+                ) {
+                    return 1;
+                }
+                return 0;
+            });
         }
 
         console.log(Data);
