@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './Product.module.scss';
 
@@ -12,14 +12,45 @@ import product from '~/pages/API/Product.json';
 const cx = classNames.bind(style);
 
 function Product() {
+    const [sort, setSort] = useState();
+
+    const sortProduct = (Data) => {
+        if (sort === 'Ascending') {
+            return Data.sort((a, b) => console.log('test', a.price));
+        }
+
+        console.log(Data);
+
+        console.log(Data[0].price);
+
+        if (sort === 'None') {
+            sortByName(Data);
+            return Data;
+        }
+
+        return sortByName(Data);
+    };
+
+    function sortByName(arr) {
+        return arr.sort(function (a, b) {
+            if (a.name < b.name) {
+                return -1;
+            }
+            if (a.name > b.name) {
+                return 1;
+            }
+            return 0;
+        });
+    }
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('short')}>
                 <div className={cx('short')}>
-                    <select className={cx('shorting')}>
-                        <option value="">Default Sorting</option>
-                        <option value="">Short by A - Z</option>
-                        <option value="">Short by Price</option>
+                    <select className={cx('shorting')} onChange={(e) => setSort(e.target.value)}>
+                        <option value="None">Default Sorting</option>
+                        {/* <option value="Name">Short by A - Z</option> */}
+                        <option value="Ascending">Short by Price</option>
                     </select>
                     <div className={cx('product-quantity')}>
                         <p>Show 01- 09 Of 36 Product</p>
@@ -27,8 +58,8 @@ function Product() {
                 </div>
             </div>
             <div className={cx('contents')}>
-                {product.map((d, item) => (
-                    <div className={cx('content')} key={d.id} data={d}>
+                {sortProduct(product).map((d, i) => (
+                    <div className={cx('content')} key={i} data={d}>
                         <Link to={`/productDetail/${d.id}`} className={cx('product-card')}>
                             <div className={cx('product-item')}>
                                 <div className={cx('product-img')}>
@@ -56,12 +87,10 @@ function Product() {
                                     <span className={cx('product-name')}>{d.name}</span>
                                     <div className={cx('product-price')}>
                                         {d.sale === 0 ? d.price : (d.price * d.sale) / 100}
-
                                         <span>{d.price}</span>
                                     </div>
                                 </div>
                             </div>
-                            {console.log(d.description)}
                         </Link>
                     </div>
                 ))}
