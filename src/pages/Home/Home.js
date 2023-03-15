@@ -17,9 +17,9 @@ function Home() {
         <div className={cx('wrapper')}>
             <Slider />
             <BannerSection />
-            <Product1 />
-            <Deal />
-            <Product2 />
+            {/* <Product1 /> */}
+            {/* <Deal /> */}
+            {/* <Product2 /> */}
             <SampleShow />
             <HomeBlog />
         </div>

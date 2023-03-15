@@ -43,7 +43,7 @@ function Search() {
                     </button>
                 </form>
             </div>
-            <div className={cx('result')}>
+            {/* <div className={cx('result')}>
                 <p className={cx('title')}>Product result</p>
                 <div className={cx('search-result')}>
                     <img src={img1} alt="" />
@@ -52,7 +52,7 @@ function Search() {
                         <p>Product intro</p>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

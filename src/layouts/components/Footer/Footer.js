@@ -100,9 +100,9 @@ function Footer({ className }) {
                             {"Colorlib"}
                         </a>
                     </div>
-                    <div className="payment-pic">
+                    {/* <div className="payment-pic">
                         <img src={paymentImg} alt="payment-img" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
