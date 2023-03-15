@@ -6,12 +6,13 @@
     --black: #000;
     --white: #fff;
     --text-color: #161823;
-    --font-family: 'Muli', sans-serif;;
+    --font-family: 'Muli', sans-serif;
 
     // Default layout
     --default-layout-header-height: 50px;
     --default-layout-width: 1150px;
     --default-layout-horizontal-spacer: 24px;
+    --margin-responsive: 190px;
 }
 
 * {
@@ -78,7 +79,6 @@ a {
     font-weight: 500;
 }
 
-
 //Custom ToolTip
 body {
     .tippy-box {
@@ -99,5 +99,17 @@ body {
 
     .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
         top: -8px;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    :root {
+        --margin-responsive: 40px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    :root {
+        --margin-responsive: 20px;
     }
 }

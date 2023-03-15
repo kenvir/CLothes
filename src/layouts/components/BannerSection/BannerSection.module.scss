@@ -11,7 +11,7 @@
     padding: 0 65px;
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -59,7 +59,7 @@
     align-items: center;
 }
 
-h4 {
+.wrapper h4 {
     font-size: 24px;
     color: #252525;
     font-weight: 700;
@@ -69,4 +69,40 @@ h4 {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+}
+
+@media only screen and (max-width: 1000px) {
+    .wrapper h4 {
+        font-size: 20px;
+        color: #252525;
+        font-weight: 700;
+        padding: 5px 10px;
+        background: #ffffff;
+        border-radius: 2px;
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .wrapper h4 {
+        font-size: 24px;
+        padding: 11px 28px;
+    }
+
+    .single-banner {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .wrapper h4 {
+        font-size: 20px;
+        padding: 5px 10px;
+    }
 }

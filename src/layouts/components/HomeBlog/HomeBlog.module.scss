@@ -1,3 +1,7 @@
+// :root {
+//     --margin-responsive: 190px;
+// }
+
 .wrapper {
     width: 100%;
     display: flex;
@@ -8,7 +12,7 @@
 
 .container {
     width: 100%;
-    margin: 0 190px;
+    margin: 0 var(--margin-responsive);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -62,7 +66,7 @@
 .latest-text {
     padding-top: 25px;
 }
- 
+
 .single-latest-blog h4 {
     padding: 0;
     margin-bottom: 16px;
@@ -86,9 +90,9 @@
     margin-top: 54px;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row;
     border: 1px solid #ebebeb;
 }
 
@@ -98,7 +102,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 30px 55px 25px 55px;
+    height: 80px;
 }
 
 .sb-icon {
@@ -116,4 +120,54 @@
 .single-benefit:nth-child(2n+2) {
     border-right: 1px solid #ebebeb;
     border-left: 1px solid #ebebeb;
+}
+
+@media only screen and (max-width: 1000px) {
+    .latest-text{
+        padding: 10px;
+    }
+
+    .single-latest-blog {
+        width: 48%;
+        margin-bottom: 50px;
+    }
+
+    .single-latest-blog:last-child {
+        margin-bottom: 0;
+    }
+
+    .single-benefit {
+        width: 50%;
+        border: 1px solid #ebebeb;
+    }
+
+    .benefit-items {
+        border: none;
+    }
+
+    .single-benefit:nth-child(2n+2) {
+        border-left: none;
+    }
+    .single-benefit:last-child {
+        border-top: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .blog-wrapper {
+        justify-content: center;
+    }
+
+    .single-latest-blog {
+        width: 100%;
+    }
+
+    .single-benefit {
+        width: 100%;
+    }
+
+    .single-benefit:nth-child(2n+2) {
+        border-top: none;
+        border-left: 1px solid #ebebeb;
+    }
 }
