@@ -26,7 +26,7 @@ function Menu() {
                         <li>Women's Clothing</li>
                         <li>Men's Clothing</li>
                         <li>Kid's Clothing</li>
-                        <li>Shoes</li>
+                        {/* <li>Shoes</li> */}
                     </ul>
                 </li>
                 <NavLink style={navLinkStyle} className={cx('list-item--title')} to="/">
