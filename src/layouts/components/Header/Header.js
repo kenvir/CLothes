@@ -5,6 +5,7 @@ import { BsFillTelephoneFill, BsHeart, BsClipboardPlus } from 'react-icons/bs';
 import { ImFacebook, ImPinterest } from 'react-icons/im';
 import { RiInstagramFill } from 'react-icons/ri';
 import { FaTiktok, FaUser } from 'react-icons/fa';
+import {IoShareSocialOutline} from 'react-icons/io5'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
@@ -25,7 +26,7 @@ function Header() {
                         </div>
                         <div className={cx('phone')}>
                             <BsFillTelephoneFill className={cx('icon')} />
-                            <span>+84 34.675.1314</span>
+                            <span>+84 346.751.314</span>
                         </div>
                     </div>
                     <div className={cx('header-right')}>
@@ -34,6 +35,9 @@ function Header() {
                             <RiInstagramFill />
                             <ImPinterest />
                             <FaTiktok />
+                        </div>
+                        <div className={cx('social-icon')}>
+                            <IoShareSocialOutline />
                         </div>
                         <div className={cx('language')}>
                             <span>English</span>

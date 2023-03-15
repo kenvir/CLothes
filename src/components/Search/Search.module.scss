@@ -125,3 +125,37 @@
 .product-title {
     font-size: 16px;
 }
+
+.search-icon--small {
+    display: none;
+}
+
+@media screen and (max-width: 1356px) and (min-width: 1151px) {
+    .advanced-search {
+        width: 450px;
+    }
+
+    .search-icon--small {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1150px) and (min-width: 801px) {
+    .advanced-search {
+        width: 400px;
+    }
+    .search-icon--small {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .advanced-search {
+        display: none;
+    }
+
+    .search-icon--small {
+        display: block;
+        font-size: 25px;
+    }
+}

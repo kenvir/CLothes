@@ -46,6 +46,7 @@
     display: flex;
     align-items: center;
     float: right;
+    height: 100%;
 }
 
 .email {
@@ -88,6 +89,9 @@
 }
 
 .social {
+    display: flex;
+    align-items: center;
+    height: 100%;
     padding-right: 20px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -103,17 +107,20 @@
 }
 
 .language {
-    margin-top: 15px;
-    margin-bottom: 13px;
+    display: flex;
+    align-items: center;
     max-width: 142px;
-    cursor: pointer;
+    height: 100%;
     padding: 0 20px;
+    cursor: pointer;
 }
 
 .login {
+    display: flex;
+    align-items: center;
+    height: 100%;
     font-size: 14px;
     color: #252525;
-    display: inline-block;
     padding-left: 20px;
     border-left: 1px solid #e5e5e5;
     padding-top: 18px;
@@ -143,7 +150,6 @@
 }
 
 .logo {
-    max-width: 16.666667%;
     padding-right: 15px;
     cursor: pointer;
 }
@@ -151,7 +157,6 @@
 .cart {
     display: flex;
     align-items: center;
-    max-width: 23%;
 }
 
 .heart,
@@ -193,11 +198,30 @@
     line-height: 9px;
 }
 
+.social-icon {
+    display: none;
+}
+
 @media only screen and (max-width: 1200px) {
     .header-top,
     .header-bot {
         width: 85%;
         margin: 0 auto;
+    }
+
+    .header-left {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        border-right: 1px solid #e5e5e5;
+    }
+
+    .email {
+        border-right: none;
+    }
+
+    .phone {
+        padding-left: 0;
     }
 }
 
@@ -205,5 +229,75 @@
     .header-top,
     .header-bot {
         margin: 0 50px;
+    }
+}
+
+@media only screen and (max-width: 635px) {
+    .social {
+        display: none;
+    }
+
+    .header-top,
+    .header-bot {
+        margin: 0 auto;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        height: 100%;
+        padding-right: 8%;
+    }
+
+    .mail-address {
+        display: none;
+    }
+
+    .phone {
+        span {
+            display: none;
+        }
+    }
+
+    .social-icon {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        font-size: 22px;
+        padding-right: 8%;
+        border-right: 1px solid #e5e5e5;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .header-top,
+    .header-bot {
+        margin: 0 auto;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .mail-address {
+        display: none;
+    }
+
+    .phone {
+        span {
+            display: none;
+        }
+    }
+
+    .social-icon {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        font-size: 22px;
+        padding-right: 8%;
+        border-right: 1px solid #e5e5e5;
     }
 }

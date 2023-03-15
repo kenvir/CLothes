@@ -168,7 +168,7 @@
     object-fit: cover;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1100px) and (min-width: 951px) {
     .slider {
         left: 3%;
     }
@@ -182,6 +182,105 @@
     }
 
     .circle-sale {
-      left: 40%;
+        left: 40%;
+    }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 751px) {
+    .slider {
+        left: 3%;
+    }
+
+    .title {
+        font-size: 35px;
+    }
+
+    .content {
+        margin-bottom: 20px;
+        width: 35%;
+        height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .circle-sale {
+        left: 35%;
+        top: -170px;
+    }
+}
+
+@media only screen and (max-width: 750px) and (min-width: 695px) {
+    .slider {
+        left: 10%;
+    }
+
+    .slider-left {
+        top: -150px;
+    }
+
+    .title {
+        font-size: 35px;
+    }
+
+    .content {
+        margin-bottom: 20px;
+        width: 35%;
+        height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .circle-sale {
+        left: 35%;
+        top: -140px;
+        width: 125px;
+        height: 125px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 695px) {
+    .slider {
+        left: 10%;
+    }
+
+    .slider-left {
+        top: -100px;
+    }
+
+    .title {
+        font-size: 26px;
+        top: 38px;
+    }
+
+    .content {
+        top: 40px;
+        margin-bottom: 20px;
+        width: 35%;
+        height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .btn{
+        top: 122%;
+    }
+
+    .circle-sale {
+        left: 185%;
+        top: -105px;
+        width: 75px;
+        height: 75px;
+        font-size: 8px;
+        line-height: 25px;
+        position: relative;
+
+        h2 {
+            position: absolute;
+            font-size: 8px;
+            left: 0;
+            right: 0;
+            top: 36%;
+        }
     }
 }
