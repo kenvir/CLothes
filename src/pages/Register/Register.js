@@ -30,7 +30,7 @@ function Register() {
                     <input
                         type="text"
                         className={cx('form-control')}
-                        placeholder="example: viet02092001@gmail.com"
+                        placeholder="Example: viet02092001@gmail.com"
                         {...register('Email', {
                             required: true,
                             pattern: {
@@ -52,6 +52,7 @@ function Register() {
                     <input
                         type="password"
                         className={cx('form-control')}
+                        placeholder="Entered password"
                         autoComplete="on"
                         {...register('Password', {
                             required: true,

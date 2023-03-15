@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import style from './Search.module.scss';
 
 import { MdOutlineExpandMore } from 'react-icons/md';
-import { BiSearch } from 'react-icons/bi';
+import { BiSearch, BiSearchAlt } from 'react-icons/bi';
 
 import img1 from '~/assets/imgs/women-4.jpg';
 
@@ -43,6 +43,7 @@ function Search() {
                     </button>
                 </form>
             </div>
+            <BiSearchAlt className={cx('search-icon--small')}/>
             {/* <div className={cx('result')}>
                 <p className={cx('title')}>Product result</p>
                 <div className={cx('search-result')}>

@@ -8,6 +8,8 @@ import img1 from '~/assets/imgs/man-large.jpg';
 
 import SliderProduct from '~/layouts/components/Product/SliderProduct/SliderProduct';
 
+import Product from '~/pages/API/Product.json';
+
 const cx = classNames.bind(style);
 
 const listProduct = ['Clothing', 'HandBag', 'Shoes', 'Accessories'];

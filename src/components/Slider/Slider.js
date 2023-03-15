@@ -1,15 +1,15 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, Autoplay } from 'swiper';
+import { Link } from 'react-router-dom';
+
 import classNames from 'classnames/bind';
 import style from './Slider.module.scss';
 import img1 from '~/assets/imgs/hero-1.jpg';
 import img2 from '~/assets/imgs/hero-2.jpg';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
-
 import "./Swiper.css";
 
 const cx = classNames.bind(style);
@@ -31,7 +31,9 @@ function Slider() {
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore
                                     </p>
-                                    <button className={cx('btn')}>SHOP NOW</button>
+                                    <Link to="/shop" className={cx('btn')}>
+                                        SHOP NOW
+                                    </Link>
                                 </div>
                             </div>
                             <div className={cx('slider-right')}>
@@ -55,7 +57,9 @@ function Slider() {
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore
                                     </p>
-                                    <button className={cx('btn')}>SHOP NOW</button>
+                                    <Link to="/shop" className={cx('btn')}>
+                                        SHOP NOW
+                                    </Link>
                                 </div>
                             </div>
                             <div className={cx('slider-right')}>

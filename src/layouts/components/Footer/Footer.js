@@ -8,6 +8,7 @@ import { BsInstagram, BsTwitter, BsPinterest } from 'react-icons/bs';
 
 import paymentImg from '~/assets/imgs/payment-method.png';
 import logoFooter from '~/assets/imgs/footer-logo.png';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
@@ -18,9 +19,9 @@ function Footer({ className }) {
                 <div className={cx('content-inner')}>
                     <div className={cx('footer-left')}>
                         <div className={cx('footer-logo')}>
-                            <a href="http://localhost:3000/">
+                            <Link to="/">
                                 <img src={logoFooter} alt="" />
-                            </a>
+                            </Link>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
@@ -28,16 +29,20 @@ function Footer({ className }) {
                             <li>Email: hello.colorlib@gmail.com</li>
                         </ul>
                         <div className={cx('footer-social')}>
-                            <a href="http://localhost:3000/">
+                            <a
+                                href="https://www.facebook.com/profile.php?id=100057195830094&mibextid=LQQJ4d"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <FaFacebookF />
                             </a>
-                            <a href="http://localhost:3000/">
+                            <a href="#!">
                                 <BsInstagram />
                             </a>
-                            <a href="http://localhost:3000/">
+                            <a href="#!">
                                 <BsTwitter />
                             </a>
-                            <a href="http://localhost:3000/">
+                            <a href="#!">
                                 <BsPinterest />
                             </a>
                         </div>
@@ -47,16 +52,16 @@ function Footer({ className }) {
                         <h5>Information</h5>
                         <ul>
                             <li>
-                                <a href="http://localhost:3000/">About Us</a>
+                                <Link to="/blog">About Us</Link>
                             </li>
                             <li>
-                                <a href="http://localhost:3000/">Checkout</a>
+                                <Link to="/checkout">Checkout</Link>
                             </li>
                             <li>
-                                <a href="http://localhost:3000/">Contact</a>
+                                <Link to="/contact">Contact</Link>
                             </li>
                             <li>
-                                <a href="http://localhost:3000/">Serivius</a>
+                                <Link to="/faq">FAQ</Link>
                             </li>
                         </ul>
                     </div>
@@ -68,13 +73,10 @@ function Footer({ className }) {
                                 <a href="http://localhost:3000/">My Account</a>
                             </li>
                             <li>
-                                <a href="http://localhost:3000/">Contact</a>
+                                <Link to="/cart">Shopping Cart</Link>
                             </li>
                             <li>
-                                <a href="http://localhost:3000/">Shopping Cart</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:3000/">Shop</a>
+                                <Link to="/shop">Shop</Link>
                             </li>
                         </ul>
                     </div>
