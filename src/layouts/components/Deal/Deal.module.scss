@@ -4,6 +4,10 @@
     margin-bottom: 5%;
 }
 
+.image-wrapper {
+    object-fit: cover;
+}
+
 .deal {
     width: 100%;
     position: relative;
@@ -99,7 +103,36 @@
     cursor: pointer;
 }
 
+@media only screen and (max-width: 1400px) {
+    .content {
+        width: 50%;
+    }
+
+    .content-time {
+        margin-bottom: 2%;
+    }
+
+    .content-title {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .image-wrapper {
+        height: 354px;
+    }
+}
+
 @media only screen and (max-width: 851px) {
+    .image-wrapper {
+        height: 280px;
+    }
+
+    .content {
+        width: 70%;
+        left: 0;
+    }
+
     .content-title {
         font-size: 28px;
     }
@@ -131,5 +164,16 @@
 
     .content-time div span:nth-child(2) {
         font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .image-wrapper {
+        height: 280px;
+    }
+
+    .content {
+        width: 100%;
+        left: 0;
     }
 }

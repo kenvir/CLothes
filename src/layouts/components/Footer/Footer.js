@@ -16,8 +16,8 @@ function Footer({ className }) {
         <div className={cx('wrapper', className)}>
             <div className={cx('container')}>
                 <div className={cx('content-inner')}>
-                    <div className={cx("footer-left")}>
-                        <div className={cx("footer-logo")}>
+                    <div className={cx('footer-left')}>
+                        <div className={cx('footer-logo')}>
                             <a href="http://localhost:3000/">
                                 <img src={logoFooter} alt="" />
                             </a>
@@ -27,7 +27,7 @@ function Footer({ className }) {
                             <li>Phone: +65 11.188.888</li>
                             <li>Email: hello.colorlib@gmail.com</li>
                         </ul>
-                        <div className={cx("footer-social")}>
+                        <div className={cx('footer-social')}>
                             <a href="http://localhost:3000/">
                                 <FaFacebookF />
                             </a>
@@ -42,8 +42,8 @@ function Footer({ className }) {
                             </a>
                         </div>
                     </div>
-                
-                    <div className={cx("footer-widget", "element-left")}>
+
+                    <div className={cx('footer-widget', 'element-left')}>
                         <h5>Information</h5>
                         <ul>
                             <li>
@@ -60,8 +60,8 @@ function Footer({ className }) {
                             </li>
                         </ul>
                     </div>
-                
-                    <div className={cx("footer-widget")}>
+
+                    <div className={cx('footer-widget')}>
                         <h5>My Account</h5>
                         <ul>
                             <li>
@@ -78,13 +78,15 @@ function Footer({ className }) {
                             </li>
                         </ul>
                     </div>
-                
-                    <div className={cx("newslatter-item")}>
+
+                    <div className={cx('newslatter-item')}>
                         <h5>Join Our Newsletter Now</h5>
                         <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#" className={cx("subscribe-form")}>
-                            <input className={cx("mail-input")} type="text" placeholder="Enter Your Mail" />
-                            <button className={cx("subcribe-btn")} type="button">Subscribe</button>
+                        <form action="#" className={cx('subscribe-form')}>
+                            <input className={cx('mail-input')} type="text" placeholder="Enter Your Mail" />
+                            <button className={cx('subcribe-btn')} type="button">
+                                Subscribe
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -97,7 +99,7 @@ function Footer({ className }) {
                         Copyright ©<script>document.write(new Date().getFullYear());</script>2023 All rights reserved |
                         This template is made with <AiOutlineHeart className={cx('copyright-heart-icon')} /> by
                         <a className={cx('footer-coppyright-link')} href="http://localhost:3000/">
-                            {"Colorlib"}
+                            {'Colorlib'}
                         </a>
                     </div>
                     {/* <div className="payment-pic">
