@@ -13,6 +13,7 @@ const cx = classNames.bind(style);
 
 function Product() {
     const [sort, setSort] = useState();
+    const [page, setPage] = useState(1);
 
     const sortProduct = (Data) => {
         if (sort === 'Ascending') {
@@ -67,7 +68,9 @@ function Product() {
                         <option value="Ascending">Short by Price</option>
                     </select>
                     <div className={cx('product-quantity')}>
-                        <p>Show 01- 09 Of 36 Product</p>
+                        <p>
+                            Show {(page - 1) * 9 + 1} - {(page - 1) * 9 + product.length} Of {product.length} Product
+                        </p>
                     </div>
                 </div>
             </div>

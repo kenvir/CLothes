@@ -5,7 +5,7 @@ import { BsFillTelephoneFill, BsHeart, BsClipboardPlus } from 'react-icons/bs';
 import { ImFacebook, ImPinterest } from 'react-icons/im';
 import { RiInstagramFill } from 'react-icons/ri';
 import { FaTiktok, FaUser } from 'react-icons/fa';
-import {IoShareSocialOutline} from 'react-icons/io5'
+import { IoShareSocialOutline } from 'react-icons/io5';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,6 @@ import Search from '~/components/Search/Search';
 const cx = classNames.bind(style);
 
 function Header() {
-
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header-top')}>
@@ -31,10 +30,22 @@ function Header() {
                     </div>
                     <div className={cx('header-right')}>
                         <div className={cx('social')}>
-                            <ImFacebook />
-                            <RiInstagramFill />
-                            <ImPinterest />
-                            <FaTiktok />
+                            <a
+                                href="https://www.facebook.com/profile.php?id=100057195830094&mibextid=LQQJ4d"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <ImFacebook />
+                            </a>
+                            <a href="#!">
+                                <RiInstagramFill />
+                            </a>
+                            <a href="#!">
+                                <ImPinterest />
+                            </a>
+                            <a href="#!">
+                                <FaTiktok />
+                            </a>
                         </div>
                         <div className={cx('social-icon')}>
                             <IoShareSocialOutline />

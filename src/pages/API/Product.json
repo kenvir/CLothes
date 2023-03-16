@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "type": "Clothes",
+        "type": "Clothing",
         "name": "T-Shirt",
         "img": "imgs/product.jpg",
         "price": 190000,

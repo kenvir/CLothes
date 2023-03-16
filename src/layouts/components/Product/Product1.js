@@ -50,8 +50,8 @@ function Product1(props) {
                     </div>
                     <div className={cx('right-content')}>
                         <SlArrowLeft className={cx('back')} />
-                        {Product.slice(0, 3).map((d, item) => (
-                            <div className={cx('product-item')} key={d.id}>
+                        {Product.filter((t) => t.type === product).map((d, i) => (
+                            <div className={cx('product-item')} key={i}>
                                 <div className={cx('product-img')}>
                                     <img src={d.img} alt="women" />
                                     <BsHeart className={cx('product-favorite')} />
