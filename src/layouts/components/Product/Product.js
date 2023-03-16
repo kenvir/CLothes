@@ -36,8 +36,6 @@ function Product() {
 
         console.log(Data);
 
-        console.log(Data[0].price);
-
         if (sort === 'None') {
             sortByName(Data);
             return Data;

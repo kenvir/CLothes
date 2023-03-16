@@ -1,21 +1,23 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, Autoplay } from 'swiper';
+import { Link } from 'react-router-dom';
+
 import classNames from 'classnames/bind';
 import style from './Slider.module.scss';
 import img1 from '~/assets/imgs/hero-1.jpg';
 import img2 from '~/assets/imgs/hero-2.jpg';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Link } from 'react-router-dom';
+import 'swiper/css/autoplay';
+import "./Swiper.css";
 
 const cx = classNames.bind(style);
 
 function Slider() {
     return (
         <>
-            <Swiper navigation={true} modules={[Navigation]} className={cx('mySwiper')}>
+            <Swiper className={cx('mySwiper')} pagination={true} navigation={true} autoplay={{delay: 5000, disableOnInteraction: true,}} modules={[Pagination, Navigation, Autoplay]}>
                 <SwiperSlide>
                     {' '}
                     <div className={cx('slide-1')}>

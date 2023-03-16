@@ -9,7 +9,7 @@ function Deal() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('deal')}>
-                <img src={img1} alt="bg-deal" />
+                <img className={cx("image-wrapper")} src={img1} alt="bg-deal" />
                 <div className={cx('content')}>
                     <h1 className={cx('content-title')}>Deal Of The Weak</h1>
                     <p className={cx('content-intro')}>
