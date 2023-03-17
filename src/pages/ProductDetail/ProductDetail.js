@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import classNames from 'classnames/bind';
 import style from './ProductDetail.module.scss';
@@ -12,21 +13,29 @@ import { FaShippingFast } from 'react-icons/fa';
 import { BsFillCartPlusFill } from 'react-icons/bs';
 import { TbArrowBackUp } from 'react-icons/tb';
 
-import { useLocation } from 'react-router-dom';
+import * as userService from '~/services/userServices';
 
 const cx = classNames.bind(style);
 
 function ProductDetail({ data }) {
-    const search = useLocation().search;
-    const id = new URLSearchParams(search).get('id');
+    const { id } = useParams();
 
-    console.log(data);
-    console.log(id);
+    const [product, setProduct] = useState(null);
+
+    useEffect(() => {
+        userService
+            .getUserProfile({ id })
+            .then((data) => {
+                setProduct(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [id]);
 
     return (
         <div className={cx('wrapper')}>
             <Crumb title="Shop | Hand Bag" />
-
             {data && (
                 <div className={cx('container')}>
                     <div className={cx('header')}>
@@ -46,7 +55,7 @@ function ProductDetail({ data }) {
                         </div>
                         <div className={cx('right-header')}>
                             <div className={cx('product-name')}>
-                                <span>{data.name}</span>
+                                <span>{product.name}</span>
                             </div>
                             <div className={cx('product-info')}>
                                 <div className={cx('product-star')}>
@@ -73,10 +82,10 @@ function ProductDetail({ data }) {
                             </div>
                             <div className={cx('product-price')}>
                                 <div className={cx('cost')}>
-                                    <span>{data.price} đ</span>
+                                    <span>{product.price} đ</span>
                                 </div>
                                 <div className={cx('cost-sale')}>
-                                    <span>{(data.price * parseFloat(data.sale)) / 100} đ</span>
+                                    <span>{(product.price * parseFloat(product.sale)) / 100} đ</span>
                                 </div>
                             </div>
                             <div className={cx('product-ship')}>
@@ -138,19 +147,19 @@ function ProductDetail({ data }) {
                                 <label htmlFor="" className={cx('detail-title')}>
                                     Category
                                 </label>
-                                <div className="detail-info">{data.type}</div>
+                                <div className="detail-info">{product.type}</div>
                             </div>
                             <div className={cx('product-detail')}>
                                 <label htmlFor="" className={cx('detail-title')}>
                                     Name
                                 </label>
-                                <div className="detail-info">{data.name}</div>
+                                <div className="detail-info">{product.name}</div>
                             </div>
                             <div className={cx('product-detail')}>
                                 <label htmlFor="" className={cx('detail-title')}>
                                     Brand
                                 </label>
-                                <div className="detail-info">{data.brand}</div>
+                                <div className="detail-info">{product.brand}</div>
                             </div>
                             <div className={cx('product-detail')}>
                                 <label htmlFor="" className={cx('detail-title')}>
@@ -162,13 +171,13 @@ function ProductDetail({ data }) {
                                 <label htmlFor="" className={cx('detail-title')}>
                                     Size
                                 </label>
-                                <div className="detail-info">{data.size}</div>
+                                <div className="detail-info">{product.size}</div>
                             </div>
                             <div className={cx('product-detail')}>
                                 <label htmlFor="" className={cx('detail-title')}>
                                     Color
                                 </label>
-                                <div className="detail-info">{data.color}</div>
+                                <div className="detail-info">{product.color}</div>
                             </div>
                         </div>
                     </div>
@@ -199,42 +208,6 @@ function ProductDetail({ data }) {
                                     <span className={cx('content-price')}>300.000đ</span>
                                 </div>
                             </div>
-                            {/* <div className={cx('product-more')}>
-                                <div className={cx('img')}>
-                                    <img src={img1} alt="product" />
-                                </div>
-                                <div className={cx('content')}>
-                                    <span className={cx('content-name')}>HandBag</span>
-                                    <span className={cx('content-price')}>300.000đ</span>
-                                </div>
-                            </div>
-                            <div className={cx('product-more')}>
-                                <div className={cx('img')}>
-                                    <img src={img1} alt="product" />
-                                </div>
-                                <div className={cx('content')}>
-                                    <span className={cx('content-name')}>HandBag</span>
-                                    <span className={cx('content-price')}>300.000đ</span>
-                                </div>
-                            </div>
-                            <div className={cx('product-more')}>
-                                <div className={cx('img')}>
-                                    <img src={img1} alt="product" />
-                                </div>
-                                <div className={cx('content')}>
-                                    <span className={cx('content-name')}>HandBag</span>
-                                    <span className={cx('content-price')}>300.000đ</span>
-                                </div>
-                            </div>
-                            <div className={cx('product-more')}>
-                                <div className={cx('img')}>
-                                    <img src={img1} alt="product" />
-                                </div>
-                                <div className={cx('content')}>
-                                    <span className={cx('content-name')}>HandBag</span>
-                                    <span className={cx('content-price')}>300.000đ</span>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>

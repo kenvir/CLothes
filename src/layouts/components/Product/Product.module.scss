@@ -1,52 +1,24 @@
 .wrapper {
-    width: 75%;
+    display: flex;
+    width: 32%;
     padding-left: 15px;
     margin-left: 1%;
 }
 
-.short {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    margin-bottom: 2%;
-}
-
-.shorting {
-    margin-right: 20px;
-    padding: 0 50px 0 18px;
-    height: 35px;
-    color: #4c4c4c;
-    border-radius: 5px;
-    font-size: 14px;
-
-    &:focus-visible {
-        border: 1px solid #4c4c4c;
-    }
-}
-
-.product-quantity {
-    color: #636363;
-}
-
 .contents {
     display: flex;
-    flex-wrap: wrap;
 }
 
 .content {
     display: flex;
     flex-wrap: wrap;
-    width: 33%;
+    width: 100%;
     margin-bottom: 5%;
 }
 
 .product-card {
     width: 100%;
     margin: 0 2% 2% 0;
-}
-
-.product-item {
-    // width: 100%;
 }
 
 .product-item:hover {

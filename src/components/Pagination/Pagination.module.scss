@@ -32,20 +32,20 @@
     .button {
         width: 2.4rem;
         height: 2.4rem;
-        background-color: var(--buttonPagination);
+        // background-color: var(--buttonPagination);
         text-align: center;
         cursor: pointer;
         color: var(--white);
         padding: 4px;
 
         &:hover {
-            background-color: var(--buttonPagination-active);
+            // background-color: var(--buttonPagination-active);
             color: var(--black);
         }
     }
 
     .button.active {
-        background-color: var(--buttonPagination-active);
+        // background-color: var(--buttonPagination-active);
         color: var(--black);
         padding: 4px;
     }

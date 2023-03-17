@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
-function Pagination({ totalPosts, postPerPage, setPage, pageIndex }) {
+function Pagination({ totalProduct, productPerPage, setPage, pageIndex }) {
     let pages = [];
 
-    for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(totalProduct / productPerPage); i++) {
         pages.push(i);
     }
 
