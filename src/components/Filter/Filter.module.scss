@@ -66,6 +66,7 @@
 
 .time {
     display: flex;
+    flex-wrap: wrap;
 
     span {
         margin-bottom: 0;
@@ -240,4 +241,11 @@
 
 .st-item.active {
     background-color: var(--primary);
+}
+
+
+@media only screen and (max-width: 500px) {
+    // .classify {
+    //     flex-direction: initial;
+    // }
 }

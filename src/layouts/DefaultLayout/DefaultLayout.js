@@ -20,7 +20,7 @@ function DefaultLayout({ children }) {
                 <div className={cx('content')}>{children}</div>
             </div>
             <PartnerLogo />
-            <Footer />
+            <Footer classNamea={"new"}/>
         </div>
     );
 }

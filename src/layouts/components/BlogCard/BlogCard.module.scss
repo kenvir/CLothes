@@ -4,6 +4,14 @@
     width: 50%;
 }
 
+.img {
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+}
+
 .highlight {
     color: #252525;
     font-weight: 700;
@@ -12,8 +20,12 @@
     margin-bottom: 16px;
 
     p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
         font-size: 24px;
         cursor: pointer;
+        overflow: hidden;
     }
 }
 
@@ -37,5 +49,26 @@
         text-transform: capitalize;
         letter-spacing: 0;
         font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    .highlight {
+        padding-top: 14px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .highlight {
+        padding-top: 0;
+        margin-bottom: 6px;
+
+        p {
+            font-size: 18px;
+        }
     }
 }

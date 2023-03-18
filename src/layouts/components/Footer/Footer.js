@@ -1,4 +1,5 @@
 import React from 'react';
+import className from 'classnames';
 import classNames from 'classnames/bind';
 import style from './Footer.module.scss';
 
@@ -12,9 +13,12 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
-function Footer({ className }) {
+function Footer({ classNamea }) {
+
+    const classes = cx('wrapper')
+
     return (
-        <div className={cx('wrapper', className)}>
+        <div className={classes}>
             <div className={cx('container')}>
                 <div className={cx('content-inner')}>
                     <div className={cx('footer-left')}>
@@ -85,7 +89,7 @@ function Footer({ className }) {
                         <h5>Join Our Newsletter Now</h5>
                         <p>Get E-mail updates about our latest shop and special offers.</p>
                         <form action="#" className={cx('subscribe-form')}>
-                            <input className={cx('mail-input')} type="text" placeholder="Enter Your Mail" />
+                            <input className={cx('mail-input')} type="email" placeholder="Enter Your Mail" />
                             <button className={cx('subcribe-btn')} type="button">
                                 Subscribe
                             </button>
