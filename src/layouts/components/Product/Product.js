@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShuffle } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams } from 'react-router-dom';
 
+import img1 from '~/assets/imgs/women-4.jpg';
+
 const cx = classNames.bind(style);
 
 function Product({ data }) {
@@ -17,9 +19,9 @@ function Product({ data }) {
                     <Link to={`/productDetail/${data.id}`} className={cx('product-card')}>
                         <div className={cx('product-item')}>
                             <div className={cx('product-img')}>
-                                <img src={data.img} alt="women" />
+                                <img src={img1} alt="women" />
                                 <BsHeart className={cx('product-favorite')} />
-                                {data.sale && data.sale !== 0 && data.sale !== 'null' && (
+                                {data.sale && data.sale !== '0' && data.sale !== 'null' && (
                                     <div className={cx('product-sale')}>SALE</div>
                                 )}
                                 <div className={cx('product-option')}>
@@ -40,7 +42,7 @@ function Product({ data }) {
                                 <span className={cx('product-type')}>{data.type}</span>
                                 <span className={cx('product-name')}>{data.name}</span>
                                 <div className={cx('product-price')}>
-                                    {data.sale === 0 ? data.price : (data.price * data.sale) / 100}
+                                    {data.sale === '0' ? data.price : (data.price * data.sale) / 100}
                                     <span>{data.price}</span>
                                 </div>
                             </div>
