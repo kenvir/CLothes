@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
 import styles from './Contact.module.scss';
 import classNames from 'classnames/bind';
 import { SlLocationPin } from 'react-icons/sl';
@@ -8,6 +11,15 @@ import Crumb from '~/components/Crumb/Crumb';
 const cx = classNames.bind(styles);
 
 function Contact() {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();
+
+    const [message, setMessage] = useState('');
+
     return (
         <div className={cx('wrapper')}>
             <Crumb className={cx('crumb-wrapper')} title="Contact" />
@@ -69,10 +81,50 @@ function Contact() {
                                 Our staff will call back later and answer your questions.
                             </div>
                         </div>
-                        <form className={cx('form-wrapper')}>
-                            <input className={cx('name')} type="text" placeholder="Your name" />
-                            <input className={cx('email')} type="email" placeholder="Your email" />
-                            <textarea className={cx('message')} placeholder="Your message" />
+                        <form action="#" className={cx('form-wrapper')} onSubmit={handleSubmit()}>
+                            <div className={cx('form-group')}>
+                                <input
+                                    className={cx('name')}
+                                    type="text"
+                                    placeholder="Your name"
+                                    {...register('FullName', {
+                                        required: true,
+                                    })}
+                                />
+                                {errors.FullName && errors.FullName.type === 'required' && (
+                                    <span className={cx('error-message')}>FullName cannot be empty !</span>
+                                )}
+                            </div>
+                            <div className={cx('form-group')}>
+                                <input
+                                    className={cx('email')}
+                                    type="email"
+                                    placeholder="Your email"
+                                    {...register('Email', {
+                                        required: true,
+                                        pattern: {
+                                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        },
+                                    })}
+                                />
+                                {errors.Email && errors.Email.type === 'required' && (
+                                    <span className={cx('error-message')}>Email cannot be empty !</span>
+                                )}
+                                {errors.Email && errors.Email.type === 'pattern' && (
+                                    <span className={cx('error-message')}>Invalid email !</span>
+                                )}
+                            </div>
+                            <textarea
+                                className={cx('message')}
+                                onChange={(e) => setMessage(e.target.value)}
+                                placeholder="Your message"
+                                {...register('Note', {
+                                    required: true,
+                                })}
+                            />
+                            {errors.Note && errors.Note.type === 'require' && (
+                                <span className={cx('error-message')}>Message cannot be empty !</span>
+                            )}
                             <button type="submit" className={cx('send-btn')}>
                                 Send message
                             </button>

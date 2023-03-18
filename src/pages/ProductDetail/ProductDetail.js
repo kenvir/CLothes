@@ -5,6 +5,7 @@ import classNames from 'classnames/bind';
 import style from './ProductDetail.module.scss';
 import Crumb from '~/components/Crumb/Crumb';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import img1 from '~/assets/imgs/women-4.jpg';
 import img from '~/assets/imgs/product.jpg';
@@ -35,7 +36,6 @@ function ProductDetail() {
 
     useEffect(() => {
         callApi();
-        console.log(productDetail);
     }, []);
 
     return (
@@ -88,7 +88,6 @@ function ProductDetail() {
                             <div className={cx('product-price')}>
                                 <div className={cx('cost')}>
                                     <span>{parseFloat(productDetail.price)} đ</span>
-                                    {console.log(parseFloat(productDetail.price))}
                                 </div>
                                 <div className={cx('cost-sale')}>
                                     <span>
@@ -133,7 +132,7 @@ function ProductDetail() {
                                     <span>Add To Cart</span>
                                 </div>
                                 <div className={cx('buy')}>
-                                    <span>Buy Now</span>
+                                    <Link to='/checkout'>Buy Now</Link>
                                 </div>
                             </div>
                             <div className={cx('faq')}>

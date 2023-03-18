@@ -1,18 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
 
 import classNames from 'classnames/bind';
 import style from './CheckOut.module.scss';
 import Crumb from '~/components/Crumb/Crumb';
-import { Link } from 'react-router-dom';
+import ProductDetail from '../ProductDetail/ProductDetail';
 
 const cx = classNames.bind(style);
 
 function CheckOut() {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();
+
+    const param = useParams();
+
+    const [productDetail, setProductDetail] = useState([]);
+
+    const callApi = async () => {
+        const response = await axios({
+            method: 'get',
+            url: `http://localhost:3030/api/v1/getAllStuff`,
+            type: 'json',
+        });
+
+        if (response.status === 200) {
+            setProductDetail(response.data.data.find((d) => d.id === parseInt(param.id)));
+
+            console.log(response.data.data.find((d) => d.id === parseInt(param.id)));
+        }
+    };
+
+    useEffect(() => {
+        callApi();
+    }, []);
+
     return (
         <div className={cx('wrapper')}>
             <Crumb title="Check Out" />
             <div className={cx('container')}>
-                <form action="#" className={cx('checkout-form')}>
+                <form action="#" className={cx('checkout-form')} onSubmit={handleSubmit()}>
                     <div className={cx('row')}>
                         <div className={cx('form-left')}>
                             <div className={cx('checkout-content')}>
@@ -25,37 +57,106 @@ function CheckOut() {
                                 <label htmlFor="fullName" className={cx('form-label')}>
                                     Full Name <span>*</span>
                                 </label>
-                                <input type="text" className={cx('form-control')} />
+                                <input
+                                    type="text"
+                                    className={cx('form-control')}
+                                    {...register('FullName', {
+                                        required: true,
+                                    })}
+                                />
+                                {errors.FullName && errors.FullName.type === 'required' && (
+                                    <span className={cx('error-message')}>FullName cannot be empty !</span>
+                                )}
                             </div>
                             <div className={cx('form-group')}>
                                 <label htmlFor="email" className={cx('form-label')}>
                                     Email <span>*</span>
                                 </label>
-                                <input type="text" className={cx('form-control')} />
+                                <input
+                                    type="text"
+                                    className={cx('form-control')}
+                                    {...register('Email', {
+                                        required: true,
+                                        pattern: {
+                                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        },
+                                    })}
+                                />
+                                {errors.Email && errors.Email.type === 'required' && (
+                                    <span className={cx('error-message')}>Email cannot be empty !</span>
+                                )}
+                                {errors.Email && errors.Email.type === 'pattern' && (
+                                    <span className={cx('error-message')}>Invalid email !</span>
+                                )}
                             </div>
                             <div className={cx('form-group')}>
                                 <label htmlFor="phone" className={cx('form-label')}>
                                     Phone <span>*</span>
                                 </label>
-                                <input type="text" className={cx('form-control')} />
+                                <input
+                                    type="text"
+                                    className={cx('form-control')}
+                                    {...register('PhoneNumber', {
+                                        required: true,
+                                        maxLength: 15,
+                                        minLength: 9,
+                                        valueAsNumber: false,
+                                    })}
+                                />
+                                {errors.PhoneNumber && errors.PhoneNumber.type === 'required' && (
+                                    <span className={cx('error-message')}>Phone number cannot be empty !</span>
+                                )}
+                                {errors.PhoneNumber && errors.PhoneNumber.type === 'maxLength' && (
+                                    <span className={cx('error-message')}>Invalid phone number</span>
+                                )}
+                                {errors.PhoneNumber && errors.PhoneNumber.type === 'minLength' && (
+                                    <span className={cx('error-message')}>Invalid phone number</span>
+                                )}
                             </div>
                             <div className={cx('form-group')}>
                                 <label htmlFor="country" className={cx('form-label')}>
                                     Country <span>*</span>
                                 </label>
-                                <input type="text" className={cx('form-control')} />
+                                <input
+                                    type="text"
+                                    className={cx('form-control')}
+                                    {...register('Country', {
+                                        required: true,
+                                    })}
+                                />
+                                {errors.Country && errors.Country.type === 'required' && (
+                                    <span className={cx('error-message')}>Country cannot be empty !</span>
+                                )}
                             </div>
                             <div className={cx('form-group')}>
                                 <label htmlFor="city" className={cx('form-label')}>
                                     City <span>*</span>
                                 </label>
-                                <input type="text" className={cx('form-control')} />
+                                <input
+                                    type="text"
+                                    className={cx('form-control')}
+                                    {...register('City', {
+                                        required: true,
+                                    })}
+                                />
+                                {errors.City && errors.City.type === 'required' && (
+                                    <span className={cx('error-message')}>City cannot be empty !</span>
+                                )}
                             </div>
                             <div className={cx('form-group')}>
                                 <label htmlFor="address" className={cx('form-label')}>
                                     Street Address <span>*</span>
                                 </label>
-                                <input type="text" className={cx('form-control')} />
+                                <input
+                                    type="text"
+                                    className={cx('form-control')}
+                                    {...register('Address', {
+                                        required: true,
+                                    })}
+                                />
+                                {errors.Address && errors.Address.type === 'required' && (
+                                    <span className={cx('error-message')}>Address cannot be empty !</span>
+                                )}
                             </div>
                         </div>
                         <div className={cx('form-right')}>
@@ -64,26 +165,19 @@ function CheckOut() {
                             </div>
                             <h4 className={cx('bill-title')}>Your Order</h4>
                             <div className={cx('order-total')}>
-                                <ul className={cx('order-table')}>
-                                    <li>
-                                        Product <span>Total</span>
-                                    </li>
-                                    <li className={cx('fw-normal')}>
-                                        Combination x 1 <span>$60.00</span>
-                                    </li>
-                                    <li className={cx('fw-normal')}>
-                                        Combination x 1 <span>$60.00</span>
-                                    </li>
-                                    <li className={cx('fw-normal')}>
-                                        Combination x 1 <span>$120.00</span>
-                                    </li>
-                                    <li className={cx('fw-normal')}>
-                                        Subtotal <span>$240.00</span>
-                                    </li>
-                                    <li className={cx('total-price')}>
-                                        Total <span>$240.00</span>
-                                    </li>
-                                </ul>
+                                {ProductDetail && (
+                                    <ul className={cx('order-table')}>
+                                        <li>
+                                            Product <span>Total</span>
+                                        </li>
+                                        <li className={cx('fw-normal')}>
+                                            T-Shirt x 1 <span>190000</span>
+                                        </li>
+                                        <li className={cx('total-price')}>
+                                            Total <span>190000</span>
+                                        </li>
+                                    </ul>
+                                )}
 
                                 <div className={cx('payment-check')}>
                                     <div className={cx('pc-item')}>
