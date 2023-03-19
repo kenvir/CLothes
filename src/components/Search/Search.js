@@ -8,6 +8,9 @@ import { MdOutlineExpandMore } from 'react-icons/md';
 import { BiSearch, BiSearchAlt } from 'react-icons/bi';
 
 import img1 from '~/assets/imgs/women-4.jpg';
+import ProductItem from '../ProductItem/ProductItem';
+
+import product from '~/pages/API/Product.json';
 
 const cx = classNames.bind(style);
 
@@ -22,6 +25,19 @@ function Search() {
         setShowResult(false);
     };
 
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(e.target.value);
+        }
+    };
+
+    // const handleSearch = () => {
+    //     product.map((d, i) => {
+    //         d.indexOf(searchValue) ? setSearchRusult(d) : setSearchRusult(null);
+    //     });
+    // };
+
     return (
         <div className={cx('search')}>
             <div className={cx('advanced-search')}>
@@ -35,7 +51,7 @@ function Search() {
                         placeholder="What do you need?"
                         ref={inputRef}
                         value={searchValue}
-                        onChange={(e) => setSearchValue(e.target.value)}
+                        onChange={handleChange}
                         onFocus={() => setShowResult(true)}
                     />
                     <button type="button">
@@ -43,17 +59,8 @@ function Search() {
                     </button>
                 </form>
             </div>
-            <BiSearchAlt className={cx('search-icon--small')}/>
-            {/* <div className={cx('result')}>
-                <p className={cx('title')}>Product result</p>
-                <div className={cx('search-result')}>
-                    <img src={img1} alt="" />
-                    <div className={cx('product')}>
-                        <span className={cx('product-title')}>Product Name</span>
-                        <p>Product intro</p>
-                    </div>
-                </div>
-            </div> */}
+            <BiSearchAlt className={cx('search-icon--small')} />
+            {searchResult && searchResult.map((d, i) => <ProductItem data={searchResult} />)}
         </div>
     );
 }

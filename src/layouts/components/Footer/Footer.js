@@ -1,5 +1,7 @@
 import React from 'react';
-import className from 'classnames';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+
 import classNames from 'classnames/bind';
 import style from './Footer.module.scss';
 
@@ -9,16 +11,19 @@ import { BsInstagram, BsTwitter, BsPinterest } from 'react-icons/bs';
 
 import paymentImg from '~/assets/imgs/payment-method.png';
 import logoFooter from '~/assets/imgs/footer-logo.png';
-import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
-function Footer({ classNamea }) {
-
-    const classes = cx('wrapper')
+function Footer({ className }) {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();
 
     return (
-        <div className={classes}>
+        <div className={cx('wrapper')}>
             <div className={cx('container')}>
                 <div className={cx('content-inner')}>
                     <div className={cx('footer-left')}>
@@ -88,9 +93,27 @@ function Footer({ classNamea }) {
                     <div className={cx('newslatter-item')}>
                         <h5>Join Our Newsletter Now</h5>
                         <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#" className={cx('subscribe-form')}>
-                            <input className={cx('mail-input')} type="email" placeholder="Enter Your Mail" />
-                            <button className={cx('subcribe-btn')} type="button">
+                        <form action="#" className={cx('subscribe-form')} onSubmit={handleSubmit()}>
+                            <div className={cx('form-group')}>
+                                <input
+                                    className={cx('mail-input')}
+                                    type="text"
+                                    placeholder="Enter Your Mail"
+                                    {...register('Email', {
+                                        required: true,
+                                        pattern: {
+                                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        },
+                                    })}
+                                />
+                                {errors.Email && errors.Email.type === 'required' && (
+                                    <span className={cx('error-message')}>Email cannot be empty !</span>
+                                )}
+                                {errors.Email && errors.Email.type === 'pattern' && (
+                                    <span className={cx('error-message')}>Invalid email !</span>
+                                )}
+                            </div>
+                            <button className={cx('subcribe-btn')} type="submit">
                                 Subscribe
                             </button>
                         </form>

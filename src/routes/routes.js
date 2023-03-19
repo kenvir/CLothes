@@ -10,6 +10,9 @@ import Cart from '~/pages/Cart/Cart';
 import CheckOut from '~/pages/CheckOut/CheckOut';
 import FAQ from '~/pages/FAQ/FAQ';
 import ProductDetail from '~/pages/ProductDetail/ProductDetail';
+import { useParams } from 'react-router-dom';
+
+// const { id } = useParams;
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },

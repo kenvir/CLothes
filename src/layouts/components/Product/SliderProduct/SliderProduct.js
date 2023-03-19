@@ -19,9 +19,11 @@ function SliderProduct({ data }) {
     return (
         <div className={cx('product-item')}>
             <div className={cx('product-img')}>
-                <img src={data.img} alt="women" />
+                <img src={img2} alt="women" />
                 <BsHeart className={cx('product-favorite')} />
-                {data.sale && data.sale !== 0 && data.sale !== 'null' && <div className={cx('product-sale')}>SALE</div>}
+                {data.sale && data.sale !== '0' && data.sale !== 'null' && (
+                    <div className={cx('product-sale')}>SALE</div>
+                )}
                 <div className={cx('product-option')}>
                     <div className={cx('product-option-inner')}>
                         <div className={cx('option-icon-wrapper')}>
@@ -41,7 +43,7 @@ function SliderProduct({ data }) {
                 <span className={cx('product-name')}>{data.name}</span>
                 <div className={cx('product-price')}>
                     <span className={cx('price-sale')}>
-                        {data.sale === 0 ? data.price : (data.price * data.sale) / 100}
+                        {data.sale === "0" ? data.price : (data.price * data.sale) / 100}
                     </span>
                     <span>{data.price}</span>
                 </div>

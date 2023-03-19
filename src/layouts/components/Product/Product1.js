@@ -8,10 +8,9 @@ import img1 from '~/assets/imgs/women-large.jpg';
 
 import SliderProduct from '~/layouts/components/Product/SliderProduct/SliderProduct';
 
-import Product from '~/pages/API/Product.json';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper';
+import axios from 'axios';
 
 const cx = classNames.bind(style);
 
@@ -21,6 +20,24 @@ function Product1(props) {
     const [productActive, setProductActive] = useState(0);
 
     const [product, setProduct] = useState('Clothing');
+
+    const [productTag, setProductTag] = useState([]);
+
+    const callApi = async () => {
+        const response = await axios({
+            method: 'get',
+            url: `http://localhost:3030/api/v1/getAllStuff`,
+            type: 'json',
+        });
+
+        if (response.status === 200) {
+            setProductTag(response.data.data);
+        }
+    };
+
+    useEffect(() => {
+        callApi();
+    }, []);
 
     return (
         <div className={cx('wrapper')}>
@@ -68,11 +85,13 @@ function Product1(props) {
                                 },
                             }}
                         >
-                            {Product.filter((t) => t.type === product).map((d, i) => (
-                                <SwiperSlide key={i}>
-                                    <SliderProduct data={d} />
-                                </SwiperSlide>
-                            ))}
+                            {productTag
+                                .filter((t) => t.type === product)
+                                .map((d, i) => (
+                                    <SwiperSlide key={i}>
+                                        <SliderProduct data={d} />
+                                    </SwiperSlide>
+                                ))}
                         </Swiper>
                     </div>
                 </div>
