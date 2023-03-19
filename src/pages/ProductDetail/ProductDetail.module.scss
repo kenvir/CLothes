@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     margin: 0 12%;
-    // background-color: #f5f5f5;
 }
 
 .container {
@@ -337,9 +336,14 @@
 .product-mores {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    height: 100%;
 }
 
 .product-more {
+    position: relative;
+    width: 22%;
+    height: 100%;
     background-color: #a4a4a4;
     padding: 2% 1%;
     margin-top: 3%;
@@ -347,14 +351,14 @@
     cursor: pointer;
 
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
         transition: 0.2s;
     }
 }
 
 .img {
-    width: 150px;
-    height: 150px;
+    // width: 150px;
+    // height: 150px;
 
     img {
         width: 100%;
@@ -375,4 +379,26 @@
 
 .content-price {
     color: #d0011b;
+    font-weight: 600;
+}
+
+.price-sale--more {
+    font-size: 22px;
+    margin-right: 3%;
+}
+
+.price-more {
+    color: #000000;
+    text-decoration: line-through;
+}
+
+.product-sale {
+    position: absolute;
+    color: #ffffff;
+    font-size: 10px;
+    background: var(--primary);
+    top: 5%;
+    left: 0;
+    padding: 5px 10px;
+    text-transform: uppercase;
 }

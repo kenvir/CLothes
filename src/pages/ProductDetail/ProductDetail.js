@@ -21,6 +21,7 @@ function ProductDetail() {
     const param = useParams();
 
     const [productDetail, setProductDetail] = useState([]);
+    const [product, setProduct] = useState([]);
 
     const callApi = async () => {
         const response = await axios({
@@ -31,6 +32,7 @@ function ProductDetail() {
 
         if (response.status === 200) {
             setProductDetail(response.data.data.find((d) => d.id === parseInt(param.id)));
+            setProduct(response.data.data);
         }
     };
 
@@ -132,13 +134,13 @@ function ProductDetail() {
                                     <span>Add To Cart</span>
                                 </div>
                                 <div className={cx('buy')}>
-                                    <Link to='/checkout'>Buy Now</Link>
+                                    <Link to="/checkout">Buy Now</Link>
                                 </div>
                             </div>
                             <div className={cx('faq')}>
                                 <div className={cx('return')}>
                                     <TbArrowBackUp />
-                                    <span>15 Days Return</span>
+                                    <span>7 Days Return</span>
                                 </div>
                                 <div className={cx('authentic')}>
                                     <AiOutlineFileProtect />
@@ -194,7 +196,7 @@ function ProductDetail() {
                     </div>
                     <div className={cx('describe')}>
                         <h4>Product Description</h4>
-                        <span className={cx('des-name')}>T-Shirt</span>
+                        <span className={cx('des-name')}>{productDetail.name}</span>
                         <p>
                             {'- '}Quá đep luôn nạ Áo xinh về khách khen lắm luôn HÀNG VỀ SIU XINH, E GOM TÍP Về tay chỉ
                             #190k/ 1c thuii , chất cotton.
@@ -210,15 +212,31 @@ function ProductDetail() {
                     <div className={cx('more')}>
                         <h4>From The Same Brand</h4>
                         <div className={cx('product-mores')}>
-                            <div className={cx('product-more')}>
-                                <div className={cx('img')}>
-                                    <img src={img1} alt="product" />
-                                </div>
-                                <div className={cx('content')}>
-                                    <span className={cx('content-name')}>HandBag</span>
-                                    <span className={cx('content-price')}>300.000đ</span>
-                                </div>
-                            </div>
+                            {product
+                                .filter((d) => d.type === productDetail.type)
+                                .slice(0, 4)
+                                .map((i) => (
+                                    <Link to={`/productDetail/${i.id}`} className={cx('product-more')} key={i.id}>
+                                        <div className={cx('img')}>
+                                            <img src={img1} alt="product" />
+                                        </div>
+                                        <div className={cx('content')}>
+                                            <span className={cx('content-name')}>{i.name}</span>
+                                            <div className={cx('content-price')}>
+                                                <span className={cx('price-sale--more')}>
+                                                    {parseFloat(i.sale) === 0
+                                                        ? parseFloat(i.price)
+                                                        : (parseFloat(i.price) * parseFloat(i.sale)) / 100}
+                                                    {'đ'}
+                                                </span>
+                                                <span className={cx('price-more')}>{parseFloat(i.price)}đ</span>
+                                            </div>
+                                        </div>
+                                        {i.sale && i.sale !== '0' && i.sale !== 'null' && (
+                                            <div className={cx('product-sale')}>SALE</div>
+                                        )}
+                                    </Link>
+                                ))}
                         </div>
                     </div>
                 </div>
