@@ -10,7 +10,7 @@ import img1 from '~/assets/imgs/man-large.jpg';
 import SliderProduct from '~/layouts/components/Product/SliderProduct/SliderProduct';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper';
+import { Navigation, Autoplay } from 'swiper';
 
 const cx = classNames.bind(style);
 
