@@ -7,22 +7,16 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(style);
 
 function ProductItem({ data = [] }) {
-    console.log(typeof data);
-
     return (
-        <div className={cx('result')}>
-            <p className={cx('title')}>Product result</p>
-
-            <Link to={`/productDetail/${data.id}`}>
-                <div className={cx('search-result')} key={data.id}>
-                    <img src={img1} alt="" />
-                    <div className={cx('product')}>
-                        <span className={cx('product-title')}>{data.name}</span>
-                        <p>{data.price}</p>
-                    </div>
+        <Link to={`/productDetail/${data.id}`} className={cx('result')}>
+            <img className={cx('product-img')} src={img1} alt="" />
+            <div className={cx('search-result')} key={data.id}>
+                <div className={cx('product')}>
+                    <span className={cx('product-title')}>{data.name}</span>
+                    <p>{data.price}</p>
                 </div>
-            </Link>
-        </div>
+            </div>
+        </Link>
     );
 }
 

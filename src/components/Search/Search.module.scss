@@ -1,7 +1,38 @@
+.wrapper {
+    max-width: 58.333333%;
+}
+
+.search-result {
+    position: absolute;
+    max-height: 350px;
+    overflow-y: scroll;
+    top: 65px;
+    left: -172px;
+    right: 0;
+    background-color: #e7e7e7;
+    border-radius: 4px;
+    z-index: 100;
+}
+
+.search-outcome {
+    // position: absolute;
+    width: 100%;
+}
+
+.title {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 1px solid #252525;
+    padding-left: 2%;
+    padding-bottom: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
 .search {
     display: flex;
     flex-direction: column;
-    max-width: 58.333333%;
     padding-left: 15px;
     position: relative;
 }

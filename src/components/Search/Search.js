@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 
 import classNames from 'classnames/bind';
 import style from './Search.module.scss';
@@ -8,7 +10,6 @@ import style from './Search.module.scss';
 import { MdOutlineExpandMore } from 'react-icons/md';
 import { BiSearch, BiSearchAlt } from 'react-icons/bi';
 
-import img1 from '~/assets/imgs/women-4.jpg';
 import ProductItem from '../ProductItem/ProductItem';
 
 const cx = classNames.bind(style);
@@ -49,29 +50,48 @@ function Search() {
     };
 
     return (
-        <div className={cx('search')}>
-            <div className={cx('advanced-search')}>
-                <button type="button" className={cx('category-btn')}>
-                    <span>All Categories</span>
-                    <MdOutlineExpandMore />
-                </button>
-                <form action="#" className={cx('input-group')}>
-                    <input
-                        type="text"
-                        placeholder="What do you need?"
-                        ref={inputRef}
-                        value={searchValue}
-                        onChange={handleChange}
-                        onFocus={() => setShowResult(true)}
-                    />
-                    <button type="button">
-                        <BiSearch className={cx('btn-search')} />
-                    </button>
-                </form>
-            </div>
-            <BiSearchAlt className={cx('search-icon--small')} />
-            {console.log(searchResult)}
-            {showResult && searchResult && searchResult.map((d, i) => <ProductItem data={d} key={i} />)}
+        <div className={cx('wrapper')}>
+            <Tippy
+                interactive={true}
+                appendTo={() => document.body}
+                visible={showResult && searchResult.length > 0}
+                render={(attrs) => (
+                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                        {showResult && (
+                            <div className={cx('search-outcome')}>
+                                <p className={cx('title')}>Product result</p>
+                                {searchResult.map((d, i) => (
+                                    <ProductItem data={d} key={i} />
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )}
+                onClickOutside={handleHideResult}
+            >
+                <div className={cx('search')}>
+                    <div className={cx('advanced-search')}>
+                        <button type="button" className={cx('category-btn')}>
+                            <span>All Categories</span>
+                            <MdOutlineExpandMore />
+                        </button>
+                        <form action="#" className={cx('input-group')}>
+                            <input
+                                type="text"
+                                placeholder="What do you need?"
+                                ref={inputRef}
+                                value={searchValue}
+                                onChange={handleChange}
+                                onFocus={() => setShowResult(true)}
+                            />
+                            <button type="button">
+                                <BiSearch className={cx('btn-search')} />
+                            </button>
+                        </form>
+                    </div>
+                    <BiSearchAlt className={cx('search-icon--small')} />
+                </div>
+            </Tippy>
         </div>
     );
 }
