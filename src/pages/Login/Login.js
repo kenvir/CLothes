@@ -23,7 +23,7 @@ function Login() {
             <form className={cx('form')} onSubmit={handleSubmit()}>
                 <h2 className={cx('form-title')}>Login</h2>
                 <div className={cx('form-group')}>
-                    <label for="fullname" className={cx('form-label')}>
+                    <label htmlFor="fullname" className={cx('form-label')}>
                         Email address *
                     </label>
                     <input
@@ -45,7 +45,7 @@ function Login() {
                     )}
                 </div>
                 <div className={cx('form-group')}>
-                    <label for="password" className={cx('form-label')}>
+                    <label htmlFor="password" className={cx('form-label')}>
                         Password *
                     </label>
                     <input
@@ -66,7 +66,7 @@ function Login() {
 
                 <div className={cx('form-group')}>
                     <div className="gi-more">
-                        <label className={cx('save-pass')} for="save-pass">
+                        <label className={cx('save-pass')} htmlFor="save-pass">
                             Save Password
                             <input type="checkbox" id="save-pass" />
                             <span className={cx('checkmark')}></span>

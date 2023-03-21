@@ -3,20 +3,17 @@
 }
 
 .search-result {
-    position: absolute;
+    width: 630px;
     max-height: 350px;
     overflow-y: scroll;
-    top: 65px;
-    left: -172px;
-    right: 0;
     background-color: #e7e7e7;
     border-radius: 4px;
     z-index: 100;
 }
 
 .search-outcome {
-    // position: absolute;
-    width: 100%;
+    background-color: #e7e7e7;
+    border-radius: 4px;
 }
 
 .title {

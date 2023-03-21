@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import * as searchServices from '~/services/searchServices';
+import { useDebounce } from '~/hooks';
 
 import classNames from 'classnames/bind';
 import style from './Search.module.scss';
@@ -35,7 +37,12 @@ function Search() {
     };
 
     useEffect(() => {
-        callApi();
+        if (searchValue !== '') {
+            callApi();
+        } else {
+            setShowResult(false);
+            setSearchResult([]);
+        }
     }, [searchValue]);
 
     const handleHideResult = () => {
