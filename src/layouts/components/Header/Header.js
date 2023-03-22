@@ -66,9 +66,9 @@ function Header() {
             <div className={cx('header-bot')}>
                 <div className={cx('inner-header')}>
                     <div className={cx('logo')}>
-                        <a href="./">
+                        <Link to="/">
                             <img src="https://preview.colorlib.com/theme/fashi/img/logo.png" alt="" />
-                        </a>
+                        </Link>
                     </div>
                     <Search />
                     <div className={cx('cart')}>
