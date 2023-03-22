@@ -7,6 +7,7 @@ const routes = {
     register: '/register',
     cart: '/cart',
     checkout: '/checkout',
+    checkOut: '/checkOut/:id',
     faq: '/faq',
     productDetail: '/productDetail/:id',
 };

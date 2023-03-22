@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import ClassNames from 'classnames';
@@ -12,6 +12,20 @@ import { TfiClose } from 'react-icons/tfi';
 const cx = classNames.bind(style);
 
 function Cart({ className }) {
+    const [productQuantity, setProductQuantity] = useState(1);
+
+    const handleIncrease = () => {
+        setProductQuantity(productQuantity + 1);
+    };
+
+    const handleReduce = () => {
+        if (productQuantity === 1) {
+            setProductQuantity(1);
+        } else {
+            setProductQuantity(productQuantity - 1);
+        }
+    };
+
     return (
         <div className={cx('wrapper')}>
             <Crumb title="Shopping Cart" />
@@ -43,9 +57,17 @@ function Cart({ className }) {
                                     <td className={cx('qua-col')}>
                                         <div className={cx('quantity')}>
                                             <div className={cx('pro-qty')}>
-                                                <span className={cx('qtybtn')}>-</span>
-                                                <input type="text" defaultValue="1" />
-                                                <span className={cx('qtybtn')}>+</span>
+                                                <span className={cx('qtybtn')} onClick={(e) => handleReduce(e)}>
+                                                    -
+                                                </span>
+                                                <input
+                                                    type="text"
+                                                    value={productQuantity}
+                                                    onChange={(e) => setProductQuantity(e.target.value)}
+                                                />
+                                                <span className={cx('qtybtn')} onClick={(e) => handleIncrease(e)}>
+                                                    +
+                                                </span>
                                             </div>
                                         </div>
                                     </td>
@@ -65,9 +87,17 @@ function Cart({ className }) {
                                     <td className={cx('qua-col')}>
                                         <div className={cx('quantity')}>
                                             <div className={cx('pro-qty')}>
-                                                <span className={cx('qtybtn')}>-</span>
-                                                <input type="text" defaultValue="1" />
-                                                <span className={cx('inc qtybtn')}>+</span>
+                                                <span className={cx('qtybtn')} onClick={(e) => handleReduce(e)}>
+                                                    -
+                                                </span>
+                                                <input
+                                                    type="text"
+                                                    value={productQuantity}
+                                                    onChange={(e) => setProductQuantity(e.target.value)}
+                                                />
+                                                <span className={cx('qtybtn')} onClick={(e) => handleIncrease(e)}>
+                                                    +
+                                                </span>
                                             </div>
                                         </div>
                                     </td>

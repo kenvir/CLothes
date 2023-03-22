@@ -31,7 +31,7 @@ function Product1(props) {
         });
 
         if (response.status === 200) {
-            setProductTag(response.data.data);
+            setProductTag(response.data.data.filter((p) => p.person === 'Women'));
         }
     };
 

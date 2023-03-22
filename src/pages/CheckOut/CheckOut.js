@@ -6,11 +6,12 @@ import { useForm } from 'react-hook-form';
 import classNames from 'classnames/bind';
 import style from './CheckOut.module.scss';
 import Crumb from '~/components/Crumb/Crumb';
-import ProductDetail from '../ProductDetail/ProductDetail';
+// import ProductCheckOut from '../ProductCheckOut/ProductCheckOut';
 
 const cx = classNames.bind(style);
 
-function CheckOut() {
+function CheckOut({ productQuantity }) {
+    console.log(productQuantity);
     const {
         register,
         handleSubmit,
@@ -20,7 +21,7 @@ function CheckOut() {
 
     const param = useParams();
 
-    const [productDetail, setProductDetail] = useState([]);
+    const [productCheckOut, setProductCheckOut] = useState([]);
 
     const callApi = async () => {
         const response = await axios({
@@ -30,8 +31,9 @@ function CheckOut() {
         });
 
         if (response.status === 200) {
-            setProductDetail(response.data.data.find((d) => d.id === parseInt(param.id)));
+            setProductCheckOut(response.data.data.find((d) => d.id === parseInt(param.id)));
 
+            console.log(param.id);
             console.log(response.data.data.find((d) => d.id === parseInt(param.id)));
         }
     };
@@ -52,7 +54,7 @@ function CheckOut() {
                                     Click Here To Login
                                 </Link>
                             </div>
-                            <h4 className={cx('bill-title')}>Billing Details</h4>
+                            <h4 className={cx('bill-title')}>Billing CheckOuts</h4>
                             <div className={cx('form-group')}>
                                 <label htmlFor="fullName" className={cx('form-label')}>
                                     Full Name <span>*</span>
@@ -165,16 +167,35 @@ function CheckOut() {
                             </div>
                             <h4 className={cx('bill-title')}>Your Order</h4>
                             <div className={cx('order-total')}>
-                                {ProductDetail && (
+                                {productCheckOut && (
                                     <ul className={cx('order-table')}>
                                         <li>
                                             Product <span>Total</span>
                                         </li>
                                         <li className={cx('fw-normal')}>
-                                            T-Shirt x 1 <span>190000</span>
+                                            {productCheckOut.name}&emsp; x 2{' '}
+                                            <span>
+                                                {' '}
+                                                {parseFloat(productCheckOut.sale) === 0
+                                                    ? parseFloat(productCheckOut.price)
+                                                    : (parseFloat(productCheckOut.price) *
+                                                          parseFloat(productCheckOut.sale)) /
+                                                      100}{' '}
+                                                đ
+                                            </span>
                                         </li>
                                         <li className={cx('total-price')}>
-                                            Total <span>190000</span>
+                                            Total{' '}
+                                            <span>
+                                                {' '}
+                                                {parseFloat(productCheckOut.sale) === 0
+                                                    ? parseFloat(productCheckOut.price) * 2
+                                                    : ((parseFloat(productCheckOut.price) *
+                                                          parseFloat(productCheckOut.sale)) /
+                                                          100) *
+                                                      2}{' '}
+                                                đ
+                                            </span>
                                         </li>
                                     </ul>
                                 )}
@@ -188,15 +209,15 @@ function CheckOut() {
                                         </label>
                                     </div>
                                     <div className={cx('pc-item')}>
-                                        <label htmlFor="pc-atm">
-                                            ATM/ Visa
+                                        <label htmlFor="pc-atm" style={{ color: 'red' }}>
+                                            ATM/ Visa ( Developing more)
                                             <input type="checkbox" id="pc-atm" />
                                             <span className={cx('checkmark')}></span>
                                         </label>
                                     </div>
                                     <div className={cx('pc-item')}>
-                                        <label htmlFor="pc-momo">
-                                            Momo
+                                        <label htmlFor="pc-momo" style={{ color: 'red' }}>
+                                            Momo ( Developing more)
                                             <input type="checkbox" id="pc-momo" />
                                             <span className={cx('checkmark')}></span>
                                         </label>

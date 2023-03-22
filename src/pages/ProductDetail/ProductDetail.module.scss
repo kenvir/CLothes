@@ -194,6 +194,10 @@
             line-height: 38px;
             cursor: pointer;
             width: 18px;
+
+            &:hover {
+                color: #000000;
+            }
         }
 
         input {

@@ -40,6 +40,21 @@ function ProductDetail() {
         callApi();
     }, []);
 
+    // Tang - Giam san pham
+    const [productQuantity, setProductQuantity] = useState(1);
+
+    const handleIncrease = () => {
+        setProductQuantity(productQuantity + 1);
+    };
+
+    const handleReduce = () => {
+        if (productQuantity === 1) {
+            setProductQuantity(1);
+        } else {
+            setProductQuantity(productQuantity - 1);
+        }
+    };
+
     return (
         <div className={cx('wrapper')}>
             <Crumb title="Shop | Hand Bag" />
@@ -116,15 +131,19 @@ function ProductDetail() {
                                 </div>
                                 <div className={cx('quantity')}>
                                     <div className={cx('pro-qty')}>
-                                        <span className={cx('qtybtn')}>-</span>
+                                        <span className={cx('qtybtn')} onClick={(e) => handleReduce(e)}>
+                                            -
+                                        </span>
                                         <input
                                             type="text"
-                                            defaultValue="1"
-                                            onChange={(e) => {
-                                                e.target.value(e);
-                                            }}
+                                            value={productQuantity}
+                                            onChange={(e) => setProductQuantity(e.target.value)}
+                                            quantity={productQuantity}
                                         />
-                                        <span className={cx('qtybtn', 'inc')}>+</span>
+                                        {console.log(productQuantity)}
+                                        <span className={cx('qtybtn')} onClick={(e) => handleIncrease(e)}>
+                                            +
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +153,7 @@ function ProductDetail() {
                                     <span>Add To Cart</span>
                                 </div>
                                 <div className={cx('buy')}>
-                                    <Link to="/checkout">Buy Now</Link>
+                                    <Link to={`/checkOut/${productDetail.id}`}>Buy Now</Link>
                                 </div>
                             </div>
                             <div className={cx('faq')}>

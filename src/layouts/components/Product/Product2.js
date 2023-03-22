@@ -31,7 +31,7 @@ function Product2(props) {
         });
 
         if (response.status === 200) {
-            setProductTag(response.data.data);
+            setProductTag(response.data.data.filter((p) => p.person === 'Men'));
         }
     };
 
@@ -87,11 +87,13 @@ function Product2(props) {
                                 },
                             }}
                         >
-                            {productTag.filter((t) => t.type === product).map((d, i) => (
-                                <SwiperSlide key={i}>
-                                    <SliderProduct data={d} />
-                                </SwiperSlide>
-                            ))}
+                            {productTag
+                                .filter((t) => t.type === product)
+                                .map((d, i) => (
+                                    <SwiperSlide key={i}>
+                                        <SliderProduct data={d} />
+                                    </SwiperSlide>
+                                ))}
                         </Swiper>
                     </div>
                 </div>
