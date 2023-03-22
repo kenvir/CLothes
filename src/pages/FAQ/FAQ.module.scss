@@ -1,12 +1,12 @@
 .wrapper {
     max-width: 1170px;
-    width: calc(100% - 380px);
+    width: calc(100% - (var(--margin-responsive) * 2));
     margin: 0 auto;
 }
 
 .container {
-    padding-top: 80px;
-    padding-bottom: 54px;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .card {
@@ -38,4 +38,8 @@
         line-height: 26px;
         margin: 0 0 15px 0;
     }
+}
+
+@media only screen and (max-width: 1000px) {
+    
 }
