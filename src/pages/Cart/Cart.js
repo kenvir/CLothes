@@ -62,6 +62,7 @@ function Cart({ className }) {
                                                 </span>
                                                 <input
                                                     type="text"
+                                                    readOnly={true}
                                                     value={productQuantity}
                                                     onChange={(e) => setProductQuantity(e.target.value)}
                                                 />
@@ -92,6 +93,7 @@ function Cart({ className }) {
                                                 </span>
                                                 <input
                                                     type="text"
+                                                    readOnly={true}
                                                     value={productQuantity}
                                                     onChange={(e) => setProductQuantity(e.target.value)}
                                                 />

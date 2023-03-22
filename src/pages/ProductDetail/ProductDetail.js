@@ -137,6 +137,7 @@ function ProductDetail() {
                                         <input
                                             type="text"
                                             value={productQuantity}
+                                            readOnly={true}
                                             onChange={(e) => setProductQuantity(e.target.value)}
                                             quantity={productQuantity}
                                         />
