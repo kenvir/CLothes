@@ -222,13 +222,18 @@
 }
 
 .add {
-    width: 25%;
+    display: flex;
+    align-items: center;
+    max-width: 38%;
+    white-space: nowrap;
     padding: 2%;
     border: 1px solid var(--primary);
     background-color: #f9e744;
     cursor: pointer;
 
     svg {
+        width: 30px;
+        height: 30px;
         margin-right: 10%;
     }
 }
@@ -405,4 +410,73 @@
     left: 0;
     padding: 5px 10px;
     text-transform: uppercase;
+}
+
+@media only screen and (max-width: 1400px) {
+    .img-main {
+        width: 335px;
+        height: 395px;
+    }
+
+    .right-header {
+        margin-left: 12%;
+    }
+
+    .product-mores {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .product-more {
+        width: 32%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-header {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .right-header {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .imgs {
+        display: flex;
+    }
+
+    .img-extra {
+        display: flex;
+        flex-direction: column;
+        margin-left: 5%;
+
+        img {
+            margin-bottom: 35%;
+        }
+    }
+
+    .product-mores {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .product-more {
+        width: 44%;
+        margin-bottom: 5%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .content-price {
+        display: flex;
+        flex-direction: column;
+    }
 }
