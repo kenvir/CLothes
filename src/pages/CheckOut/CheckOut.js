@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import classNames from 'classnames/bind';
 import style from './CheckOut.module.scss';
 import Crumb from '~/components/Crumb/Crumb';
-// import ProductCheckOut from '../ProductCheckOut/ProductCheckOut';
 
 const cx = classNames.bind(style);
 
@@ -32,9 +31,6 @@ function CheckOut({ productQuantity }) {
 
         if (response.status === 200) {
             setProductCheckOut(response.data.data.find((d) => d.id === parseInt(param.id)));
-
-            console.log(param.id);
-            console.log(response.data.data.find((d) => d.id === parseInt(param.id)));
         }
     };
 

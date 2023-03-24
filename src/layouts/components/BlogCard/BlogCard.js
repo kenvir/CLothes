@@ -2,12 +2,13 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import style from './BlogCard.module.scss';
 import img1 from '~/assets/imgs/blog-1.jpg';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
 function BlogCard() {
     return (
-        <div className={cx('wrapper')}>
+        <Link to="/blogDetail" className={cx('wrapper')}>
             <div className={cx('img')}>
                 <img src={img1} alt="blog" />
             </div>
@@ -18,7 +19,7 @@ function BlogCard() {
                 <p>TRAVEL</p>
                 <span>&nbsp;- May 19, 2019</span>
             </div>
-        </div>
+        </Link>
     );
 }
 

@@ -64,10 +64,10 @@ function Login() {
                     )}
                 </div>
 
-                <div className={cx('form-group')}>
-                    <div className="gi-more">
-                        <label className={cx('save-pass')} htmlFor="save-pass">
-                            Save Password
+                <div className={cx('form-group-option')}>
+                    <div className={cx('gi-more')}>
+                        <label className={cx('save-pass')} for="save-pass">
+                            <span>Save Password</span>
                             <input type="checkbox" id="save-pass" />
                             <span className={cx('checkmark')}></span>
                         </label>
