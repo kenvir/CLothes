@@ -31,7 +31,7 @@ function Product2(props) {
         });
 
         if (response.status === 200) {
-            setProductTag(response.data.data.filter((p) => p.person === 'Men'));
+            setProductTag(response.data.data.filter((p) => p.person.includes('Men')));
         }
     };
 
