@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
 import classNames from 'classnames/bind';
@@ -19,6 +19,7 @@ const cx = classNames.bind(style);
 
 function ProductDetail() {
     const param = useParams();
+    const inputRef = useRef();
 
     const [productDetail, setProductDetail] = useState([]);
     const [product, setProduct] = useState([]);
@@ -139,9 +140,9 @@ function ProductDetail() {
                                             value={productQuantity}
                                             readOnly={true}
                                             onChange={(e) => setProductQuantity(e.target.value)}
-                                            quantity={productQuantity}
+                                            ref={inputRef}
                                         />
-                                        {console.log(productQuantity)}
+                                        {console.log(typeof inputRef.current)}
                                         <span className={cx('qtybtn')} onClick={(e) => handleIncrease(e)}>
                                             +
                                         </span>

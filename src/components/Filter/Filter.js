@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import style from './Filter.module.scss';
 import { IoSearch } from 'react-icons/io5';
+import { VscDebugRestart } from 'react-icons/vsc';
 import img1 from '~/assets/imgs/recent-1.jpg';
 import { useState } from 'react';
 
@@ -81,13 +82,20 @@ function Filter({ isSearch, isRecent, isCategory, isBrand, isPrice, isColor, isS
             ) : null}
             {isCategory ? (
                 <div className={cx('filter')}>
-                    <h2 className={cx('filter-type')}>Categories</h2>
+                    <div className={cx('filter-header')}>
+                        <h2 className={cx('filter-type')}>Categories</h2>
+                        <VscDebugRestart
+                            onClick={() => {
+                                setActiveCategory(-1);
+                            }}
+                        />
+                    </div>
                     <div className={cx('classify')}>
                         {listCategory.map((d, i) => (
                             <span
                                 className={cx('btn', activeCategory === i ? 'active' : null)}
                                 onClick={() => {
-                                    setActiveCategory(i);
+                                    handleActiveCategory(i);
                                     setCategory(d);
                                 }}
                                 key={i}
@@ -100,13 +108,20 @@ function Filter({ isSearch, isRecent, isCategory, isBrand, isPrice, isColor, isS
             ) : null}
             {isPrice ? (
                 <div className={cx('filter')}>
-                    <h2 className={cx('filter-type')}>Price</h2>
+                    <div className={cx('filter-header')}>
+                        <h2 className={cx('filter-type')}>Price</h2>
+                        <VscDebugRestart
+                            onClick={() => {
+                                setActivePrice(-1);
+                            }}
+                        />
+                    </div>
                     <div className={cx('classify')}>
                         {listPrice.map((d, i) => (
                             <span
                                 className={cx('btn', activePrice === i ? 'active' : null)}
                                 onClick={() => {
-                                    setActivePrice(i);
+                                    handleActivePrice(i);
                                     setPrice(d);
                                 }}
                                 key={i}
@@ -119,13 +134,20 @@ function Filter({ isSearch, isRecent, isCategory, isBrand, isPrice, isColor, isS
             ) : null}
             {isColor ? (
                 <div className={cx('filter')}>
-                    <h2>Color</h2>
+                    <div className={cx('filter-header')}>
+                        <h2>Color</h2>
+                        <VscDebugRestart
+                            onClick={() => {
+                                setActiveColor(-1);
+                            }}
+                        />
+                    </div>
                     <div className={cx('classify')}>
                         {listColor.map((d, i) => (
                             <span
                                 className={cx('btn', activeColor === i ? 'active' : null)}
                                 onClick={() => {
-                                    setActiveColor(i);
+                                    handleActiveColor(i);
                                     setColor(d);
                                 }}
                                 key={i}
@@ -138,13 +160,20 @@ function Filter({ isSearch, isRecent, isCategory, isBrand, isPrice, isColor, isS
             ) : null}
             {isSize ? (
                 <div className={cx('filter')}>
-                    <h2 className={cx('filter-type')}>Size</h2>
+                    <div className={cx('filter-header')}>
+                        <h2 className={cx('filter-type')}>Size</h2>
+                        <VscDebugRestart
+                            onClick={() => {
+                                setActiveSize(-1);
+                            }}
+                        />
+                    </div>
                     <div className={cx('classify-size')}>
                         {listSize.map((d, i) => (
                             <div
                                 className={cx('st-item', activeSize === i ? 'active' : null)}
                                 onClick={() => {
-                                    setActiveSize(i);
+                                    handleActiveSize(i);
                                     setSize(d);
                                 }}
                                 key={i}
@@ -157,13 +186,20 @@ function Filter({ isSearch, isRecent, isCategory, isBrand, isPrice, isColor, isS
             ) : null}
             {isTags ? (
                 <div className={cx('filter')}>
-                    <h2 className={cx('filter-type')}>Tags</h2>
+                    <div className={cx('filter-header')}>
+                        <h2 className={cx('filter-type')}>Tags</h2>
+                        <VscDebugRestart
+                            onClick={() => {
+                                setActiveTag(-1);
+                            }}
+                        />
+                    </div>
                     <div className={cx('classify-tags')}>
                         {listTag.map((d, i) => (
                             <div
                                 className={cx('st-item', activeTag === i ? 'active' : null)}
                                 onClick={() => {
-                                    setActiveTag(i);
+                                    handleActiveTag(i);
                                     setTag(d);
                                 }}
                                 key={i}

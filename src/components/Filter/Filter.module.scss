@@ -8,6 +8,19 @@
     margin-bottom: 28px;
 }
 
+.filter-header {
+    display: flex;
+    align-items: center;
+    
+    h2 {
+        margin-right: 15%;
+    }
+
+    svg {
+        cursor: pointer;
+    }
+}
+
 .search {
     display: flex;
     align-items: center;

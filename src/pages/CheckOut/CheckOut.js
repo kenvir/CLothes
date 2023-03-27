@@ -9,8 +9,8 @@ import Crumb from '~/components/Crumb/Crumb';
 
 const cx = classNames.bind(style);
 
-function CheckOut({ productQuantity }) {
-    console.log(productQuantity);
+function CheckOut({ ref }) {
+    console.log(ref);
     const {
         register,
         handleSubmit,
