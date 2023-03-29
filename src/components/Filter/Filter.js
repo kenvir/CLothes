@@ -13,7 +13,7 @@ const listColor = ['Black', 'White', 'Blue', 'Red', 'Beige'];
 const listSize = ['S', 'M', 'L', 'XL', 'XXL'];
 const listTag = ['Clothing', 'HandBag', 'Skirt', 'Shoes', 'Accessories'];
 
-function Filter({ isSearch, isRecent, isCategory, isBrand, isPrice, isColor, isSize, isTags }) {
+function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTags }) {
     const [activeCategory, setActiveCategory] = useState();
     const [category, setCategory] = useState('');
     const [activePrice, setActivePrice] = useState();

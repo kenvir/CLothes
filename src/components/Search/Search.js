@@ -36,25 +36,34 @@ function Search() {
         }
     };
 
-    useEffect(() => {
-        if (searchValue !== '') {
-            callApi();
-        } else {
-            setShowResult(false);
-            setSearchResult([]);
-        }
-    }, [searchValue]);
+    // useEffect(() => {
+    //     callApi();
+    // }, [searchValue]);
 
-    const handleHideResult = () => {
-        setShowResult(false);
-    };
+    // useEffect(() => {
+    //     if (searchValue !== '') {
+    //         callApi();
+    //     } else {
+    //         setShowResult(false);
+    //         setSearchResult([]);
+    //     }
+    // }, [searchValue]);
 
     const handleChange = (e) => {
         const searchValue = e.target.value;
         if (!searchValue.startsWith(' ')) {
             setSearchValue(e.target.value);
+            callApi();
+        } else if (searchValue === '') {
+            setSearchResult([]);
+            setShowResult(false);
         }
     };
+    
+    const handleHideResult = () => {
+        setShowResult(false);
+    };
+
 
     return (
         <div className={cx('wrapper')}>

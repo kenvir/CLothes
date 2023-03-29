@@ -37,6 +37,9 @@ function Shop({ d }) {
         callApi();
     }, []);
 
+    // Filter product
+    const [productFilter, setProductFilter] = useState([]);
+
     // Sort Product
     const [sort, setSort] = useState();
     const sortProduct = (Data) => {

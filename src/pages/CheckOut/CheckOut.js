@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
@@ -155,6 +155,15 @@ function CheckOut({ ref }) {
                                 {errors.Address && errors.Address.type === 'required' && (
                                     <span className={cx('error-message')}>Address cannot be empty !</span>
                                 )}
+                            </div>
+                            <div className={cx('form-group')}>
+                                <label htmlFor="address" className={cx('form-label')}>
+                                    Note
+                                </label>
+                                <textarea
+                                    type="text"
+                                    className={cx('form-note')}
+                                />
                             </div>
                         </div>
                         <div className={cx('form-right')}>
