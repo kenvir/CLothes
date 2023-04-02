@@ -8,7 +8,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
-function Menu() {
+function Menu({ d }) {
     const navLinkStyle = ({ isActive }) => {
         return {
             backgroundColor: isActive ? '#e7ab3c' : '#252525',
@@ -42,9 +42,15 @@ function Menu() {
                 <li className={cx('menu-list')}>
                     <span className={cx('list-item')}>COLLECTION</span>
                     <ul className={cx('item-lists')}>
-                        <li>Women's</li>
-                        <li>Men's</li>
-                        <li>Kid's</li>
+                        <Link to="/shop">
+                            <li>Women's</li>
+                        </Link>
+                        <Link to="/shop">
+                            <li>Men's</li>
+                        </Link>
+                        <Link to="/shop">
+                            <li>Kid's</li>
+                        </Link>
                     </ul>
                 </li>
                 <NavLink style={navLinkStyle} className={cx('list-item--title')} to="/blog">

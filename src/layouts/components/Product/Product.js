@@ -5,7 +5,7 @@ import style from './Product.module.scss';
 import { BsClipboard, BsHeart } from 'react-icons/bs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShuffle } from '@fortawesome/free-solid-svg-icons';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import img1 from '~/assets/imgs/women-4.jpg';
 

@@ -18,6 +18,13 @@ function Shop({ d }) {
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;
 
+    // Filter product
+    const [categories, setCategories] = useState('');
+    const [price, setPrice] = useState('');
+    const [color, setColor] = useState('');
+    const [size, setSize] = useState('');
+    const [tag, setTag] = useState('');
+
     // Call API
     const [productTag, setProductTag] = useState([]);
 
@@ -30,15 +37,14 @@ function Shop({ d }) {
 
         if (response.status === 200) {
             setProductTag(response.data.data);
+
+            console.log(response.data.data);
         }
     };
 
     useEffect(() => {
         callApi();
     }, []);
-
-    // Filter product
-    const [productFilter, setProductFilter] = useState([]);
 
     // Sort Product
     const [sort, setSort] = useState();
@@ -84,11 +90,32 @@ function Shop({ d }) {
             <Crumb title="Shop" />
             <div className={cx('content')}>
                 <div className={cx('filter')}>
-                    <Filter isCategory isPrice isColor isSize isTags />
+                    <Filter
+                        isCategory
+                        isPrice
+                        isColor
+                        isSize
+                        isTags
+                        setCategories={setCategories}
+                        setPrice={setPrice}
+                        setColor={setColor}
+                        setSize={setSize}
+                        setTag={setTag}
+                    />
                 </div>
+                {console.log(categories)}
 
                 {productTag && (
                     <div className={cx('right-shop')}>
+                        {categories !== '' && price !== '' && color !== '' && size !== '' && tag !== '' && (
+                            <div className={cx('list-active')}>
+                                {categories !== '' && <p>Category : {categories} /</p>}
+                                {price !== '' && <p>Price : {price} /</p>}
+                                {color !== '' && <p>Color : {color} /</p>}
+                                {size !== '' && <p>Size : {size} /</p>}
+                                {tag !== '' && <p>Tag : {tag} /</p>}
+                            </div>
+                        )}
                         <div className={cx('sort')}>
                             <select className={cx('sorting')} onChange={(e) => setSort(e.target.value)}>
                                 <option value="None">Default Sorting</option>
