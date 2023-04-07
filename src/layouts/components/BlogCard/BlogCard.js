@@ -7,6 +7,8 @@ import blog from '~/pages/API/Blog.json';
 const cx = classNames.bind(style);
 
 function BlogCard({ data }) {
+    console.log(data);
+
     return (
         <div className={cx('wrapper')} key={data.id}>
             <Link to={`/blogDetail/${data.id}`}>
