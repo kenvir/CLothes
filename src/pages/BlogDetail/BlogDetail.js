@@ -27,8 +27,6 @@ function BlogDetail() {
         setBlogDetail(blog.find((d) => d.id === parseInt(param.id)));
     }, []);
 
-    console.log(blogDetail);
-
     const {
         register,
         handleSubmit,
@@ -50,7 +48,6 @@ function BlogDetail() {
                         </p>
                     </div>
                     <div className={cx('blog-large-pic')}>
-                        {console.log(blogDetail.img)}
                         <img src={`${window.location.origin}/${blogDetail.img}`} alt="banner" />
                     </div>
                     <div className={cx('blog-detail-desc')}>

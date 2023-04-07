@@ -4,8 +4,12 @@ import { IoSearch } from 'react-icons/io5';
 import { VscDebugRestart } from 'react-icons/vsc';
 import img1 from '~/assets/imgs/recent-1.jpg';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import blog from '~/pages/API/Blog.json';
 
 const cx = classNames.bind(style);
+
+console.log(blog[0]);
 
 const listCategory = ['Men', 'Women', 'Kid'];
 const listPrice = ['0 - 200.000', '200.001 - 500.000', '500.001 - 1.000.000', '> 1.000.000'];
@@ -64,20 +68,18 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
             {isRecent ? (
                 <div className={cx('filter')}>
                     <h2 className={cx('filter-type')}>Recent Post</h2>
-                    <div className={cx('recent')}>
+                    <Link to={`/blogDetail/${blog[0].id}`} className={cx('recent')}>
                         <div className={cx('img')}>
-                            <img src={img1} alt="" />
+                            <img src={`${window.location.origin}/${blog[0].img}`} alt="" />
                         </div>
                         <div className={cx('highlights')}>
-                            <p className={cx('title')}>
-                                The Personality Trait That Makes The Personality Trait That Makes
-                            </p>
+                            <p className={cx('title')}>{blog[0].title}</p>
                             <div className={cx('time')}>
                                 <span>FASHION</span>
-                                <p>&nbsp;- May 19, 2019</p>
+                                <p>&nbsp;- {blog[0].date}</p>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             ) : null}
             {isCategory ? (

@@ -14,11 +14,11 @@ function Blog() {
             <Crumb title="Blog" />
             <div className={cx('contents')}>
                 <div className={cx('filter')}>
-                    <Filter isSearch isRecent isCategory isTags />
+                    <Filter isSearch isRecent isTags />
                 </div>
                 <div className={cx('content')}>
                     {blog.map((d, i) => (
-                        <BlogCard data={d} key={i}/>
+                        <BlogCard data={d} key={i} />
                     ))}
                 </div>
             </div>
