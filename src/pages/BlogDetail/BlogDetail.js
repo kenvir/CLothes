@@ -41,7 +41,6 @@ function BlogDetail() {
             <Crumb className={cx('crumb-wrapper')} title="Blog Detail" />
             {blogDetail && (
                 <div className={cx('container')} key={blogDetail.id}>
-                    {console.log(blogDetail)}
                     <div className={cx('blog-detail-title')}>
                         <h2>{blogDetail.title}</h2>
                         <p>
@@ -49,7 +48,7 @@ function BlogDetail() {
                         </p>
                     </div>
                     <div className={cx('blog-large-pic')}>
-                        <img src={blogDetail.img} alt="banner" />
+                        <img src={imgBanner} alt="banner" />
                     </div>
                     <div className={cx('blog-detail-desc')}>
                         <p>{blogDetail.content_main}</p>
@@ -61,14 +60,12 @@ function BlogDetail() {
                     </div>
                     <div className={cx('blog-detail-more')}>
                         {blogDetail.imgs &&
-                            Object.entries(blogDetail.imgs).map((d, i) => (
+                            blogDetail.imgs.map((d, i) => (
                                 <div className={cx('img-detail-wrapper')} key={i}>
                                     {console.log(d.img_extra)}
-                                    {console.log(Object.entries(blogDetail.imgs))}
                                     <img src={d.img_extra} alt="blog-detail" />
                                 </div>
                             ))}
-                        {console.log(blogDetail.img)}
                     </div>
                     <div className={cx('blog-detail-desc')}>
                         <p>{blogDetail.content_extra}</p>
@@ -79,10 +76,8 @@ function BlogDetail() {
                                 <BsFillTagsFill className="tag-icon" />
                             </span>
                             {blogDetail.tags &&
-                                Object.entries(blogDetail.tags).map((d, i) => (
+                                blogDetail.tags.map((d, i) => (
                                     <span className={cx('tag')} key={i}>
-                                        {console.log(Object.entries(blogDetail.tags))}
-                                        {console.log(d)}
                                         {d.tag}
                                     </span>
                                 ))}

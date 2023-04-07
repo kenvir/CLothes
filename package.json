@@ -1,5 +1,6 @@
 {
     "name": "clothes",
+    "homepage": "https://kenvir.github.io/Clothes/",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
