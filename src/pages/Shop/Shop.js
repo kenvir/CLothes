@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './Shop.module.scss';
+import axios from 'axios';
+import qs from 'qs';
 
 import Filter from '~/components/Filter/Filter';
 import Product from '~/layouts/components/Product/Product';
 import Crumb from '~/components/Crumb/Crumb';
 import Pagination from '~/components/Pagination/Pagination';
-import axios from 'axios';
-import qs from 'qs';
-import { AiFillApple } from 'react-icons/ai';
+import Menu from '~/layouts/components/Menu/Menu';
 
 const cx = classNames.bind(style);
 
-function Shop({ d }) {
+function Shop() {
     // Pagination
     const [page, setPage] = useState(1);
     const lastIndex = page * 9;
@@ -24,6 +24,13 @@ function Shop({ d }) {
     const [color, setColor] = useState('');
     const [size, setSize] = useState('');
     const [tag, setTag] = useState('');
+
+    const handleFilter = () => {
+        // let updateProduct = productTag([]);
+
+        if (categories) {
+        }
+    };
 
     // Call API
     const [productTag, setProductTag] = useState([]);

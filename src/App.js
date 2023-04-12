@@ -6,6 +6,7 @@ import { Fragment, useEffect } from 'react';
 
 import React, { useState } from 'react';
 import LoadingSpinner from './layouts/components/LoadingSpinner/LoadingSpinner';
+import ScrollToTop from './hooks/scrollToTop';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +22,7 @@ function App() {
     return (
         <Router>
             <div className="App">
+                <ScrollToTop />
                 {/* {isLoading ? (
                     <LoadingSpinner />
                 ) : ( */}

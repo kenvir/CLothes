@@ -9,15 +9,13 @@ import blog from '~/pages/API/Blog.json';
 
 const cx = classNames.bind(style);
 
-console.log(blog[0]);
-
 const listCategory = ['Men', 'Women', 'Kid'];
 const listPrice = ['0 - 200.000', '200.001 - 500.000', '500.001 - 1.000.000', '> 1.000.000'];
 const listColor = ['Black', 'White', 'Blue', 'Red', 'Beige'];
 const listSize = ['S', 'M', 'L', 'XL', 'XXL'];
 const listTag = ['Clothing', 'HandBag', 'Skirt', 'Shoes', 'Accessories'];
 
-function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTags }) {
+function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTags, setCategories }) {
     const [activeCategory, setActiveCategory] = useState();
     const [category, setCategory] = useState('');
     const [activePrice, setActivePrice] = useState();
@@ -89,6 +87,7 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                         <VscDebugRestart
                             onClick={() => {
                                 setActiveCategory(-1);
+                                setCategories('');
                             }}
                         />
                     </div>

@@ -243,8 +243,6 @@
 }
 
 .st-item {
-    // display: flex;
-    // flex-wrap: wrap;
     width: max-content;
     display: flex;
     flex-wrap: wrap;
@@ -262,10 +260,4 @@
 
 .st-item.active {
     background-color: var(--primary);
-}
-
-@media only screen and (max-width: 500px) {
-    // .classify {
-    //     flex-direction: initial;
-    // }
 }

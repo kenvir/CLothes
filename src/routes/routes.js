@@ -16,6 +16,7 @@ import FAQ from '~/pages/FAQ/FAQ';
 const publicRoutes = [
     { path: config.routes.home, component: Home },
     { path: config.routes.shop, component: Shop },
+    { path: config.routes.Shop, component: Shop },
     { path: config.routes.blog, component: Blog },
     { path: config.routes.blogDetail, component: BlogDetail },
     { path: config.routes.contact, component: Contact },

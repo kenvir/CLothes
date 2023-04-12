@@ -4,14 +4,13 @@ import classNames from 'classnames/bind';
 import style from './HomeBlog.module.scss';
 
 import blog1 from '~/assets/imgs/latest-1.jpg';
-import blog2 from '~/assets/imgs/latest-2.jpg';
-import blog3 from '~/assets/imgs/latest-3.jpg';
 import icon1 from '~/assets/imgs/icon-1.png';
 import icon2 from '~/assets/imgs/icon-2.png';
 
 import { FaRegComment } from 'react-icons/fa';
 import { RiCalendarEventFill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import blog from '~/pages/API/Blog.json';
 
 const cx = classNames.bind(style);
 
@@ -24,62 +23,26 @@ function Product() {
                 </div>
 
                 <div className={cx('blog-wrapper')}>
-                    <Link to="/blogDetail" className={cx('single-latest-blog')}>
-                        <img src={blog1} alt="blog1" />
-                        <div className={cx('latest-text')}>
-                            <div className={cx('tag-list')}>
-                                <div className={cx('tag-item')}>
-                                    <RiCalendarEventFill className={cx('calendar-icon')}></RiCalendarEventFill>
-                                    <div>May 4,2019</div>
+                    {blog.slice(0, 3).map((d, i) => (
+                        <Link to={`/blogDetail/${d.id}`} key={i} className={cx('single-latest-blog')}>
+                            <img src={d.img} alt="blog1" />
+                            <div className={cx('latest-text')}>
+                                <div className={cx('tag-list')}>
+                                    <div className={cx('tag-item')}>
+                                        <RiCalendarEventFill className={cx('calendar-icon')}></RiCalendarEventFill>
+                                        <div>{d.date}</div>
+                                    </div>
+                                    <div className={cx('tag-item')}>
+                                        <FaRegComment className={cx('comment-icon')}></FaRegComment>5
+                                    </div>
                                 </div>
-                                <div className={cx('tag-item')}>
-                                    <FaRegComment className={cx('comment-icon')}></FaRegComment>5
+                                <div>
+                                    <h4>{d.title}</h4>
                                 </div>
+                                <p>{d.content_main} </p>
                             </div>
-                            <div>
-                                <h4>The Best Street Style From London Fashion Week</h4>
-                            </div>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </Link>
-
-                    <Link to="/blogDetail" className={cx('single-latest-blog')}>
-                        <img src={blog1} alt="blog1" />
-                        <div className={cx('latest-text')}>
-                            <div className={cx('tag-list')}>
-                                <div className={cx('tag-item')}>
-                                    <RiCalendarEventFill className={cx('calendar-icon')}></RiCalendarEventFill>
-                                    <div>May 4,2019</div>
-                                </div>
-                                <div className={cx('tag-item')}>
-                                    <FaRegComment className={cx('comment-icon')}></FaRegComment>5
-                                </div>
-                            </div>
-                            <div>
-                                <h4>The Best Street Style From London Fashion Week</h4>
-                            </div>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </Link>
-
-                    <Link to="/blogDetail" className={cx('single-latest-blog')}>
-                        <img src={blog1} alt="blog1" />
-                        <div className={cx('latest-text')}>
-                            <div className={cx('tag-list')}>
-                                <div className={cx('tag-item')}>
-                                    <RiCalendarEventFill className={cx('calendar-icon')}></RiCalendarEventFill>
-                                    <div>May 4,2019</div>
-                                </div>
-                                <div className={cx('tag-item')}>
-                                    <FaRegComment className={cx('comment-icon')}></FaRegComment>5
-                                </div>
-                            </div>
-                            <div>
-                                <h4>The Best Street Style From London Fashion Week</h4>
-                            </div>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </Link>
+                        </Link>
+                    ))}
                 </div>
 
                 <div className={cx('benefit-items')}>
