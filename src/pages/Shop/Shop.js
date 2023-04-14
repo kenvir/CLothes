@@ -44,8 +44,6 @@ function Shop() {
 
         if (response.status === 200) {
             setProductTag(response.data.data);
-
-            console.log(response.data.data);
         }
     };
 
@@ -73,6 +71,24 @@ function Shop() {
                 return 0;
             });
         }
+        if (sort === 'Descending') {
+            return Data.sort((a, b) => {
+                if (
+                    (a.sale === '0' ? a.price : (a.price * a.sale) / 100) <
+                    (b.sale === '0' ? b.price : (b.price * b.sale) / 100)
+                ) {
+                    return 1;
+                }
+                if (
+                    (a.sale === '0' ? a.price : (a.price * a.sale) / 100) >
+                    (b.sale === '0' ? b.price : (b.price * b.sale) / 100)
+                ) {
+                    return -1;
+                }
+                return 0;
+            });
+        }
+
         if (sort === 'None') {
             sortByName(Data);
             return Data;
@@ -110,8 +126,6 @@ function Shop() {
                         setTag={setTag}
                     />
                 </div>
-                {console.log(categories)}
-
                 {productTag && (
                     <div className={cx('right-shop')}>
                         {categories !== '' && price !== '' && color !== '' && size !== '' && tag !== '' && (
@@ -126,7 +140,8 @@ function Shop() {
                         <div className={cx('sort')}>
                             <select className={cx('sorting')} onChange={(e) => setSort(e.target.value)}>
                                 <option value="None">Default Sorting</option>
-                                <option value="Ascending">Sort by Price</option>
+                                <option value="Ascending">Sort by Price Ascending</option>
+                                <option value="Descending">Sort by Price Descending</option>
                             </select>
                             <div className={cx('product-quantity')}>
                                 <p>

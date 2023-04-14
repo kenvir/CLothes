@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import classNames from 'classnames/bind';
 import style from './Menu.module.scss';
 
@@ -15,6 +17,24 @@ function Menu() {
         };
     };
 
+    const [productTag, setProductTag] = useState([]);
+
+    const callApi = async () => {
+        const response = await axios({
+            method: 'get',
+            url: `http://localhost:3030/api/v1/getAllStuff`,
+            type: 'json',
+        });
+
+        if (response.status === 200) {
+            setProductTag(response.data.data);
+        }
+    };
+
+    useEffect(() => {
+        callApi();
+    }, []);
+
     return (
         <div className={cx('wrapper')}>
             <ul className={cx('menu-lists')}>
@@ -23,7 +43,8 @@ function Menu() {
                     <span className={cx('list-item')}>ALL DEPARTMENT</span>
                     <MdExpandMore className={cx('arrow')} />
                     <ul className={cx('item-lists')}>
-                        <Link to="/shop">
+                        {/* /${productTag.filter((p) => p.person.includes('Women'))} */}
+                        <Link to={`/shop`}>
                             <li>Women's Clothing</li>
                         </Link>
                         <Link to="/shop">
@@ -48,13 +69,13 @@ function Menu() {
                     <span className={cx('list-item')}>COLLECTION</span>
                     <ul className={cx('item-lists')}>
                         <Link to="/shop">
-                            <li>Women's</li>
+                            <li>Women's Collection</li>
                         </Link>
                         <Link to="/shop">
-                            <li>Men's</li>
+                            <li>Men's Collection</li>
                         </Link>
                         <Link to="/shop">
-                            <li>Kid's</li>
+                            <li>Kid's Collection</li>
                         </Link>
                     </ul>
                 </li>
