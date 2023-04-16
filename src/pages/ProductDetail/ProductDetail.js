@@ -152,9 +152,7 @@ function ProductDetail() {
                                     <span>Add To Cart</span>
                                 </div>
                                 <div className={cx('buy')}>
-                                    <Link to={`/checkOut/${productDetail.id}`}>
-                                        Buy Now
-                                    </Link>
+                                    <Link to={`/checkOut/${productDetail.id}`}>Buy Now</Link>
                                 </div>
                             </div>
                             <div className={cx('faq')}>
@@ -217,16 +215,13 @@ function ProductDetail() {
                     <div className={cx('describe')}>
                         <h4>Product Description</h4>
                         <span className={cx('des-name')}>{productDetail.name}</span>
-                        <p>
-                            {'- '}Quá đep luôn nạ Áo xinh về khách khen lắm luôn HÀNG VỀ SIU XINH, E GOM TÍP Về tay chỉ
-                            #190k/ 1c thuii , chất cotton.
-                        </p>
-                        <p>
-                            {'- '}Mẫu này ce nhất định phải sắm nhó , màu xinh cực Size full : S đến 3 XL , thích rộng
-                            nhiều tăng size giúp e ah BẢNG SIZE CHO MN THAM KHẢO : Size S - 3XL size S: 40kg - 52kg size
-                            M: 53 - 59kg size L: 60 - 66kg size XL: 67 - 73kg size 2XL: 74 - 80kg size 3XL: 81 - 86kg.
-                        </p>
-                        <p>{'- '}Hàng về sau khoảng 2 weeks.</p>
+                        {productDetail.description &&
+                            productDetail.description.split('|').map((d, i) => (
+                                <p key={i}>
+                                    {'- '}
+                                    {d}
+                                </p>
+                            ))}
                     </div>
                     <div className={cx('appraise')}></div>
                     <div className={cx('more')}>
