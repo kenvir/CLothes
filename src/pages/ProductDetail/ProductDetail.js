@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import classNames from 'classnames/bind';
 import style from './ProductDetail.module.scss';
@@ -18,8 +18,8 @@ import { TbArrowBackUp } from 'react-icons/tb';
 const cx = classNames.bind(style);
 
 function ProductDetail() {
+    // Lay API san pham chi tiet
     const param = useParams();
-
     const [productDetail, setProductDetail] = useState([]);
     const [product, setProduct] = useState([]);
 
@@ -38,10 +38,15 @@ function ProductDetail() {
 
     useEffect(() => {
         callApi();
+        // handleSubmit();
     }, []);
 
     // Tang - Giam san pham
     const [productQuantity, setProductQuantity] = useState(1);
+
+    const handleQuantity = (e) => {
+        setProductQuantity(e.target.value);
+    };
 
     const handleIncrease = () => {
         setProductQuantity(productQuantity + 1);
@@ -53,6 +58,17 @@ function ProductDetail() {
         } else {
             setProductQuantity(productQuantity - 1);
         }
+    };
+
+    // Lay input value & day sang checkout
+    const navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        navigate({
+            pathname: '/checkOut',
+            state: { productQuantity },
+        });
     };
 
     return (
@@ -138,7 +154,7 @@ function ProductDetail() {
                                             type="text"
                                             value={productQuantity}
                                             readOnly={true}
-                                            onChange={(e) => setProductQuantity(e.target.value)}
+                                            onChange={handleQuantity}
                                         />
                                         <span className={cx('qtybtn')} onClick={(e) => handleIncrease(e)}>
                                             +
@@ -152,7 +168,9 @@ function ProductDetail() {
                                     <span>Add To Cart</span>
                                 </div>
                                 <div className={cx('buy')}>
-                                    <Link to={`/checkOut/${productDetail.id}`}>Buy Now</Link>
+                                    <Link to={`/checkOut/${productDetail.id}`} onClick={handleSubmit}>
+                                        Buy Now
+                                    </Link>
                                 </div>
                             </div>
                             <div className={cx('faq')}>

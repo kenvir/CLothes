@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 
@@ -9,8 +9,10 @@ import Crumb from '~/components/Crumb/Crumb';
 
 const cx = classNames.bind(style);
 
-function CheckOut({ ref }) {
-    console.log(ref);
+function CheckOut() {
+    const navigate = useNavigate();
+    const productQuantity = navigate?.state?.productQuantity;
+
     const {
         register,
         handleSubmit,
@@ -160,10 +162,7 @@ function CheckOut({ ref }) {
                                 <label htmlFor="address" className={cx('form-label')}>
                                     Note
                                 </label>
-                                <textarea
-                                    type="text"
-                                    className={cx('form-note')}
-                                />
+                                <textarea type="text" className={cx('form-note')} />
                             </div>
                         </div>
                         <div className={cx('form-right')}>
@@ -178,7 +177,7 @@ function CheckOut({ ref }) {
                                             Product <span>Total</span>
                                         </li>
                                         <li className={cx('fw-normal')}>
-                                            {productCheckOut.name}&emsp; x 2{' '}
+                                            {productCheckOut.name}&emsp; x {productQuantity}{' '}
                                             <span>
                                                 {' '}
                                                 {parseFloat(productCheckOut.sale) === 0
