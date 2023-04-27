@@ -10,8 +10,10 @@ import Crumb from '~/components/Crumb/Crumb';
 const cx = classNames.bind(style);
 
 function CheckOut() {
-    const navigate = useNavigate();
-    const productQuantity = navigate?.state?.productQuantity;
+    const location = useLocation();
+    // const inputValue = location.state.inputValue;
+
+    // console.log(inputValue);
 
     const {
         register,
@@ -177,7 +179,7 @@ function CheckOut() {
                                             Product <span>Total</span>
                                         </li>
                                         <li className={cx('fw-normal')}>
-                                            {productCheckOut.name}&emsp; x {productQuantity}{' '}
+                                            {productCheckOut.name}&emsp; x 2{' '}
                                             <span>
                                                 {' '}
                                                 {parseFloat(productCheckOut.sale) === 0

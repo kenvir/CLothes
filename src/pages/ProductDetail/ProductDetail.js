@@ -73,9 +73,9 @@ function ProductDetail() {
 
     return (
         <div className={cx('wrapper')}>
-            <Crumb title="Shop | Hand Bag" />
             {productDetail && (
                 <div className={cx('container')}>
+                    <Crumb title="Shop | Product Detail&nbsp;" text={productDetail.name} />
                     <div className={cx('header')}>
                         <div className={cx('left-header')}>
                             <div className={cx('imgs')}>
@@ -168,7 +168,7 @@ function ProductDetail() {
                                     <span>Add To Cart</span>
                                 </div>
                                 <div className={cx('buy')}>
-                                    <Link to={`/checkOut/${productDetail.id}`} onClick={handleSubmit}>
+                                    <Link to={`/checkOut/${productDetail.id}`} >
                                         Buy Now
                                     </Link>
                                 </div>

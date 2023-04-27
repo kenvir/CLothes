@@ -10,6 +10,7 @@
 
 .header {
     display: flex;
+    margin-top: 2%;
 }
 
 .left-header {
@@ -101,7 +102,13 @@
     }
 
     span:last-child {
+        display: flex;
+        align-items: end;
         color: #767676;
+
+        svg {
+            margin-left: 4%;
+        }
     }
 }
 
@@ -259,6 +266,8 @@
 .return,
 .authentic,
 .shipping {
+    display: flex;
+    align-items: center;
     width: 25%;
 
     svg {

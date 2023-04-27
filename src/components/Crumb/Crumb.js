@@ -7,7 +7,7 @@ import { IoHome } from 'react-icons/io5';
 
 const cx = classNames.bind(style);
 
-function Crumb({className, ...props }) {
+function Crumb({ className, text, ...props }) {
     return (
         <div className={ClassNames(style.wrapper, className)}>
             <div className={cx('crumb')}>
@@ -20,6 +20,7 @@ function Crumb({className, ...props }) {
                     {' '}
                     {'>'} {props.title}
                 </span>
+                {text && <span className={cx('text')}> | {text}</span>}
             </div>
         </div>
     );
