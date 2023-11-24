@@ -23,7 +23,7 @@ function Login() {
             <form className={cx('form')} onSubmit={handleSubmit()}>
                 <h2 className={cx('form-title')}>Login</h2>
                 <div className={cx('form-group')}>
-                    <label htmlFor="fullname" className={cx('form-label')}>
+                    <label htmlFor="email" className={cx('form-label')}>
                         Email address *
                     </label>
                     <input

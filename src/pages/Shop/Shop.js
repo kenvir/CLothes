@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './Shop.module.scss';
 import axios from 'axios';
-import qs from 'qs';
 
 import Filter from '~/components/Filter/Filter';
 import Product from '~/layouts/components/Product/Product';
 import Crumb from '~/components/Crumb/Crumb';
 import Pagination from '~/components/Pagination/Pagination';
-import Menu from '~/layouts/components/Menu/Menu';
 
 const cx = classNames.bind(style);
 
@@ -34,17 +32,20 @@ function Shop() {
 
     // Call API
     const [productTag, setProductTag] = useState([]);
+    const [productPer, setProductPer] = useState([]);
 
     const callApi = async () => {
         const response = await axios({
             method: 'get',
-            url: `http://localhost:3030/api/v1/getAllStuff`,
+            url: `https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/clothes`,
             type: 'json',
         });
 
         if (response.status === 200) {
-            setProductTag(response.data.data);
+            setProductTag(response.data);
         }
+
+        console.log(response.data);
     };
 
     useEffect(() => {

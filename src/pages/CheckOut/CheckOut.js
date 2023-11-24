@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, useParams, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 
@@ -10,9 +10,10 @@ import Crumb from '~/components/Crumb/Crumb';
 const cx = classNames.bind(style);
 
 function CheckOut() {
-    const location = useLocation();
-    // const inputValue = location.state.inputValue;
+    // const location = useLocation();
+    // const inputValue = location.state.productQuantity;
 
+    // console.log(location);
     // console.log(inputValue);
 
     const {
@@ -25,6 +26,7 @@ function CheckOut() {
     const param = useParams();
 
     const [productCheckOut, setProductCheckOut] = useState([]);
+    const [cartCheckOut, setCartCheckOut] = useState([]);
 
     const callApi = async () => {
         const response = await axios({
@@ -35,6 +37,7 @@ function CheckOut() {
 
         if (response.status === 200) {
             setProductCheckOut(response.data.data.find((d) => d.id === parseInt(param.id)));
+            // setCartCheckOut(response.data.data)
         }
     };
 
@@ -179,7 +182,7 @@ function CheckOut() {
                                             Product <span>Total</span>
                                         </li>
                                         <li className={cx('fw-normal')}>
-                                            {productCheckOut.name}&emsp; x 2{' '}
+                                            {productCheckOut.name}&emsp; x 1{' '}
                                             <span>
                                                 {' '}
                                                 {parseFloat(productCheckOut.sale) === 0
@@ -217,15 +220,15 @@ function CheckOut() {
                                     <div className={cx('pc-item')}>
                                         <label htmlFor="pc-atm" style={{ color: 'red' }}>
                                             ATM/ Visa ( Developing more)
-                                            <input type="checkbox" id="pc-atm" />
-                                            <span className={cx('checkmark')}></span>
+                                            <input type="hidden" id="pc-atm" />
+                                            <span className={cx('checkmark')} style={{ display: 'none' }}></span>
                                         </label>
                                     </div>
                                     <div className={cx('pc-item')}>
                                         <label htmlFor="pc-momo" style={{ color: 'red' }}>
                                             Momo ( Developing more)
-                                            <input type="checkbox" id="pc-momo" />
-                                            <span className={cx('checkmark')}></span>
+                                            <input type="hidden" id="pc-momo" />
+                                            <span className={cx('checkmark')} style={{ display: 'none' }}></span>
                                         </label>
                                     </div>
                                 </div>

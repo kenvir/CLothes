@@ -71,6 +71,8 @@ function ProductDetail() {
         });
     };
 
+    console.log(productQuantity);
+
     return (
         <div className={cx('wrapper')}>
             {productDetail && (
@@ -168,9 +170,7 @@ function ProductDetail() {
                                     <span>Add To Cart</span>
                                 </div>
                                 <div className={cx('buy')}>
-                                    <Link to={`/checkOut/${productDetail.id}`} >
-                                        Buy Now
-                                    </Link>
+                                    <Link to={`/checkOut/${productDetail.id}`}>Buy Now</Link>
                                 </div>
                             </div>
                             <div className={cx('faq')}>

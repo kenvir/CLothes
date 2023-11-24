@@ -17,23 +17,24 @@ function Menu() {
         };
     };
 
-    const [productTag, setProductTag] = useState([]);
+    // const [product, setProduct] = useState([]);
+    // const [productTag, setProductTag] = useState('');
 
-    const callApi = async () => {
-        const response = await axios({
-            method: 'get',
-            url: `http://localhost:3030/api/v1/getAllStuff`,
-            type: 'json',
-        });
+    // const callApi = async () => {
+    //     const response = await axios({
+    //         method: 'get',
+    //         url: `http://localhost:3030/api/v1/getAllStuff`,
+    //         type: 'json',
+    //     });
 
-        if (response.status === 200) {
-            setProductTag(response.data.data);
-        }
-    };
+    //     if (response.status === 200) {
+    //         setProduct(response.data.data.filter((p) => p.person.includes(productTag)));
+    //     }
+    // };
 
-    useEffect(() => {
-        callApi();
-    }, []);
+    // useEffect(() => {
+    //     callApi();
+    // }, []);
 
     return (
         <div className={cx('wrapper')}>
@@ -43,14 +44,13 @@ function Menu() {
                     <span className={cx('list-item')}>ALL DEPARTMENT</span>
                     <MdExpandMore className={cx('arrow')} />
                     <ul className={cx('item-lists')}>
-                        {/* /${productTag.filter((p) => p.person.includes('Women'))} */}
-                        <Link to={`/shop`}>
+                        <Link to="/shop/Women">
                             <li>Women's Clothing</li>
                         </Link>
-                        <Link to="/shop">
+                        <Link to="/shop/Men">
                             <li>Men's Clothing</li>
                         </Link>
-                        <Link to="/shop">
+                        <Link to="/shop/Kid">
                             <li>Kid's Clothing</li>
                         </Link>
                     </ul>
@@ -68,13 +68,13 @@ function Menu() {
                 <li className={cx('menu-list')}>
                     <span className={cx('list-item')}>COLLECTION</span>
                     <ul className={cx('item-lists')}>
-                        <Link to="/shop">
+                        <Link to="/shop/Women">
                             <li>Women's Collection</li>
                         </Link>
-                        <Link to="/shop">
+                        <Link to="/shop/Men">
                             <li>Men's Collection</li>
                         </Link>
-                        <Link to="/shop">
+                        <Link to="/shop/Kid">
                             <li>Kid's Collection</li>
                         </Link>
                     </ul>

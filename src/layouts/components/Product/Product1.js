@@ -26,12 +26,12 @@ function Product1(props) {
     const callApi = async () => {
         const response = await axios({
             method: 'get',
-            url: `http://localhost:3030/api/v1/getAllStuff`,
+            url: `https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/clothes`,
             type: 'json',
         });
 
         if (response.status === 200) {
-            setProductTag(response.data.data.filter((p) => p.person.includes('Women')));
+            setProductTag(response.data.filter((p) => p.person.includes('Women')));
         }
     };
 
@@ -58,7 +58,7 @@ function Product1(props) {
                                 }}
                                 key={i}
                             >
-                                {d}{' '}
+                                {d}
                             </span>
                         ))}
                     </div>
