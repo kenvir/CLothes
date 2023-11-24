@@ -26,7 +26,7 @@ function CheckOut() {
     const param = useParams();
 
     const [productCheckOut, setProductCheckOut] = useState([]);
-    const [cartCheckOut, setCartCheckOut] = useState([]);
+    // const [cartCheckOut, setCartCheckOut] = useState([]);
 
     const callApi = async () => {
         const response = await axios({
