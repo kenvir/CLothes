@@ -27,12 +27,12 @@ function Search() {
     const callApi = async () => {
         const response = await axios({
             method: 'get',
-            url: `http://localhost:3030/api/v1/getAllStuff`,
+            url: `https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/clothes`,
             type: 'json',
         });
 
         if (response.status === 200) {
-            setSearchResult(response.data.data.filter((d) => d.name.includes(searchValue)));
+            setSearchResult(response.data.filter((d) => d.name.includes(searchValue)));
         }
     };
 
@@ -59,11 +59,10 @@ function Search() {
             setShowResult(false);
         }
     };
-    
+
     const handleHideResult = () => {
         setShowResult(false);
     };
-
 
     return (
         <div className={cx('wrapper')}>

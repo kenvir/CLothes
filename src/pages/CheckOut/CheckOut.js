@@ -31,13 +31,13 @@ function CheckOut() {
     const callApi = async () => {
         const response = await axios({
             method: 'get',
-            url: `http://localhost:3030/api/v1/getAllStuff`,
+            url: `https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/clothes`,
             type: 'json',
         });
 
         if (response.status === 200) {
-            setProductCheckOut(response.data.data.find((d) => d.id === parseInt(param.id)));
-            // setCartCheckOut(response.data.data)
+            setProductCheckOut(response.data.find((d) => d.id === parseInt(param.id)));
+            // setCartCheckOut(response.data)
         }
     };
 

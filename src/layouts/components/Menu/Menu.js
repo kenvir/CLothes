@@ -28,7 +28,7 @@ function Menu() {
     //     });
 
     //     if (response.status === 200) {
-    //         setProduct(response.data.data.filter((p) => p.person.includes(productTag)));
+    //         setProduct(response.data.filter((p) => p.person.includes(productTag)));
     //     }
     // };
 
