@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import qs from 'qs';
 
 import classNames from 'classnames/bind';
 import style from './Register.module.scss';
 
 import Crumb from '~/components/Crumb/Crumb';
-
-import { useForm } from 'react-hook-form';
 
 const cx = classNames.bind(style);
 
@@ -17,6 +18,24 @@ function Register() {
         watch,
         formState: { errors },
     } = useForm();
+
+    const callAPI = async (data) => {
+        const response = await axios({
+            method: 'get',
+            url: 'https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/users',
+            data: qs.stringify({
+                Email: data.email,
+                PassWord: data.passWord,
+            }),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });
+
+        
+    };
+
+    const handleSignUp = async () => {};
 
     return (
         <div className={cx('wrapper')}>

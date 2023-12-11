@@ -23,7 +23,7 @@ function Footer({ className }) {
     } = useForm();
 
     return (
-        <div className={cx('wrapper')}>
+        <footer className={cx('wrapper')}>
             <div className={cx('container')}>
                 <div className={cx('content-inner')}>
                     <div className={cx('footer-left')}>
@@ -113,7 +113,7 @@ function Footer({ className }) {
                                     <span className={cx('error-message')}>Invalid email !</span>
                                 )}
                             </div>
-                            <button className={cx('subcribe-btn')} type="submit">
+                            <button className={cx('subscribe-btn')} type="submit">
                                 Subscribe
                             </button>
                         </form>
@@ -136,7 +136,7 @@ function Footer({ className }) {
                     </div> */}
                 </div>
             </div>
-        </div>
+        </footer>
     );
 }
 

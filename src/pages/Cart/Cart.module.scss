@@ -27,7 +27,6 @@
         table-layout: auto;
 
         tr th {
-            // width: 20%;
             font-size: 16px;
             color: #252525;
             font-weight: 700;
@@ -37,21 +36,18 @@
             text-transform: uppercase;
         }
 
+        tr:last-child > td {
+            padding-bottom: 30px;
+        }
+
         tr td {
             text-align: center;
+            padding-top: 30px;
         }
 
         tr {
-            &:first-child {
-                padding-top: 30px;
-            }
-
             .cart-pic {
                 width: 21%;
-
-                &:first-child {
-                    padding-top: 30px;
-                }
             }
 
             .cart-title {
@@ -242,10 +238,9 @@
         td:first-child {
             width: 10%;
         }
-    
+
         th:first-child {
             width: 10%;
         }
-
     }
 }

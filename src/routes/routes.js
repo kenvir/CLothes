@@ -11,7 +11,7 @@ import ProductDetail from '~/pages/ProductDetail/ProductDetail';
 import CheckOut from '~/pages/CheckOut/CheckOut';
 import Contact from '~/pages/Contact/Contact';
 import FAQ from '~/pages/FAQ/FAQ';
-
+import Profile from '~/pages/Profile/Profile';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -27,6 +27,7 @@ const publicRoutes = [
     { path: config.routes.checkOut, component: CheckOut },
     { path: config.routes.faq, component: FAQ },
     { path: config.routes.productDetail, component: ProductDetail },
+    { path: config.routes.profile, component: Profile },
 ];
 
 const privateRoutes = [];

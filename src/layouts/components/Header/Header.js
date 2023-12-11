@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
-import style from './Header.module.scss';
+
 import { BsFillTelephoneFill, BsHeart, BsClipboardPlus } from 'react-icons/bs';
 import { ImFacebook, ImPinterest } from 'react-icons/im';
 import { RiInstagramFill } from 'react-icons/ri';
@@ -8,14 +9,16 @@ import { FaTiktok, FaUser } from 'react-icons/fa';
 import { IoShareSocialOutline } from 'react-icons/io5';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+
+import style from './Header.module.scss';
 import Search from '~/components/Search/Search';
+import img1 from '~/assets/imgs/women-4.jpg';
 
 const cx = classNames.bind(style);
 
 function Header() {
     return (
-        <div className={cx('wrapper')}>
+        <header className={cx('wrapper')}>
             <div className={cx('header-top')}>
                 <div className={cx('container')}>
                     <div className={cx('header-left')}>
@@ -59,6 +62,11 @@ function Header() {
                                 <Link to="/login">Login</Link>
                             </span>
                         </div>
+                        <div className={cx('avatar--user')}>
+                            <Link to="/profile">
+                                <img src={img1} alt="" />
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,7 +96,7 @@ function Header() {
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
     );
 }
 

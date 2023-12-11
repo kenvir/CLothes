@@ -12,6 +12,7 @@ const routes = {
     checkOut: '/checkOut/:id',
     faq: '/faq',
     productDetail: '/productDetail/:id',
+    profile: '/profile',
 };
 
 export default routes;
