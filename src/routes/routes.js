@@ -12,6 +12,8 @@ import CheckOut from '~/pages/CheckOut/CheckOut';
 import Contact from '~/pages/Contact/Contact';
 import FAQ from '~/pages/FAQ/FAQ';
 import Profile from '~/pages/Profile/Profile';
+import Collection from '~/pages/Collection/Collection';
+import Favourite from '~/pages/Favourite/Favourite';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -28,6 +30,8 @@ const publicRoutes = [
     { path: config.routes.faq, component: FAQ },
     { path: config.routes.productDetail, component: ProductDetail },
     { path: config.routes.profile, component: Profile },
+    { path: config.routes.collection, component: Collection },
+    { path: config.routes.favourite, component: Favourite },
 ];
 
 const privateRoutes = [];

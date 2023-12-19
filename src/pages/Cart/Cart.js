@@ -12,6 +12,7 @@ import { TfiClose } from 'react-icons/tfi';
 const cx = classNames.bind(style);
 
 function Cart({ className }) {
+    const [product, setProduct] = useState();
     const [productQuantity, setProductQuantity] = useState(1);
 
     const handleIncrease = () => {

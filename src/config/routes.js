@@ -13,6 +13,8 @@ const routes = {
     faq: '/faq',
     productDetail: '/productDetail/:id',
     profile: '/profile',
+    collection: '/collection',
+    favourite: '/favourite',
 };
 
 export default routes;

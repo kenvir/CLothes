@@ -80,12 +80,12 @@ function Header() {
                     </div>
                     <Search />
                     <div className={cx('cart')}>
-                        <div className={cx('heart')}>
+                        <Link to="/favourite" className={cx('heart')}>
                             <BsHeart />
                             <span className={cx('cart-number')}>
                                 <div>1</div>
                             </span>
-                        </div>
+                        </Link>
                         <Link to="/cart" className={cx('cart-icon')}>
                             <BsClipboardPlus />
                             <span className={cx('cart-number')}>

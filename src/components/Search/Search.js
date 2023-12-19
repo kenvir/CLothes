@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import Tippy from '@tippyjs/react';
+import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import * as searchServices from '~/services/searchServices';
-import { useDebounce } from '~/hooks';
 
 import classNames from 'classnames/bind';
 import style from './Search.module.scss';
@@ -18,12 +17,11 @@ const cx = classNames.bind(style);
 
 function Search() {
     const [searchValue, setSearchValue] = useState('');
+    const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(false);
     const inputRef = useRef();
 
     // Call API
-    const [searchResult, setSearchResult] = useState([]);
-
     const callApi = async () => {
         const response = await axios({
             method: 'get',
@@ -36,27 +34,11 @@ function Search() {
         }
     };
 
-    // useEffect(() => {
-    //     callApi();
-    // }, [searchValue]);
-
-    // useEffect(() => {
-    //     if (searchValue !== '') {
-    //         callApi();
-    //     } else {
-    //         setShowResult(false);
-    //         setSearchResult([]);
-    //     }
-    // }, [searchValue]);
-
     const handleChange = (e) => {
         const searchValue = e.target.value;
+
         if (!searchValue.startsWith(' ')) {
             setSearchValue(e.target.value);
-            callApi();
-        } else if (searchValue === '') {
-            setSearchResult([]);
-            setShowResult(false);
         }
     };
 
@@ -64,22 +46,27 @@ function Search() {
         setShowResult(false);
     };
 
+    useEffect(() => {
+        if (searchValue !== '') {
+            callApi();
+        } else {
+            setShowResult(false);
+            setSearchResult([]);
+        }
+    }, [searchValue]);
+
     return (
         <div className={cx('wrapper')}>
-            <Tippy
+            <HeadlessTippy
                 interactive={true}
                 appendTo={() => document.body}
                 visible={showResult && searchResult.length > 0}
                 render={(attrs) => (
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                        {showResult && (
-                            <div className={cx('search-outcome')}>
-                                <p className={cx('title')}>Product result</p>
-                                {searchResult.map((d, i) => (
-                                    <ProductItem data={d} key={i} />
-                                ))}
-                            </div>
-                        )}
+                        <p className={cx('title')}>Product result</p>
+                        {searchResult.map((d, i) => (
+                            <ProductItem data={d} key={i} />
+                        ))}
                     </div>
                 )}
                 onClickOutside={handleHideResult}
@@ -94,7 +81,7 @@ function Search() {
                             <input
                                 type="text"
                                 placeholder="What do you need?"
-                                ref={inputRef}
+                                // ref={inputRef}
                                 value={searchValue}
                                 onChange={handleChange}
                                 onFocus={() => setShowResult(true)}
@@ -106,7 +93,7 @@ function Search() {
                     </div>
                     <BiSearchAlt className={cx('search-icon--small')} />
                 </div>
-            </Tippy>
+            </HeadlessTippy>
         </div>
     );
 }
