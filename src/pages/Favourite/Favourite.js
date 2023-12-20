@@ -16,12 +16,12 @@ function Favourite() {
                     <p className={cx('desc')}>3 items in your wish list</p>
                 </div>
                 <div className={cx('heading-right')}>
-                    <h3 className={cx('right-title')}>$648</h3>
+                    <h3 className={cx('right-title')}>$300</h3>
                     <p className={cx('desc')}>Estimated total</p>
                     <Button className={cx('button')} title="ADD ALL TO CART"></Button>
                 </div>
             </section>
-            <section className={cx('favourite-product')}> 
+            <section className={cx('favourite-product')}>
                 <ProductFavourite />
                 <ProductFavourite />
                 <ProductFavourite />
