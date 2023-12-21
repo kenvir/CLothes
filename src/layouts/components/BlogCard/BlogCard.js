@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import style from './BlogCard.module.scss';
 import { Link } from 'react-router-dom';
-import blog from '~/pages/API/Blog.json';
 
 const cx = classNames.bind(style);
 
