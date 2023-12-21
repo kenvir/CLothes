@@ -79,13 +79,13 @@ function Footer({ className }) {
                         <h5>My Account</h5>
                         <ul>
                             <li>
-                                <a href="http://localhost:3000/">My Account</a>
+                                <Link to="/profile">My Account</Link>
                             </li>
                             <li>
                                 <Link to="/cart">Shopping Cart</Link>
                             </li>
                             <li>
-                                <Link to="/shop">Shop</Link>
+                                <Link to="/favourite">Favourite</Link>
                             </li>
                         </ul>
                     </div>
@@ -126,9 +126,9 @@ function Footer({ className }) {
                 <div className={cx('copyright-inner')}>
                     <div className={cx('copyright-text')}>
                         Copyright ©<script>document.write(new Date().getFullYear());</script>2023 All rights reserved |
-                        This template is made with <AiOutlineHeart className={cx('copyright-heart-icon')} /> by
+                        This website is made with <AiOutlineHeart className={cx('copyright-heart-icon')} /> by
                         <a className={cx('footer-coppyright-link')} href="http://localhost:3000/">
-                            {'Colorlib'}
+                            {' Fashi'}
                         </a>
                     </div>
                     {/* <div className="payment-pic">

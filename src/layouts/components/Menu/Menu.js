@@ -65,20 +65,22 @@ function Menu() {
                         <span className={cx('list-item')}>SHOP</span>
                     </li>
                 </NavLink>
-                <li className={cx('menu-list')}>
-                    <span className={cx('list-item')}>COLLECTION</span>
-                    <ul className={cx('item-lists')}>
-                        <Link to="/shop/Women">
-                            <li>Women's Collection</li>
-                        </Link>
-                        <Link to="/shop/Men">
-                            <li>Men's Collection</li>
-                        </Link>
-                        <Link to="/shop/Kid">
-                            <li>Kid's Collection</li>
-                        </Link>
-                    </ul>
-                </li>
+                <NavLink style={navLinkStyle} className={cx('list-item--title')} to="/collection">
+                    <li className={cx('menu-list')}>
+                        <span className={cx('list-item')}>COLLECTION</span>
+                        {/* <ul className={cx('item-lists')}>
+                            <Link to="/shop/Women">
+                                <li>Women's Collection</li>
+                            </Link>
+                            <Link to="/shop/Men">
+                                <li>Men's Collection</li>
+                            </Link>
+                            <Link to="/shop/Kid">
+                                <li>Kid's Collection</li>
+                            </Link>
+                        </ul> */}
+                    </li>
+                </NavLink>
                 <NavLink style={navLinkStyle} className={cx('list-item--title')} to="/blog">
                     <li className={cx('menu-list')}>
                         <span className={cx('list-item')}>BLOG</span>
