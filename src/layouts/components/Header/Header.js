@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 
 import { BsFillTelephoneFill, BsHeart, BsClipboardPlus } from 'react-icons/bs';
@@ -17,6 +18,9 @@ import img1 from '~/assets/imgs/women-4.jpg';
 const cx = classNames.bind(style);
 
 function Header() {
+    const [visible, setVisible] = useState(false);
+    const hide = () => setVisible(false);
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('header-top')}>
@@ -79,20 +83,43 @@ function Header() {
                         </Link>
                     </div>
                     <Search />
-                    <div className={cx('cart')}>
+                    <div className={cx('heart-cart')}>
                         <Link to="/favourite" className={cx('heart')}>
-                            <BsHeart />
-                            <span className={cx('cart-number')}>
-                                <div>1</div>
-                            </span>
+                            <div className={cx('heart-icon')}>
+                                <BsHeart />
+                                <span className={cx('cart-number')}>
+                                    <div>1</div>
+                                </span>
+                            </div>
+                            <div className={cx('heart-list')}>
+                                <div>
+                                    <ul>
+                                        <li>Item heart 1</li>
+                                        <li>Item heart 2</li>
+                                        <li>Item heart 3</li>
+                                        <li>Item heart 4</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </Link>
-                        <Link to="/cart" className={cx('cart-icon')}>
-                            <BsClipboardPlus />
-                            <span className={cx('cart-number')}>
-                                <span>3</span>
-                            </span>
+                        <Link to="/cart" className={cx('cart')}>
+                            <div className={cx('cart-icon')}>
+                                <BsClipboardPlus />
+                                <span className={cx('cart-number')}>
+                                    <span>3</span>
+                                </span>
+                            </div>
+                            <div className={cx('cart-list')}>
+                                <div>
+                                    <ul>
+                                        <li>Item cart 1</li>
+                                        <li>Item cart 2</li>
+                                        <li>Item cart 3</li>
+                                        <li>Item cart 4</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </Link>
-                        <div className={cx('price')}>$150.00</div>
                     </div>
                 </div>
             </div>

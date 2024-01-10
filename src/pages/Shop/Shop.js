@@ -22,17 +22,10 @@ function Shop() {
     const [color, setColor] = useState('');
     const [size, setSize] = useState('');
     const [tag, setTag] = useState('');
-
-    const handleFilter = () => {
-        // let updateProduct = productTag([]);
-
-        if (categories) {
-        }
-    };
+    const [filter, setFilter] = useState('');
 
     // Call API
     const [productTag, setProductTag] = useState([]);
-    const [productPer, setProductPer] = useState([]);
 
     const callApi = async () => {
         const response = await axios({
@@ -45,6 +38,7 @@ function Shop() {
             setProductTag(response.data);
         }
 
+        console.log(response.data.filter((d) => d.tags.includes()));
         console.log(response.data);
     };
 

@@ -19,8 +19,7 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(false);
-    const inputRef = useRef();
-
+    
     // Call API
     const callApi = async () => {
         const response = await axios({
@@ -81,7 +80,6 @@ function Search() {
                             <input
                                 type="text"
                                 placeholder="What do you need?"
-                                // ref={inputRef}
                                 value={searchValue}
                                 onChange={handleChange}
                                 onFocus={() => setShowResult(true)}
