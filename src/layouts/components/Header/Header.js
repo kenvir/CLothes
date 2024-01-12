@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 
 import { BsFillTelephoneFill, BsHeart, BsClipboardPlus } from 'react-icons/bs';
