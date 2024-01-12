@@ -7,9 +7,6 @@ import Crumb from '~/components/Crumb/Crumb';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import img1 from '~/assets/imgs/women-4.jpg';
-import img from '~/assets/imgs/product.jpg';
-
 import { AiFillStar, AiOutlineQuestionCircle, AiOutlineFileProtect } from 'react-icons/ai';
 import { FaShippingFast } from 'react-icons/fa';
 import { BsFillCartPlusFill } from 'react-icons/bs';
@@ -22,7 +19,8 @@ function ProductDetail() {
     const param = useParams();
     const [productDetail, setProductDetail] = useState([]);
     const [product, setProduct] = useState([]);
-
+    const [imgs, setImgs] = useState([]);
+    
     const callApi = async () => {
         const response = await axios({
             method: 'get',
@@ -31,14 +29,22 @@ function ProductDetail() {
         });
 
         if (response.status === 200) {
+            setImgs(response.data.find((d) => d.id === parseInt(param.id)).imgs);
             setProductDetail(response.data.find((d) => d.id === parseInt(param.id)));
             setProduct(response.data);
+            console.log(response.data.find((d) => d.id === parseInt(param.id)).imgs[0]);
         }
+    };
+    console.log(imgs);
+    console.log(productDetail.imgs);
+    
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const handleChangeImage = (index) => {
+        setCurrentImageIndex(index);
     };
 
     useEffect(() => {
         callApi();
-        // handleSubmit();
     }, []);
 
     // Tang - Giam san pham
@@ -75,21 +81,31 @@ function ProductDetail() {
 
     return (
         <div className={cx('wrapper')}>
-            {productDetail && (
+            {productDetail.imgs && (
                 <div className={cx('container')}>
                     <Crumb title="Shop | Product Detail&nbsp;" text={productDetail.name} />
                     <div className={cx('header')}>
                         <div className={cx('left-header')}>
                             <div className={cx('imgs')}>
                                 <div className={cx('img-main')}>
-                                    <img src={productDetail.img} alt="img-main" />
+                                    <img src={imgs[currentImageIndex].img} alt="img-main" />
+                                    {console.log(imgs[currentImageIndex])}
                                 </div>
                                 <div className={cx('img-extra')}>
-                                    <img src={productDetail.img} alt="img-extra" />
-                                    <img src={productDetail.img} alt="img-extra" />
-                                    <img src={productDetail.img} alt="img-extra" />
-                                    <img src={productDetail.img} alt="img-extra" />
-                                    <img src={productDetail.img} alt="img-extra" />
+                                    {imgs.map((image, index) => (
+                                        <img
+                                            key={index}
+                                            src={image.img}
+                                            alt={`Product Thumbnail ${index + 1}`}
+                                            style={{
+                                                width: '50px',
+                                                height: '50px',
+                                                marginRight: '5px',
+                                                cursor: 'pointer',
+                                            }}
+                                            onClick={() => handleChangeImage(index)}
+                                        />
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -251,7 +267,7 @@ function ProductDetail() {
                                 .map((i) => (
                                     <Link to={`/productDetail/${i.id}`} className={cx('product-more')} key={i.id}>
                                         <div className={cx('img')}>
-                                            <img src={i.img} alt="product" />
+                                            <img src={i.imgs[0].img} alt="product" />
                                         </div>
                                         <div className={cx('content')}>
                                             <span className={cx('content-name')}>{i.name}</span>
