@@ -23,9 +23,7 @@ function ProductFavourite() {
             <section className={cx('product-favourite__price')}>
                 <div>$110</div>
             </section>
-            <Link to="/cart">
-                <Button className={cx('product-favourite__button')} title="ADD TO CART" />
-            </Link>
+            <Button className={cx('product-favourite__button')} to="/cart" title="ADD TO CART" />
         </div>
     );
 }

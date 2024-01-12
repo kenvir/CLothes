@@ -18,7 +18,7 @@ function Favourite() {
                 <div className={cx('heading-right')}>
                     <h3 className={cx('right-title')}>$300</h3>
                     <p className={cx('desc')}>Estimated total</p>
-                    <Button className={cx('button')} title="ADD ALL TO CART"></Button>
+                    <Button className={cx('button')} to="/cart" title="ADD ALL TO CART"></Button>
                 </div>
             </section>
             <section className={cx('favourite-product')}>

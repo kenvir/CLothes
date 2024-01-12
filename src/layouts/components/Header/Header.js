@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 
 import { BsFillTelephoneFill, BsHeart, BsClipboardPlus } from 'react-icons/bs';
@@ -13,6 +12,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import style from './Header.module.scss';
 import Search from '~/components/Search/Search';
+import Button from '~/components/Button/Button';
 import img1 from '~/assets/imgs/women-4.jpg';
 
 const cx = classNames.bind(style);
@@ -91,14 +91,40 @@ function Header() {
                                     <div>1</div>
                                 </span>
                             </div>
-                            <div className={cx('heart-list')}>
-                                <div>
-                                    <ul>
-                                        <li>Item heart 1</li>
-                                        <li>Item heart 2</li>
-                                        <li>Item heart 3</li>
-                                        <li>Item heart 4</li>
-                                    </ul>
+                            <div className={cx('act-dropdown')}>
+                                <div className={cx('act-dropdown__inner')}>
+                                    <img
+                                        src="./assets/icons/arrow-up.png"
+                                        alt=""
+                                        className={cx('act-dropdown__arrow')}
+                                    />
+                                    <div className={cx('act-dropdown__top')}>
+                                        <h2 className={cx('act-dropdown__title')}>You have 1 product(s)</h2>
+                                        <Link to="/favourite" className={cx('act-dropdown__view-all')}>
+                                            See All
+                                        </Link>
+                                    </div>
+                                    <div className={cx('row', 'row-cols-3', 'gx-2', 'act-dropdown__list')}>
+                                        <div className={cx('col')}>
+                                            <article className={cx('cart-preview-item')}>
+                                                <div className={cx('cart-preview-item__img-wrap')}>
+                                                    <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
+                                                </div>
+                                                <h3 className={cx('cart-preview-item__title')}>
+                                                    Lavazza Coffee Blends
+                                                </h3>
+                                                <p className={cx('cart-preview-item__price')}>$329.00</p>
+                                            </article>
+                                        </div>
+                                        <div className={cx('act-dropdown__separate')}></div>
+                                        <div className={cx('act-dropdown__checkout')}>
+                                            <Button
+                                                className={cx('button')}
+                                                to="/checkout"
+                                                title="ADD ALL TO CHECKOUT"
+                                            ></Button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </Link>
@@ -109,14 +135,58 @@ function Header() {
                                     <span>3</span>
                                 </span>
                             </div>
-                            <div className={cx('cart-list')}>
-                                <div>
-                                    <ul>
-                                        <li>Item cart 1</li>
-                                        <li>Item cart 2</li>
-                                        <li>Item cart 3</li>
-                                        <li>Item cart 4</li>
-                                    </ul>
+                            <div className={cx('act-dropdown')}>
+                                <div className={cx('act-dropdown__inner')}>
+                                    <img
+                                        src="./assets/icons/arrow-up.png"
+                                        alt=""
+                                        className={cx('act-dropdown__arrow')}
+                                    />
+                                    <div className={cx('act-dropdown__top')}>
+                                        <h2 className={cx('act-dropdown__title')}>You have 3 product(s)</h2>
+                                        <Link to="/cart" className={cx('act-dropdown__view-all')}>
+                                            See All
+                                        </Link>
+                                    </div>
+                                    <div className={cx('row', 'row-cols-3', 'gx-2', 'act-dropdown__list')}>
+                                        <div className={cx('col')}>
+                                            <article className={cx('cart-preview-item')}>
+                                                <div className={cx('cart-preview-item__img-wrap')}>
+                                                    <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
+                                                </div>
+                                                <h3 className={cx('cart-preview-item__title')}>
+                                                    Lavazza Coffee Blends
+                                                </h3>
+                                                <p className={cx('cart-preview-item__price')}>$329.00</p>
+                                            </article>
+                                            <article className={cx('cart-preview-item')}>
+                                                <div className={cx('cart-preview-item__img-wrap')}>
+                                                    <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
+                                                </div>
+                                                <h3 className={cx('cart-preview-item__title')}>
+                                                    Lavazza Coffee Blends
+                                                </h3>
+                                                <p className={cx('cart-preview-item__price')}>$329.00</p>
+                                            </article>
+                                            <article className={cx('cart-preview-item')}>
+                                                <div className={cx('cart-preview-item__img-wrap')}>
+                                                    <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
+                                                </div>
+                                                <h3 className={cx('cart-preview-item__title')}>
+                                                    Lavazza Coffee Blends
+                                                </h3>
+                                                <p className={cx('cart-preview-item__price')}>$329.00</p>
+                                            </article>
+                                        </div>
+                                        <div className={cx('act-dropdown__separate')}></div>
+                                        <div className={cx('act-dropdown__checkout')}>
+                                            <Button
+                                                className={cx('button')}
+                                                to="/checkout"
+                                                title="ADD ALL TO CHECKOUT"
+                                            ></Button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </Link>

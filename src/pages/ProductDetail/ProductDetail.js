@@ -82,14 +82,14 @@ function ProductDetail() {
                         <div className={cx('left-header')}>
                             <div className={cx('imgs')}>
                                 <div className={cx('img-main')}>
-                                    <img src={img} alt="img-main" />
+                                    <img src={productDetail.img} alt="img-main" />
                                 </div>
                                 <div className={cx('img-extra')}>
-                                    <img src={img} alt="img-extra" />
-                                    <img src={img} alt="img-extra" />
-                                    <img src={img} alt="img-extra" />
-                                    <img src={img} alt="img-extra" />
-                                    <img src={img} alt="img-extra" />
+                                    <img src={productDetail.img} alt="img-extra" />
+                                    <img src={productDetail.img} alt="img-extra" />
+                                    <img src={productDetail.img} alt="img-extra" />
+                                    <img src={productDetail.img} alt="img-extra" />
+                                    <img src={productDetail.img} alt="img-extra" />
                                 </div>
                             </div>
                         </div>
@@ -251,7 +251,7 @@ function ProductDetail() {
                                 .map((i) => (
                                     <Link to={`/productDetail/${i.id}`} className={cx('product-more')} key={i.id}>
                                         <div className={cx('img')}>
-                                            <img src={img1} alt="product" />
+                                            <img src={i.img} alt="product" />
                                         </div>
                                         <div className={cx('content')}>
                                             <span className={cx('content-name')}>{i.name}</span>

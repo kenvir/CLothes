@@ -12,13 +12,14 @@ import img1 from '~/assets/imgs/women-4.jpg';
 const cx = classNames.bind(style);
 
 function Product({ data }) {
+    console.log(data);
     return (
         <div className={cx('contents')}>
             <div className={cx('content')} key={data.id}>
                 <Link to={`/productDetail/${data.id}`} className={cx('product-card')}>
                     <div className={cx('product-item')}>
                         <div className={cx('product-img')}>
-                            <img src={img1} alt="women" />
+                            <img src={data.img} alt="women" />
                             <BsHeart className={cx('product-favorite')} />
                             {data.sale && data.sale !== '0' && data.sale !== 'null' && (
                                 <div className={cx('product-sale')}>SALE</div>
