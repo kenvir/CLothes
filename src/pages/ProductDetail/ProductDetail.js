@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import classNames from 'classnames/bind';
 import style from './ProductDetail.module.scss';
@@ -11,6 +11,7 @@ import { AiFillStar, AiOutlineQuestionCircle, AiOutlineFileProtect } from 'react
 import { FaShippingFast } from 'react-icons/fa';
 import { BsFillCartPlusFill } from 'react-icons/bs';
 import { TbArrowBackUp } from 'react-icons/tb';
+import { useDispatch, useSelector } from 'react-redux';
 
 const cx = classNames.bind(style);
 
@@ -20,7 +21,7 @@ function ProductDetail() {
     const [productDetail, setProductDetail] = useState([]);
     const [product, setProduct] = useState([]);
     const [imgs, setImgs] = useState([]);
-    
+
     const callApi = async () => {
         const response = await axios({
             method: 'get',
@@ -29,15 +30,12 @@ function ProductDetail() {
         });
 
         if (response.status === 200) {
-            setImgs(response.data.find((d) => d.id === parseInt(param.id)).imgs);
             setProductDetail(response.data.find((d) => d.id === parseInt(param.id)));
             setProduct(response.data);
-            console.log(response.data.find((d) => d.id === parseInt(param.id)).imgs[0]);
+            setImgs(response.data.find((d) => d.id === parseInt(param.id)).imgs);
         }
     };
-    console.log(imgs);
-    console.log(productDetail.imgs);
-    
+
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const handleChangeImage = (index) => {
         setCurrentImageIndex(index);
@@ -54,30 +52,21 @@ function ProductDetail() {
         setProductQuantity(e.target.value);
     };
 
-    const handleIncrease = () => {
-        setProductQuantity(productQuantity + 1);
-    };
+    // const handleIncrease = () => {
+    //     setProductQuantity(productQuantity + 1);
+    // };
 
-    const handleReduce = () => {
-        if (productQuantity === 1) {
-            setProductQuantity(1);
-        } else {
-            setProductQuantity(productQuantity - 1);
-        }
-    };
+    // const handleReduce = () => {
+    //     if (productQuantity === 1) {
+    //         setProductQuantity(1);
+    //     } else {
+    //         setProductQuantity(productQuantity - 1);
+    //     }
+    // };
 
     // Lay input value & day sang checkout
-    const navigate = useNavigate();
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        navigate({
-            pathname: '/checkOut',
-            state: { productQuantity },
-        });
-    };
-
-    console.log(productQuantity);
+    const dispatch = useDispatch();
+    const quantity = useSelector((state) => state);
 
     return (
         <div className={cx('wrapper')}>
@@ -89,7 +78,6 @@ function ProductDetail() {
                             <div className={cx('imgs')}>
                                 <div className={cx('img-main')}>
                                     <img src={imgs[currentImageIndex].img} alt="img-main" />
-                                    {console.log(imgs[currentImageIndex])}
                                 </div>
                                 <div className={cx('img-extra')}>
                                     {imgs.map((image, index) => (
@@ -165,16 +153,22 @@ function ProductDetail() {
                                 </div>
                                 <div className={cx('quantity')}>
                                     <div className={cx('pro-qty')}>
-                                        <span className={cx('qtybtn')} onClick={(e) => handleReduce(e)}>
+                                        <span
+                                            className={cx('qtybtn')}
+                                            onClick={() =>
+                                                dispatch({
+                                                    type: 'SET_QUANTITY',
+                                                    payload: quantity === 1 ? 1 : quantity - 1,
+                                                })
+                                            }
+                                        >
                                             -
                                         </span>
-                                        <input
-                                            type="text"
-                                            value={productQuantity}
-                                            readOnly={true}
-                                            onChange={handleQuantity}
-                                        />
-                                        <span className={cx('qtybtn')} onClick={(e) => handleIncrease(e)}>
+                                        <input type="text" value={quantity} readOnly={true} onChange={handleQuantity} />
+                                        <span
+                                            className={cx('qtybtn')}
+                                            onClick={() => dispatch({ type: 'SET_QUANTITY', payload: quantity + 1 })}
+                                        >
                                             +
                                         </span>
                                     </div>

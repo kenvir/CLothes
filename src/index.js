@@ -5,13 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from '~/components/GlobalStyles/GlobalStyles';
 import { FilterContextProvider } from './components/Filter/FilterContext';
+import { Provider } from 'react-redux';
+import store from './pages/ProductDetail/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // <React.StrictMode>
     <GlobalStyles>
         {/* <FilterContextProvider> */}
-            <App />
+           <Provider store={store}> <App /></Provider>
         {/* </FilterContextProvider> */}
     </GlobalStyles>,
     // </React.StrictMode>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
 
 import classNames from 'classnames/bind';
 import style from './CheckOut.module.scss';
@@ -10,11 +11,7 @@ import Crumb from '~/components/Crumb/Crumb';
 const cx = classNames.bind(style);
 
 function CheckOut() {
-    // const location = useLocation();
-    // const inputValue = location.state.productQuantity;
-
-    // console.log(location);
-    // console.log(inputValue);
+    const quantity = useSelector((state) => state);
 
     const {
         register,
@@ -40,6 +37,13 @@ function CheckOut() {
             // setCartCheckOut(response.data)
         }
     };
+
+    const price = [];
+    console.log(productCheckOut.price);
+    console.log(price.push(productCheckOut.price));
+    console.log(price);
+    const initTotal = 0;
+    console.log(price.reduce((totals, total) => totals + total, initTotal));
 
     useEffect(() => {
         callApi();
@@ -182,14 +186,15 @@ function CheckOut() {
                                             Product <span>Total</span>
                                         </li>
                                         <li className={cx('fw-normal')}>
-                                            {productCheckOut.name}&emsp; x 1{' '}
+                                            {productCheckOut.name}&emsp; x {quantity}{' '}
                                             <span>
                                                 {' '}
                                                 {parseFloat(productCheckOut.sale) === 0
-                                                    ? parseFloat(productCheckOut.price)
-                                                    : (parseFloat(productCheckOut.price) *
+                                                    ? parseFloat(productCheckOut.price) * quantity
+                                                    : ((parseFloat(productCheckOut.price) *
                                                           parseFloat(productCheckOut.sale)) /
-                                                      100}{' '}
+                                                          100) *
+                                                      quantity}{' '}
                                                 đ
                                             </span>
                                         </li>
@@ -198,11 +203,11 @@ function CheckOut() {
                                             <span>
                                                 {' '}
                                                 {parseFloat(productCheckOut.sale) === 0
-                                                    ? parseFloat(productCheckOut.price) * 2
+                                                    ? parseFloat(productCheckOut.price) * quantity
                                                     : ((parseFloat(productCheckOut.price) *
                                                           parseFloat(productCheckOut.sale)) /
                                                           100) *
-                                                      2}{' '}
+                                                      quantity}{' '}
                                                 đ
                                             </span>
                                         </li>
