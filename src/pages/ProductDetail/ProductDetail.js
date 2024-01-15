@@ -52,18 +52,6 @@ function ProductDetail() {
         setProductQuantity(e.target.value);
     };
 
-    // const handleIncrease = () => {
-    //     setProductQuantity(productQuantity + 1);
-    // };
-
-    // const handleReduce = () => {
-    //     if (productQuantity === 1) {
-    //         setProductQuantity(1);
-    //     } else {
-    //         setProductQuantity(productQuantity - 1);
-    //     }
-    // };
-
     // Lay input value & day sang checkout
     const dispatch = useDispatch();
     const quantity = useSelector((state) => state);
@@ -177,7 +165,7 @@ function ProductDetail() {
                             <div className={cx('purchase')}>
                                 <div className={cx('add')}>
                                     <BsFillCartPlusFill />
-                                    <span>Add To Cart</span>
+                                    <Link to={`/cart/${productDetail.id}`}>Add To Cart</Link>
                                 </div>
                                 <div className={cx('buy')}>
                                     <Link to={`/checkOut/${productDetail.id}`}>Buy Now</Link>
