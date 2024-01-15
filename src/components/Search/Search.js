@@ -4,6 +4,7 @@ import axios from 'axios';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import * as searchServices from '~/services/searchServices';
+import { useDebounce } from '~/hooks';
 
 import classNames from 'classnames/bind';
 import style from './Search.module.scss';
@@ -19,19 +20,33 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(false);
-    
-    // Call API
-    const callApi = async () => {
-        const response = await axios({
-            method: 'get',
-            url: `https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/clothes`,
-            type: 'json',
-        });
 
-        if (response.status === 200) {
-            setSearchResult(response.data.filter((d) => d.name.includes(searchValue)));
+    const debounceValues = useDebounce(searchValue, 500);
+
+    const inputRef = useRef();
+
+    // Call API
+    useEffect(() => {
+        if (!debounceValues.toLowerCase().trim()) {
+            setSearchResult([]);
+            return;
         }
-    };
+
+        const callApi = async () => {
+            const response = await axios({
+                method: 'get',
+                url: `https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/clothes`,
+                type: 'json',
+            });
+
+            if (response.status === 200) {
+                setSearchResult(response.data.filter((d) => d.name.toLowerCase().includes(debounceValues)));
+                console.log(response.data.filter((d) => d.name.includes(debounceValues)));
+                console.log(response.data);
+            }
+        };
+        callApi();
+    }, [debounceValues]);
 
     const handleChange = (e) => {
         const searchValue = e.target.value;
@@ -39,20 +54,21 @@ function Search() {
         if (!searchValue.startsWith(' ')) {
             setSearchValue(e.target.value);
         }
+        console.log(searchValue);
     };
 
     const handleHideResult = () => {
         setShowResult(false);
     };
 
-    useEffect(() => {
-        if (searchValue !== '') {
-            callApi();
-        } else {
-            setShowResult(false);
-            setSearchResult([]);
-        }
-    }, [searchValue]);
+    // useEffect(() => {
+    //     if (searchValue !== '') {
+    //         callApi();
+    //     } else {
+    //         setShowResult(false);
+    //         setSearchResult([]);
+    //     }
+    // }, [searchValue]);
 
     return (
         <div className={cx('wrapper')}>
@@ -81,6 +97,7 @@ function Search() {
                                 type="text"
                                 placeholder="What do you need?"
                                 value={searchValue}
+                                spellCheck={false}
                                 onChange={handleChange}
                                 onFocus={() => setShowResult(true)}
                             />
