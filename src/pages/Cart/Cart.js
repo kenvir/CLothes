@@ -55,10 +55,10 @@ function Cart({ className }) {
 
     // Increase - Decrease product
 
-    const [productQuantity, setProductQuantity] = useState(1);
     let quantity = useSelector((state) => state);
     const dispatch = useDispatch();
 
+    const [productQuantity, setProductQuantity] = useState(1);
     const handleQuantity = (e) => {
         setProductQuantity(e.target.value);
     };
@@ -132,12 +132,7 @@ function Cart({ className }) {
                                                         >
                                                             -
                                                         </span>
-                                                        <input
-                                                            type="text"
-                                                            readOnly={true}
-                                                            value={quantity}
-                                                            // onChange={handleQuantity}
-                                                        />
+                                                        <input type="text" readOnly={true} value={quantity} />
                                                         {console.log(quantity)}
                                                         <span
                                                             className={cx('qtybtn')}
@@ -147,7 +142,6 @@ function Cart({ className }) {
                                                                     payload: quantity + 1,
                                                                 })
                                                             }
-                                                            // onClick={handleIncrease()}
                                                         >
                                                             +
                                                         </span>
@@ -171,37 +165,6 @@ function Cart({ className }) {
                                                 <TfiClose className={cx('delete')} />
                                             </td>
                                         </tr>
-                                        {/* <tr>
-                                    <td className={cx('cart-pic')}>
-                                        <img src={img1} alt="" />
-                                    </td>
-                                    <td className={cx('cart-title')}>
-                                        <h5>Pure Pineapple</h5>
-                                    </td>
-                                    <td className={cx('p-price')}>$60.00</td>
-                                    <td className={cx('qua-col')}>
-                                        <div className={cx('quantity')}>
-                                            <div className={cx('pro-qty')}>
-                                                <span className={cx('qtybtn')} onClick={(e) => handleReduce(e)}>
-                                                    -
-                                                </span>
-                                                <input
-                                                    type="text"
-                                                    readOnly={true}
-                                                    value={productQuantity}
-                                                    onChange={(e) => setProductQuantity(e.target.value)}
-                                                />
-                                                <span className={cx('qtybtn')} onClick={(e) => handleIncrease(e)}>
-                                                    +
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className={cx('total-price')}>$60.00</td>
-                                    <td className={cx('close-td')}>
-                                        <TfiClose className={cx('delete')} />
-                                    </td>
-                                </tr> */}
                                     </tbody>
                                 </table>
                             </div>
@@ -244,6 +207,53 @@ function Cart({ className }) {
                     </section>
                 </>
             )}
+            {/* <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>
+                            <TfiClose className={cx('delete')} />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td className={cx('cart-pic')}>
+                            <img src={img1} alt="" />
+                        </td>
+                        <td className={cx('cart-title')}>
+                            <h5>Pure Pineapple</h5>
+                        </td>
+                        <td className={cx('p-price')}>$60.00</td>
+                        <td className={cx('qua-col')}>
+                            <div className={cx('quantity')}>
+                                <div className={cx('pro-qty')}>
+                                    <span className={cx('qtybtn')} onClick={(e) => handleDecrease(e)}>
+                                        -
+                                    </span>
+                                    <input
+                                        type="text"
+                                        readOnly={true}
+                                        value={productQuantity}
+                                        onChange={(e) => setProductQuantity(e.target.value)}
+                                    />
+                                    <span className={cx('qtybtn')} onClick={(e) => handleIncrease(e)}>
+                                        +
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td className={cx('total-price')}>$60.00</td>
+                        <td className={cx('close-td')}>
+                            <TfiClose className={cx('delete')} />
+                        </td>
+                    </tr>
+                </tbody>
+            </table> */}
         </div>
     );
 }

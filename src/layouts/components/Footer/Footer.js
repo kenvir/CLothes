@@ -85,7 +85,7 @@ function Footer({ className }) {
                                 <Link to="/cart">Shopping Cart</Link>
                             </li>
                             <li>
-                                <Link to="/favourite">Favourite</Link>
+                                <Link to="/favorite">Favorite</Link>
                             </li>
                         </ul>
                     </div>

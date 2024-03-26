@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
-function ProductFavourite() {
+function ProductFavorite() {
     return (
-        <div className={cx('product-favourite')}>
-            <img className={cx('product-favourite__img')} src={img1} alt="" />
-            <section className={cx('product-favourite__heading')}>
-                <div className={cx('product-favourite__heading-desc')}>
+        <div className={cx('product-favorite')}>
+            <img className={cx('product-favorite__img')} src={img1} alt="" />
+            <section className={cx('product-favorite__heading')}>
+                <div className={cx('product-favorite__heading-desc')}>
                     <p>Clothing - Men</p>
                     <h4>Mid Century Modern T-Shirt</h4>
                 </div>
@@ -20,12 +20,12 @@ function ProductFavourite() {
                     <img src={heart} alt="" />
                 </div>
             </section>
-            <section className={cx('product-favourite__price')}>
+            <section className={cx('product-favorite__price')}>
                 <div>$110</div>
             </section>
-            <Button className={cx('product-favourite__button')} to="/cart" title="ADD TO CART" />
+            <Button className={cx('product-favorite__button')} to="/cart" title="ADD TO CART" />
         </div>
     );
 }
 
-export default ProductFavourite;
+export default ProductFavorite;

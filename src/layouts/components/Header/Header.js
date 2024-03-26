@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 
 import { BsFillTelephoneFill, BsHeart, BsClipboardPlus } from 'react-icons/bs';
@@ -15,12 +14,13 @@ import style from './Header.module.scss';
 import Search from '~/components/Search/Search';
 import Button from '~/components/Button/Button';
 import img1 from '~/assets/imgs/women-4.jpg';
+import ProductItem from '~/components/ProductItem/ProductItem';
 
 const cx = classNames.bind(style);
 
 function Header() {
-    const [visible, setVisible] = useState(false);
-    const hide = () => setVisible(false);
+    // const [visible, setVisible] = useState(false);
+    // const hide = () => setVisible(false);
 
     return (
         <header className={cx('wrapper')}>
@@ -85,7 +85,7 @@ function Header() {
                     </div>
                     <Search />
                     <div className={cx('heart-cart')}>
-                        <Link to="/favourite" className={cx('heart')}>
+                        <Link to="/favorite" className={cx('heart')}>
                             <div className={cx('heart-icon')}>
                                 <BsHeart />
                                 <span className={cx('cart-number')}>
@@ -101,7 +101,7 @@ function Header() {
                                     />
                                     <div className={cx('act-dropdown__top')}>
                                         <h2 className={cx('act-dropdown__title')}>You have 1 product(s)</h2>
-                                        <Link to="/favourite" className={cx('act-dropdown__view-all')}>
+                                        <Link to="/favorite" className={cx('act-dropdown__view-all')}>
                                             See All
                                         </Link>
                                     </div>
@@ -149,7 +149,7 @@ function Header() {
                                             See All
                                         </Link>
                                     </div>
-                                    <div className={cx('row', 'row-cols-3', 'gx-2', 'act-dropdown__list')}>
+                                    <div className={cx('row', 'act-dropdown__list')}>
                                         <div className={cx('col')}>
                                             <article className={cx('cart-preview-item')}>
                                                 <div className={cx('cart-preview-item__img-wrap')}>
@@ -160,6 +160,34 @@ function Header() {
                                                 </h3>
                                                 <p className={cx('cart-preview-item__price')}>$329.00</p>
                                             </article>
+                                            <article className={cx('cart-preview-item')}>
+                                                <div className={cx('cart-preview-item__img-wrap')}>
+                                                    <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
+                                                </div>
+                                                <h3 className={cx('cart-preview-item__title')}>
+                                                    Lavazza Coffee Blends
+                                                </h3>
+                                                <p className={cx('cart-preview-item__price')}>$329.00</p>
+                                            </article>
+                                            <article className={cx('cart-preview-item')}>
+                                                <div className={cx('cart-preview-item__img-wrap')}>
+                                                    <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
+                                                </div>
+                                                <h3 className={cx('cart-preview-item__title')}>
+                                                    Lavazza Coffee Blends
+                                                </h3>
+                                                <p className={cx('cart-preview-item__price')}>$329.00</p>
+                                            </article>
+                                            <article className={cx('cart-preview-item')}>
+                                                <div className={cx('cart-preview-item__img-wrap')}>
+                                                    <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
+                                                </div>
+                                                <h3 className={cx('cart-preview-item__title')}>
+                                                    Lavazza Coffee Blends
+                                                </h3>
+                                                <p className={cx('cart-preview-item__price')}>$329.00</p>
+                                            </article>
+                                            {/* <ProductItem /> */}
                                             <article className={cx('cart-preview-item')}>
                                                 <div className={cx('cart-preview-item__img-wrap')}>
                                                     <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />

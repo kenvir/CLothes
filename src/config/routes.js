@@ -7,14 +7,15 @@ const routes = {
     contact: '/contact',
     login: '/login',
     register: '/register',
-    cart: '/cart/:id',
+    cart: '/cart',
+    cartId: '/cart/:id',
     checkout: '/checkout',
     checkOut: '/checkOut/:id',
     faq: '/faq',
     productDetail: '/productDetail/:id',
     profile: '/profile',
     collection: '/collection',
-    favourite: '/favourite',
+    favorite: '/favorite',
 };
 
 export default routes;

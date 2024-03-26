@@ -13,7 +13,7 @@ import Contact from '~/pages/Contact/Contact';
 import FAQ from '~/pages/FAQ/FAQ';
 import Profile from '~/pages/Profile/Profile';
 import Collection from '~/pages/Collection/Collection';
-import Favourite from '~/pages/Favourite/Favourite';
+import Favorite from '~/pages/Favorite/Favorite';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -25,13 +25,14 @@ const publicRoutes = [
     { path: config.routes.login, component: Login },
     { path: config.routes.register, component: Register },
     { path: config.routes.cart, component: Cart },
+    { path: config.routes.cartId, component: Cart },
     { path: config.routes.checkout, component: CheckOut },
     { path: config.routes.checkOut, component: CheckOut },
     { path: config.routes.faq, component: FAQ },
     { path: config.routes.productDetail, component: ProductDetail },
     { path: config.routes.profile, component: Profile },
     { path: config.routes.collection, component: Collection },
-    { path: config.routes.favourite, component: Favourite },
+    { path: config.routes.favorite, component: Favorite },
 ];
 
 const privateRoutes = [];

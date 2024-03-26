@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import style from './CheckOut.module.scss';
 import Crumb from '~/components/Crumb/Crumb';
+import ProductItem from '~/components/ProductItem/ProductItem';
 
 const cx = classNames.bind(style);
 
@@ -38,12 +39,12 @@ function CheckOut() {
         }
     };
 
-    const price = [];
-    console.log(productCheckOut.price);
-    console.log(price.push(productCheckOut.price));
-    console.log(price);
-    const initTotal = 0;
-    console.log(price.reduce((totals, total) => totals + total, initTotal));
+    // const price = [];
+    // console.log(productCheckOut.price);
+    // console.log(price.push(productCheckOut.price));
+    // console.log(price);
+    // const initTotal = 0;
+    // console.log(price.reduce((totals, total) => totals + total, initTotal));
 
     useEffect(() => {
         callApi();

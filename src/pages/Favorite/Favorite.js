@@ -1,16 +1,16 @@
 import Crumb from '~/components/Crumb/Crumb';
-import ProductFavourite from '../ProductFavourite/Product';
+import ProductFavorite from '../ProductFavorite/Product';
 import Button from '~/components/Button/Button';
 import classNames from 'classnames/bind';
-import style from './Favourite.module.scss';
+import style from './Favorite.module.scss';
 
 const cx = classNames.bind(style);
 
-function Favourite() {
+function Favorite() {
     return (
         <div className={cx('wrapper')}>
-            <Crumb title="Favourite" />
-            <section className={cx('favourite-heading')}>
+            <Crumb title="Favorite" />
+            <section className={cx('favorite-heading')}>
                 <div className={cx('heading-left')}>
                     <h2 className={cx('title')}>Wish List</h2>
                     <p className={cx('desc')}>3 items in your wish list</p>
@@ -21,13 +21,13 @@ function Favourite() {
                     <Button className={cx('button')} to="/cart" title="ADD ALL TO CART"></Button>
                 </div>
             </section>
-            <section className={cx('favourite-product')}>
-                <ProductFavourite />
-                <ProductFavourite />
-                <ProductFavourite />
+            <section className={cx('favorite-product')}>
+                <ProductFavorite />
+                <ProductFavorite />
+                <ProductFavorite />
             </section>
         </div>
     );
 }
 
-export default Favourite;
+export default Favorite;
