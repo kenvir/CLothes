@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
     const getProducts = async (url) => {
         const res = await axios.get(url);
 
-        console.log(res.data);
+        // console.log(res.data);
     };
 
     useEffect(() => {

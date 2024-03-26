@@ -38,8 +38,8 @@ function Shop() {
             setProductTag(response.data);
         }
 
-        console.log(response.data.filter((d) => d.tags.includes()));
-        console.log(response.data);
+        // console.log(response.data.filter((d) => d.tags.includes()));
+        // console.log(response.data);
     };
 
     useEffect(() => {

@@ -41,8 +41,6 @@ function Search() {
 
             if (response.status === 200) {
                 setSearchResult(response.data.filter((d) => d.name.toLowerCase().includes(debounceValues)));
-                console.log(response.data.filter((d) => d.name.includes(debounceValues)));
-                console.log(response.data);
             }
         };
         callApi();
@@ -60,15 +58,6 @@ function Search() {
     const handleHideResult = () => {
         setShowResult(false);
     };
-
-    // useEffect(() => {
-    //     if (searchValue !== '') {
-    //         callApi();
-    //     } else {
-    //         setShowResult(false);
-    //         setSearchResult([]);
-    //     }
-    // }, [searchValue]);
 
     return (
         <div className={cx('wrapper')}>
