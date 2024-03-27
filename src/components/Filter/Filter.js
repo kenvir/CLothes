@@ -28,11 +28,16 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
     const [tag, setTag] = useState('');
 
     const handleActiveCategory = (index) => {
+        // category ? setActiveCategory(index) : setActiveCategory();
+        // activeCategory ? setActiveCategory() : setActiveCategory(index);
         setActiveCategory(index);
+
+        console.log('activeCategory', activeCategory);
+        console.log('category', category);
     };
 
     const handleActivePrice = (index) => {
-        setActivePrice(index);
+        activePrice ? setActivePrice(index) : setActivePrice();
     };
 
     const handleActiveColor = (index) => {
@@ -57,7 +62,7 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                             type="text"
                             className={cx('inputSearch')}
                             placeholder="Search ..."
-                            // onChange={(e) => setinput(e.target.value)}
+                            // onChange={(e) => setInput(e.target.value)}
                         />
                         <IoSearch className={cx('icon-search')} />
                     </div>
@@ -86,7 +91,7 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                         <h2 className={cx('filter-type')}>Categories</h2>
                         <VscDebugRestart
                             onClick={() => {
-                                setActiveCategory(-1);
+                                setActiveCategory('');
                                 setCategories('');
                             }}
                         />
@@ -94,10 +99,14 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                     <div className={cx('classify')}>
                         {listCategory.map((d, i) => (
                             <span
-                                className={cx('btn', activeCategory === i ? 'active' : null)}
+                                className={cx('btn', (activeCategory !== undefined) === i ? 'active' : null)}
                                 onClick={() => {
                                     handleActiveCategory(i);
                                     setCategory(d);
+                                    console.log('activeCategory', activeCategory);
+                                    console.log('index', i);
+                                    console.log('bool', activeCategory === i);
+                                    console.log('------');
                                 }}
                                 key={i}
                             >

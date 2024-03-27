@@ -105,7 +105,7 @@ function Header() {
                                             See All
                                         </Link>
                                     </div>
-                                    <div className={cx('row', 'row-cols-3', 'gx-2', 'act-dropdown__list')}>
+                                    <div className={cx('row', 'act-dropdown__list')}>
                                         <div className={cx('col')}>
                                             <article className={cx('cart-preview-item')}>
                                                 <div className={cx('cart-preview-item__img-wrap')}>
@@ -151,33 +151,6 @@ function Header() {
                                     </div>
                                     <div className={cx('row', 'act-dropdown__list')}>
                                         <div className={cx('col')}>
-                                            <article className={cx('cart-preview-item')}>
-                                                <div className={cx('cart-preview-item__img-wrap')}>
-                                                    <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
-                                                </div>
-                                                <h3 className={cx('cart-preview-item__title')}>
-                                                    Lavazza Coffee Blends
-                                                </h3>
-                                                <p className={cx('cart-preview-item__price')}>$329.00</p>
-                                            </article>
-                                            <article className={cx('cart-preview-item')}>
-                                                <div className={cx('cart-preview-item__img-wrap')}>
-                                                    <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
-                                                </div>
-                                                <h3 className={cx('cart-preview-item__title')}>
-                                                    Lavazza Coffee Blends
-                                                </h3>
-                                                <p className={cx('cart-preview-item__price')}>$329.00</p>
-                                            </article>
-                                            <article className={cx('cart-preview-item')}>
-                                                <div className={cx('cart-preview-item__img-wrap')}>
-                                                    <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
-                                                </div>
-                                                <h3 className={cx('cart-preview-item__title')}>
-                                                    Lavazza Coffee Blends
-                                                </h3>
-                                                <p className={cx('cart-preview-item__price')}>$329.00</p>
-                                            </article>
                                             <article className={cx('cart-preview-item')}>
                                                 <div className={cx('cart-preview-item__img-wrap')}>
                                                     <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
