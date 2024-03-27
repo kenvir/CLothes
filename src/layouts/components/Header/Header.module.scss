@@ -213,8 +213,8 @@
     right: 20px;
     width: min(450px, 100vw);
     padding-top: 10px;
-    // display: none;
-    display: block;
+    display: none;
+    // display: block;
     z-index: 999;
 
     &__inner {
@@ -281,16 +281,20 @@
 }
 
 .row {
+    .col::-webkit-scrollbar {
+        height: 8px;
+    }
+
     .col {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 15px;
+        padding-bottom: 12px;
         overflow: auto;
 
         .cart-preview-item {
             text-align: left;
-            width: 30%;
 
             &__img-wrap {
                 position: relative;

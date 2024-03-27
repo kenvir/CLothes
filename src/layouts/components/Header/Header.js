@@ -187,7 +187,6 @@ function Header() {
                                                 </h3>
                                                 <p className={cx('cart-preview-item__price')}>$329.00</p>
                                             </article>
-                                            {/* <ProductItem /> */}
                                             <article className={cx('cart-preview-item')}>
                                                 <div className={cx('cart-preview-item__img-wrap')}>
                                                     <img src={img1} alt="" className={cx('cart-preview-item__thumb')} />
