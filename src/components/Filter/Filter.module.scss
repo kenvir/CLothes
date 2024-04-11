@@ -219,9 +219,13 @@
     color: var(--primary);
 }
 
-.active {
-    color: var(--primary);
+.st-item.activeBg {
+    background-color: var(--primary);
 }
+
+// .active {
+//     color: var(--primary);
+// }
 
 .sc-item {
     position: relative;

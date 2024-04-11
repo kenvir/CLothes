@@ -27,6 +27,8 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
     const [activeTag, setActiveTag] = useState();
     const [tag, setTag] = useState('');
 
+    const [filterActive, setFilterActive] = useState();
+
     const handleActiveCategory = (index) => {
         // category ? setActiveCategory(index) : setActiveCategory();
         // activeCategory ? setActiveCategory() : setActiveCategory(index);
@@ -37,7 +39,7 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
     };
 
     const handleActivePrice = (index) => {
-        activePrice ? setActivePrice(index) : setActivePrice();
+        setActivePrice(index);
     };
 
     const handleActiveColor = (index) => {
@@ -92,19 +94,25 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                         <VscDebugRestart
                             onClick={() => {
                                 setActiveCategory('');
-                                setCategories('');
+                                // setCategories('');
                             }}
                         />
                     </div>
                     <div className={cx('classify')}>
                         {listCategory.map((d, i) => (
                             <span
-                                className={cx('btn', (activeCategory !== undefined) === i ? 'active' : null)}
+                                className={cx(
+                                    'btn',
+                                    activeCategory !== undefined && activeCategory === i ? 'active' : '',
+                                )}
                                 onClick={() => {
-                                    handleActiveCategory(i);
+                                    // check element active -> null va nguoc lai
+                                    activeCategory === i ? setActiveCategory(null) : setActiveCategory(i);
+                                    // handleActiveCategory(i);
                                     setCategory(d);
                                     console.log('activeCategory', activeCategory);
-                                    console.log('index', i);
+                                    console.log('i', i);
+                                    console.log(activeCategory !== undefined);
                                     console.log('bool', activeCategory === i);
                                     console.log('------');
                                 }}
@@ -129,9 +137,10 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                     <div className={cx('classify')}>
                         {listPrice.map((d, i) => (
                             <span
-                                className={cx('btn', activePrice === i ? 'active' : null)}
+                                className={cx('btn', activePrice !== undefined && activePrice === i ? 'active' : null)}
                                 onClick={() => {
-                                    handleActivePrice(i);
+                                    activePrice === i ? setActivePrice(null) : setActivePrice(i);
+                                    // handleActivePrice(i);
                                     setPrice(d);
                                 }}
                                 key={i}
@@ -155,9 +164,10 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                     <div className={cx('classify')}>
                         {listColor.map((d, i) => (
                             <span
-                                className={cx('btn', activeColor === i ? 'active' : null)}
+                                className={cx('btn', activeColor !== undefined && activeColor === i ? 'active' : null)}
                                 onClick={() => {
-                                    handleActiveColor(i);
+                                    activeColor === i ? setActiveColor(null) : setActiveColor(i);
+                                    // handleActiveColor(i);
                                     setColor(d);
                                 }}
                                 key={i}
@@ -181,9 +191,13 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                     <div className={cx('classify-size')}>
                         {listSize.map((d, i) => (
                             <div
-                                className={cx('st-item', activeSize === i ? 'active' : null)}
+                                className={cx(
+                                    'st-item',
+                                    activeSize !== undefined && activeSize === i ? 'activeBg' : null,
+                                )}
                                 onClick={() => {
-                                    handleActiveSize(i);
+                                    activeSize === i ? setActiveSize(null) : setActiveSize(i);
+                                    // handleActiveSize(i);
                                     setSize(d);
                                 }}
                                 key={i}
@@ -207,9 +221,13 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                     <div className={cx('classify-tags')}>
                         {listTag.map((d, i) => (
                             <div
-                                className={cx('st-item', activeTag === i ? 'active' : null)}
+                                className={cx(
+                                    'st-item',
+                                    activeTag !== undefined && activeTag === i ? 'activeBg' : null,
+                                )}
                                 onClick={() => {
-                                    handleActiveTag(i);
+                                    activeTag === i ? setActiveTag(null) : setActiveTag(i);
+                                    // handleActiveTag(i);
                                     setTag(d);
                                 }}
                                 key={i}
