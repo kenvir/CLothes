@@ -79,11 +79,11 @@ function Cart({ className }) {
 
     return (
         <div className={cx('wrapper')}>
-            {productCart.imgs && (
-                <>
-                    <Crumb title="Shopping Cart" />
-                    <section className={cx('cart')}>
-                        <div className={cx('container')}>
+            <>
+                <Crumb title="Shopping Cart" />
+                <section className={cx('cart')}>
+                    <div className={cx('container')}>
+                        {productCart && productCart.imgs ? (
                             <div className={cx('cart-table')}>
                                 <table>
                                     <thead>
@@ -168,92 +168,84 @@ function Cart({ className }) {
                                     </tbody>
                                 </table>
                             </div>
-                            <div className={cx('footer')}>
-                                <div>
-                                    <div className={cx('cart-buttons')}>
-                                        <Link to="/shop" className={cx('continue-shop')}>
-                                            Continue shopping
-                                        </Link>
-                                        <Link to="#!" className={cx('up-cart')}>
-                                            Update cart
-                                        </Link>
-                                    </div>
-                                    <div className={cx('discount-coupon')}>
-                                        <h6>Discount Codes</h6>
-                                        <form action="#" className={cx('coupon-form')}>
-                                            <input type="text" placeholder="Enter your codes" />
-                                            <button type="submit" className={cx('coupon-btn')}>
-                                                Apply
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-
-                                <div className={cx('proceed-checkout')}>
-                                    <ul>
-                                        <li className={cx('subtotal')}>
-                                            Subtotal <span>$240.00</span>
-                                        </li>
-                                        <li className={cx('cart-total')}>
-                                            Total <span>$240.00</span>
-                                        </li>
-                                    </ul>
-                                    <Link to="/checkout" className={cx('proceed-btn')}>
-                                        PROCEED TO CHECK OUT
+                        ) : (
+                            <div className={cx('cart-table')}>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td className={cx('cart-pic')}>...</td>
+                                            <td className={cx('cart-title')}>
+                                                <h5>...</h5>
+                                            </td>
+                                            <td className={cx('p-price')}>
+                                                {' '}
+                                                <span>...</span>
+                                            </td>
+                                            <td className={cx('qua-col')}>
+                                                <div className={cx('quantity')}>
+                                                    <div className={cx('pro-qty')}>
+                                                        <span className={cx('qtybtn')}>-</span>
+                                                        <input type="text" readOnly={true} value="..." />
+                                                        <span className={cx('qtybtn')}>+</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td className={cx('total-price')}>
+                                                {' '}
+                                                <span> ...</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        )}
+                        <div className={cx('footer')}>
+                            <div>
+                                <div className={cx('cart-buttons')}>
+                                    <Link to="/shop" className={cx('continue-shop')}>
+                                        Continue shopping
+                                    </Link>
+                                    <Link to="#!" className={cx('up-cart')}>
+                                        Update cart
                                     </Link>
                                 </div>
-                            </div>
-                        </div>
-                    </section>
-                </>
-            )}
-            {/* <table>
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th>
-                            <TfiClose className={cx('delete')} />
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td className={cx('cart-pic')}>
-                            <img src={img1} alt="" />
-                        </td>
-                        <td className={cx('cart-title')}>
-                            <h5>Pure Pineapple</h5>
-                        </td>
-                        <td className={cx('p-price')}>$60.00</td>
-                        <td className={cx('qua-col')}>
-                            <div className={cx('quantity')}>
-                                <div className={cx('pro-qty')}>
-                                    <span className={cx('qtybtn')} onClick={(e) => handleDecrease(e)}>
-                                        -
-                                    </span>
-                                    <input
-                                        type="text"
-                                        readOnly={true}
-                                        value={productQuantity}
-                                        onChange={(e) => setProductQuantity(e.target.value)}
-                                    />
-                                    <span className={cx('qtybtn')} onClick={(e) => handleIncrease(e)}>
-                                        +
-                                    </span>
+                                <div className={cx('discount-coupon')}>
+                                    <h6>Discount Codes</h6>
+                                    <form action="#" className={cx('coupon-form')}>
+                                        <input type="text" placeholder="Enter your codes" />
+                                        <button type="submit" className={cx('coupon-btn')}>
+                                            Apply
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
-                        </td>
-                        <td className={cx('total-price')}>$60.00</td>
-                        <td className={cx('close-td')}>
-                            <TfiClose className={cx('delete')} />
-                        </td>
-                    </tr>
-                </tbody>
-            </table> */}
+
+                            <div className={cx('proceed-checkout')}>
+                                <ul>
+                                    <li className={cx('subtotal')}>
+                                        Subtotal <span>$240.00</span>
+                                    </li>
+                                    <li className={cx('cart-total')}>
+                                        Total <span>$240.00</span>
+                                    </li>
+                                </ul>
+                                <Link to="/checkout" className={cx('proceed-btn')}>
+                                    PROCEED TO CHECK OUT
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </>
         </div>
     );
 }

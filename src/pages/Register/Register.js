@@ -6,12 +6,13 @@ import qs from 'qs';
 
 import classNames from 'classnames/bind';
 import style from './Register.module.scss';
+import { toastSuccess, toastError } from '~/components/Toasts/Toasts';
 
 import Crumb from '~/components/Crumb/Crumb';
 
 const cx = classNames.bind(style);
 
-function Register() {
+function Register({ Click, openLogin }) {
     const {
         register,
         handleSubmit,
@@ -20,6 +21,7 @@ function Register() {
     } = useForm();
 
     const callAPI = async (data) => {
+        // try {
         const response = await axios({
             method: 'get',
             url: 'https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/users',
@@ -31,16 +33,41 @@ function Register() {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
         });
+        console.log(response);
+        return response;
+        //     if (!response.ok) {
+        //         throw new Error('Registration failed');
+        //     }
 
-        
+        //     // Registration successful
+        //     // Redirect user or show success message
+        // } catch (error) {
+        //     console.error('Registration error:', error.message);
+        //     // Display error message to the user
+        // }
     };
 
-    const handleSignUp = async () => {};
+    const onSubmit = async (data) => {
+        try {
+            const datas = await callAPI(data);
+
+            if (datas.data.Error === true) {
+                toastError(`${datas.data.Title}`);
+            }
+            if (datas?.data?.Error === false) {
+                toastSuccess(`${datas.data?.Title}`);
+                Click(false);
+                openLogin(true);
+            }
+        } catch (error) {
+            toastError(`${error.message}`);
+        }
+    };
 
     return (
         <div className={cx('wrapper')}>
             <Crumb title="Register" />
-            <form className={cx('form')} onSubmit={handleSubmit()}>
+            <form className={cx('form')} onSubmit={handleSubmit(onSubmit)}>
                 <h2 className={cx('form-title')}>Register</h2>
                 <div className={cx('form-group')}>
                     <label htmlFor="fullname" className={cx('form-label')}>

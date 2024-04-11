@@ -36,7 +36,7 @@ function ButtonScroll() {
                     fontSize: '30px',
                     bottom: '40px',
                     right: '40px',
-                    color: 'black',
+                    color: '#e7ab3c',
                     background: 'transparent',
                     textAlign: 'center',
                     cursor: 'pointer',
