@@ -29,7 +29,7 @@ function Contact() {
                         className={cx('gg-map')}
                         title="gg-map"
                         src={
-                            'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1395.2311484529866!2d105.8772352486263!3d20.999862470565184!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aeaa17c35b81%3A0x79d8becf2f06f8dc!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBLaW5oIGRvYW5oIHbDoCBDw7RuZyBuZ2jhu4cgSMOgIE7hu5lp!5e0!3m2!1svi!2s!4v1669756233823!5m2!1svi!2s'
+                            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d931.2463550227969!2d105.85431856955032!3d20.993221550876772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac1301a096e7%3A0x49227e05f8d36d4f!2zOCBOZ2guIDY3IE5nLiBH4buRYyDEkOG7gSwgSG_DoG5nIFbEg24gVGjhu6UsIEhvw6BuZyBNYWksIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1712843327237!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
                         }
                     />
                 </div>

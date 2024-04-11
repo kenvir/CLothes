@@ -1,14 +1,32 @@
+import React, { useState, useContext } from 'react';
+import { Fragment, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 import '~/App.css';
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes/routes';
-import { Fragment, useEffect } from 'react';
-
-import React, { useState } from 'react';
 import LoadingSpinner from './layouts/components/LoadingSpinner/LoadingSpinner';
 import ScrollToTop from './hooks/scrollToTop';
 
 function App() {
+    // Lay trang thai dang nhap hien tai
+    // const { asPath } = useLocation();
+    const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
+
+    // const URL = `${origin}${asPath}`;
+    const [reload, setReload] = useState(false);
+    const [currentUser, setCurrentUser] = useState(null);
+
+    useEffect(() => {
+        let FaShiUser = localStorage.getItem('FaShiUser') ? JSON.parse(localStorage.getItem('FaShiUser')) : null;
+        if (FaShiUser) {
+            setCurrentUser(FaShiUser);
+        } else {
+            setCurrentUser(null);
+        }
+    }, [URL]);
+
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -58,3 +76,7 @@ function App() {
 }
 
 export default App;
+
+export function useAppContext() {
+    return useContext();
+}

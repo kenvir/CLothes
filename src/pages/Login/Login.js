@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -9,16 +9,19 @@ import classNames from 'classnames/bind';
 import style from './Login.module.scss';
 
 import Crumb from '../../components/Crumb/Crumb';
+import { toastSuccess, toastError } from '~/components/Toasts/Toasts';
 
 const cx = classNames.bind(style);
 
-function Login() {
+function Login({ Click, setUser, Close }) {
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
     } = useForm();
+
+    const CT = useContext();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -53,15 +56,19 @@ function Login() {
             const datas = await callApi(data);
 
             if (datas.data.Error === true) {
-                console.log(`${datas.data.Title}`);
+                toastError(`${datas.data.Title}`);
             }
             if (datas?.data?.Error === false) {
-                console.log('Login success!');
-                localStorage.setItem('Fashion', JSON.stringify(datas.data));
+                toastSuccess('Login success!');
+                localStorage.setItem('VNXUser', JSON.stringify(datas.data));
+                CT.setCurrentUser(datas.data);
+                setTimeout(() => {
+                    setUser(`${datas.data?.Title}`);
+                    Close(false);
+                }, 2000);
             }
         } catch (error) {
-            console.log(`${error.message}`);
-            console.log('ERROR');
+            toastError(`${error.message}`);
         }
     };
 
