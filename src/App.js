@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, createContext } from 'react';
 import { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -8,6 +8,8 @@ import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
 import { publicRoutes } from '~/routes/routes';
 import LoadingSpinner from './layouts/components/LoadingSpinner/LoadingSpinner';
 import ScrollToTop from './hooks/scrollToTop';
+
+const AppContext = createContext();
 
 function App() {
     // Lay trang thai dang nhap hien tai
@@ -78,5 +80,5 @@ function App() {
 export default App;
 
 export function useAppContext() {
-    return useContext();
+    return useContext(AppContext);
 }

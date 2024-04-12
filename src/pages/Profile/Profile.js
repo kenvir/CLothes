@@ -10,7 +10,6 @@ import general3 from '~/assets/icons/message-2.svg';
 import general4 from '~/assets/icons/download.svg';
 import general5 from '~/assets/icons/heart.svg';
 import general6 from '~/assets/icons/gift-2.svg';
-import general7 from '~/assets/icons/shield.svg';
 import general8 from '~/assets/icons/info.svg';
 import general9 from '~/assets/icons/danger.svg';
 import card1 from '~/assets/imgs/card/plane-bg.svg';
@@ -57,7 +56,7 @@ function Profile() {
                                     <span className={cx('profile-menu__icon')}>
                                         <img src={general3} alt="" className={cx('icon')} />
                                     </span>
-                                    Communications & privacy
+                                    Privacy
                                 </Link>
                             </li>
                         </ul>
@@ -71,7 +70,7 @@ function Profile() {
                                     <span className={cx('profile-menu__icon')}>
                                         <img src={general4} alt="" className={cx('icon')} />
                                     </span>
-                                    Reorder
+                                    Re-order
                                 </Link>
                             </li>
                             <li>
@@ -87,21 +86,7 @@ function Profile() {
                                     <span className={cx('profile-menu__icon')}>
                                         <img src={general6} alt="" className={cx('icon')} />
                                     </span>
-                                    Registries
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div className={cx('profile-menu')}>
-                        <h3 className={cx('profile-menu__title')}>Subscriptions & plans</h3>
-                        <ul className={cx('profile-menu__list')}>
-                            <li>
-                                <Link href="./edit-personal-info.html" className={cx('profile-menu__link')}>
-                                    <span className={cx('profile-menu__icon')}>
-                                        <img src={general7} alt="" className={cx('icon')} />
-                                    </span>
-                                    Protection plans
+                                    Gift
                                 </Link>
                             </li>
                         </ul>

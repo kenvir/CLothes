@@ -61,7 +61,7 @@ function Footer({ className }) {
                         <h5>Information</h5>
                         <ul>
                             <li>
-                                <Link to="/blog">About Us</Link>
+                                <Link to="/blog">About Us/Blog</Link>
                             </li>
                             <li>
                                 <Link to="/checkout">Checkout</Link>

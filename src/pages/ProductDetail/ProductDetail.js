@@ -39,6 +39,7 @@ function ProductDetail() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const handleChangeImage = (index) => {
         setCurrentImageIndex(index);
+        console.log(index);
     };
 
     useEffect(() => {

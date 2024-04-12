@@ -12,7 +12,7 @@ const cx = classNames.bind(style);
 const listCategory = ['Men', 'Women', 'Kid'];
 const listPrice = ['0 - 200.000', '200.001 - 500.000', '500.001 - 1.000.000', '> 1.000.000'];
 const listColor = ['Black', 'White', 'Blue', 'Red', 'Beige'];
-const listSize = ['S', 'M', 'L', 'XL', 'XXL'];
+const listSize = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
 const listTag = ['Clothing', 'HandBag', 'Skirt', 'Shoes', 'Accessories'];
 
 function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTags, setCategories }) {

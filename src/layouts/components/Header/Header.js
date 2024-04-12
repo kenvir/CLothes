@@ -60,6 +60,10 @@ function Header() {
                         </div>
                         <div className={cx('language')}>
                             <span>English</span>
+                            <ul className={cx('list-language')}>
+                                <li>English</li>
+                                <li>Viet Nam</li>
+                            </ul>
                         </div>
                         <div className={cx('login')}>
                             <FaUser />
@@ -69,7 +73,11 @@ function Header() {
                         </div>
                         <div className={cx('avatar--user')}>
                             <Link to="/profile">
-                                <img src={img1} alt="" />
+                                <img
+                                    src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"
+                                    alt="avt-user"
+                                    className={cx('avt-img')}
+                                />
                             </Link>
                         </div>
                     </div>

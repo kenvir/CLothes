@@ -439,7 +439,7 @@
     }
 
     .product-more {
-        width: 32%;
+        width: 29%;
     }
 }
 
@@ -489,5 +489,13 @@
     .content-price {
         display: flex;
         flex-direction: column;
+    }
+
+    .product-mores {
+        gap: 8px;
+    }
+
+    .product-more {
+        width: 48%;
     }
 }
