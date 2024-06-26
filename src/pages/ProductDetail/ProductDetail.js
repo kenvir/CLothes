@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
 import classNames from 'classnames/bind';
 import style from './ProductDetail.module.scss';
 import Crumb from '~/components/Crumb/Crumb';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import { AiFillStar, AiOutlineQuestionCircle, AiOutlineFileProtect } from 'react-icons/ai';
 import { FaShippingFast } from 'react-icons/fa';
 import { BsFillCartPlusFill } from 'react-icons/bs';
 import { TbArrowBackUp } from 'react-icons/tb';
-import { useDispatch, useSelector } from 'react-redux';
 
 const cx = classNames.bind(style);
 

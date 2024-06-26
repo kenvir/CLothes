@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import qs from 'qs';
@@ -25,6 +25,7 @@ function Login({ Click, setUser, Close }) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const callApi = async (data) => {
         const response = await axios({
@@ -51,24 +52,36 @@ function Login({ Click, setUser, Close }) {
         return response;
     };
 
-    const handleLogin = async (data) => {
-        try {
-            const datas = await callApi(data);
+    // const handleLogin = async (data) => {
+    //     try {
+    //         const datas = await callApi(data);
 
-            if (datas.data.Error === true) {
-                toastError(`${datas.data.Title}`);
-            }
-            if (datas?.data?.Error === false) {
-                toastSuccess('Login success!');
-                localStorage.setItem('VNXUser', JSON.stringify(datas.data));
-                CT.setCurrentUser(datas.data);
-                setTimeout(() => {
-                    setUser(`${datas.data?.Title}`);
-                    Close(false);
-                }, 2000);
-            }
+    //         if (datas.data.Error === true) {
+    //             toastError(`${datas.data.Title}`);
+    //         }
+    //         if (datas?.data?.Error === false) {
+    //             toastSuccess('Login success!');
+    //             localStorage.setItem('VNXUser', JSON.stringify(datas.data));
+    //             CT.setCurrentUser(datas.data);
+    //             setTimeout(() => {
+    //                 setUser(`${datas.data?.Title}`);
+    //                 Close(false);
+    //             }, 2000);
+    //         }
+    //     } catch (error) {
+    //         toastError(`${error.message}`);
+    //     }
+    // };
+
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await axios.post('API_ENDPOINT/login', { email, password });
+            localStorage.setItem('token', response.data.token);
+            console.log(response.data.token);
+            navigate('/dashboard');
         } catch (error) {
-            toastError(`${error.message}`);
+            console.error('Error logging in', error);
         }
     };
 

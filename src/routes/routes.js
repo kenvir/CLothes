@@ -14,6 +14,7 @@ import FAQ from '~/pages/FAQ/FAQ';
 import Profile from '~/pages/Profile/Profile';
 import Collection from '~/pages/Collection/Collection';
 import Favorite from '~/pages/Favorite/Favorite';
+import DashBoard from '~/pages/DashBoard/DashBoard';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -24,6 +25,7 @@ const publicRoutes = [
     { path: config.routes.contact, component: Contact },
     { path: config.routes.login, component: Login },
     { path: config.routes.register, component: Register },
+    { path: config.routes.dashboard, component: DashBoard },
     { path: config.routes.cart, component: Cart },
     { path: config.routes.cartId, component: Cart },
     { path: config.routes.checkout, component: CheckOut },

@@ -60,6 +60,7 @@ function Header() {
                         </div>
                         <div className={cx('language')}>
                             <span>English</span>
+                            <div className={cx('space')}></div>
                             <ul className={cx('list-language')}>
                                 <li>English</li>
                                 <li>Viet Nam</li>

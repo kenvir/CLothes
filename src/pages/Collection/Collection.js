@@ -40,8 +40,8 @@ function Collection() {
             </section>
             <section className={cx('collection-list')}>
                 <div className={cx('collection-list__header')}>
-                    <p>Feed</p>
-                    <p>Discover</p>
+                    <p className={cx('collection-list__header-title')}>Feed</p>
+                    <p className={cx('collection-list__header-title')}>Discover</p>
                 </div>
 
                 <div className={cx('collection-list')}>

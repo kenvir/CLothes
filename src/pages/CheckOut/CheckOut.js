@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import style from './CheckOut.module.scss';
 import Crumb from '~/components/Crumb/Crumb';
-import ProductItem from '~/components/ProductItem/ProductItem';
+// import ProductItem from '~/components/ProductItem/ProductItem';
 
 const cx = classNames.bind(style);
 
@@ -62,7 +62,7 @@ function CheckOut() {
                                     Click Here To Login
                                 </Link>
                             </div>
-                            <h4 className={cx('bill-title')}>Billing CheckOuts</h4>
+                            <h4 className={cx('bill-title')}>Infor CheckOuts</h4>
                             <div className={cx('form-group')}>
                                 <label htmlFor="fullName" className={cx('form-label')}>
                                     Full Name <span>*</span>

@@ -16,6 +16,7 @@ const routes = {
     profile: '/profile',
     collection: '/collection',
     favorite: '/favorite',
+    dashboard: '/dashboard',
 };
 
 export default routes;

@@ -4,10 +4,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 import '~/App.css';
-import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
 import { publicRoutes } from '~/routes/routes';
 import LoadingSpinner from './layouts/components/LoadingSpinner/LoadingSpinner';
 import ScrollToTop from './hooks/scrollToTop';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import Login from './pages/Login/Login';
+import DashBoard from './pages/DashBoard/DashBoard';
+import Home from './pages/Home/Home';
+import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
 
 const AppContext = createContext();
 
@@ -41,24 +45,21 @@ function App() {
 
     return (
         <Router>
-            <div className="App">
-                <ScrollToTop />
-                {/* {isLoading ? (
-                    <LoadingSpinner />
-                ) : ( */}
-                <Routes>
-                    {publicRoutes.map((route, index) => {
-                        const Page = route.component;
+            <ScrollToTop />
+            <Routes>
+                {publicRoutes.map((route, index) => {
+                    const Page = route.component;
 
-                        let Layout = DefaultLayout;
+                    let Layout = DefaultLayout;
 
-                        if (route.layout) {
-                            Layout = route.layout;
-                        } else if (route.layout === null) {
-                            Layout = Fragment;
-                        }
+                    if (route.layout) {
+                        Layout = route.layout;
+                    } else if (route.layout === null) {
+                        Layout = Fragment;
+                    }
 
-                        return (
+                    return (
+                        <>
                             <Route
                                 key={index}
                                 path={route.path}
@@ -68,14 +69,27 @@ function App() {
                                     </Layout>
                                 }
                             />
-                        );
-                    })}
-                </Routes>
-                {/* )} */}
-            </div>
+                            <Route path="/login" element={<Login />} />
+                            <Route
+                                path="/dashboard"
+                                element={
+                                    <ProtectedRoute>
+                                        <Dashboard />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route path="/" exact element={<Home />} />
+                        </>
+                    );
+                })}
+            </Routes>
         </Router>
     );
 }
+
+// const Home = () => <div>Home</div>;
+
+const Dashboard = () => <div>Dashboard</div>;
 
 export default App;
 

@@ -71,6 +71,7 @@
     flex-wrap: wrap;
     gap: 10px;
     padding-bottom: 30px;
+    margin-top: 15px;
 
     &__header {
         display: flex;
@@ -80,8 +81,12 @@
         p {
             font-size: 22px;
             font-weight: 500;
-            line-height: 108%;
-            padding-bottom: 15px;
+        }
+
+        &-title:hover {
+            border-bottom: 3px solid var(--primary);
+            cursor: pointer;
+            color: var(--primary);
         }
     }
 

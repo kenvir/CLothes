@@ -112,9 +112,25 @@
     cursor: pointer;
     position: relative;
 
+    .space {
+        position: absolute;
+        background-color: transparent;
+        height: 10px;
+        width: 95px;
+        top: 50px;
+        left: 0;
+    }
+
     &:hover {
         .list-language {
             display: block;
+
+            li:hover {
+                font-weight: 500;
+                background-color: #e7ab3c;
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+            }
         }
     }
 }
@@ -125,10 +141,10 @@
     display: none;
     position: absolute;
     width: 95px;
-    top: 80px;
+    top: 58px;
     left: 0;
-    background-color: var(--primary);
-    border-radius: 6px;
+    background-color: #e7ab3c99;
+    border-radius: 4px;
 
     li {
         padding: 8px 10px;
