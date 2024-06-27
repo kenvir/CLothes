@@ -1,7 +1,7 @@
 import LogoutButton from '~/components/Button/ButtonLogout';
 
 function DashBoard() {
-    <div>dashboard</div>;
+    <div>Dashboard</div>;
     <LogoutButton />;
 }
 

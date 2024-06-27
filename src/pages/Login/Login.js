@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
 import axios from 'axios';
 import qs from 'qs';
 
@@ -14,43 +15,41 @@ import { toastSuccess, toastError } from '~/components/Toasts/Toasts';
 const cx = classNames.bind(style);
 
 function Login({ Click, setUser, Close }) {
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm();
-
-    const CT = useContext();
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
 
-    const callApi = async (data) => {
-        const response = await axios({
-            method: 'get',
-            url: 'https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/users',
-            data: qs.stringify({
-                Email: data.email,
-                PassWord: data.passWord,
-            }),
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-            },
-        });
+    // const CT = useContext();
 
-        const account = response.data.find((d) => d.email === data.Email);
-        const passAcc = account.passWord === parseInt(data.Password);
+    // const callApi = async (data) => {
+    //     const response = await axios({
+    //         method: 'get',
+    //         url: 'https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/users',
+    //         data: qs.stringify({
+    //             Email: data.email,
+    //             PassWord: data.passWord,
+    //         }),
+    //         headers: {
+    //             'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+    //         },
+    //     });
 
-        if (account && passAcc) {
-            console.log('Login success!!!');
-        } else {
-            console.log('Email or PassWord incorrect!!!');
-        }
+    //     const account = response.data.find((d) => d.email === data.Email);
+    //     const passAcc = account.passWord === parseInt(data.Password);
 
-        return response;
-    };
+    //     if (account && passAcc) {
+    //         console.log('Login success!!!');
+    //     } else {
+    //         console.log('Email or PassWord incorrect!!!');
+    //     }
+
+    //     return response;
+    // };
 
     // const handleLogin = async (data) => {
     //     try {
@@ -73,16 +72,23 @@ function Login({ Click, setUser, Close }) {
     //     }
     // };
 
-    const handleLogin = async (event) => {
+    const handleLogin = async (data, event) => {
+        // event.preventDefault();
+        // try {
+        //     const response = await axios.post('API_ENDPOINT/login', { email, password });
+        //     localStorage.setItem('token', response.data.token);
+        //     console.log(response.data.token);
+        //     navigate('/dashboard');
+        // } catch (error) {
+        //     console.error('Error logging in', error);
+        // }
         event.preventDefault();
-        try {
-            const response = await axios.post('API_ENDPOINT/login', { email, password });
-            localStorage.setItem('token', response.data.token);
-            console.log(response.data.token);
+        console.log('Email:', email, 'Password:', password);
+        // Giả lập API call
+        setTimeout(() => {
+            localStorage.setItem('token', 'fake-token');
             navigate('/dashboard');
-        } catch (error) {
-            console.error('Error logging in', error);
-        }
+        }, 1000);
     };
 
     return (
@@ -94,49 +100,62 @@ function Login({ Click, setUser, Close }) {
                     <label htmlFor="email" className={cx('form-label')}>
                         Email address *
                     </label>
-                    <input
-                        type="text"
-                        className={cx('form-control')}
-                        id="Email"
-                        // value={email}
-                        placeholder="Example: viet02092001@gmail.com"
-                        autoComplete="new-password"
-                        {...register('Email', {
-                            required: true,
+                    <Controller
+                        id="email"
+                        name="email"
+                        control={control}
+                        defaultValue=""
+                        rules={{
+                            required: 'Email cannot be empty!',
                             pattern: {
                                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                message: 'Invalid email!',
                             },
-                        })}
+                        }}
+                        render={({ field }) => (
+                            <input
+                                {...field}
+                                className={cx('form-control')}
+                                type="email"
+                                placeholder="Example: viet02092001@gmail.com"
+                                autoComplete="off"
+                            />
+                        )}
                     />
-                    {errors.Email && errors.Email.type === 'required' && (
-                        <span className={cx('error-message')}>Email cannot be empty !</span>
-                    )}
-                    {errors.Email && errors.Email.type === 'pattern' && (
-                        <span className={cx('error-message')}>Invalid email !</span>
-                    )}
+                    {errors.email && <span className={cx('error-message')}>{errors.email.message}</span>}
                 </div>
                 <div className={cx('form-group')}>
                     <label htmlFor="password" className={cx('form-label')}>
                         Password *
                     </label>
-                    <input
-                        type="password"
-                        className={cx('form-control')}
-                        id="PassWord"
-                        // value={password}
-                        placeholder="Enter password"
-                        autoComplete="off"
-                        {...register('Password', {
-                            required: true,
-                            minLength: 6,
-                            maxLength: 30,
-                        })}
+                    <Controller
+                        id="password"
+                        name="password"
+                        control={control}
+                        defaultValue=""
+                        rules={{
+                            required: 'Password cannot be empty!',
+                            minLength: {
+                                value: 6,
+                                message: 'Password must be at least 6 characters long',
+                            },
+                            maxLength: {
+                                value: 30,
+                                message: 'Password cannot exceed 30 characters',
+                            },
+                        }}
+                        render={({ field }) => (
+                            <input
+                                {...field}
+                                className={cx('form-control')}
+                                type="password"
+                                placeholder="Enter password"
+                                autoComplete="off"
+                            />
+                        )}
                     />
-                    {errors.Password && errors.Password.type === 'required' && (
-                        <span className={cx('error-message')}>Password cannot be empty !</span>
-                    )}
+                    {errors.password && <span className={cx('error-message')}>{errors.password.message}</span>}
                 </div>
-
                 <div className={cx('form-group-option')}>
                     <div className={cx('gi-more')}>
                         <label className={cx('save-pass')} htmlFor="save-pass">
@@ -149,11 +168,9 @@ function Login({ Click, setUser, Close }) {
                         </a>
                     </div>
                 </div>
-
                 <button className={cx('submit')} type="submit">
                     SIGN IN
                 </button>
-
                 <div className={cx('switch')}>
                     <Link to="/register" className={cx('switch-login')}>
                         Or Create An Account

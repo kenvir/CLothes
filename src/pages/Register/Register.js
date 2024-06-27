@@ -1,6 +1,7 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import axios from 'axios';
 import qs from 'qs';
 
@@ -14,11 +15,13 @@ const cx = classNames.bind(style);
 
 function Register({ Click, openLogin }) {
     const {
-        register,
+        control,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm();
+
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState('');
 
     const callAPI = async (data) => {
         // try {
@@ -70,53 +73,66 @@ function Register({ Click, openLogin }) {
             <form className={cx('form')} onSubmit={handleSubmit(onSubmit)}>
                 <h2 className={cx('form-title')}>Register</h2>
                 <div className={cx('form-group')}>
-                    <label htmlFor="fullname" className={cx('form-label')}>
+                    <label htmlFor="email" className={cx('form-label')}>
                         Email address *
                     </label>
-                    <input
-                        type="text"
-                        className={cx('form-control')}
-                        placeholder="Example: viet02092001@gmail.com"
-                        {...register('Email', {
-                            required: true,
+                    <Controller
+                        id="email"
+                        name="email"
+                        control={control}
+                        defaultValue=""
+                        rules={{
+                            required: 'Email cannot be empty!',
                             pattern: {
                                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                message: 'Invalid email!',
                             },
-                        })}
+                        }}
+                        render={({ field }) => (
+                            <input
+                                {...field}
+                                className={cx('form-control')}
+                                type="email"
+                                placeholder="Example: viet02092001@gmail.com"
+                                autoComplete="off"
+                            />
+                        )}
                     />
-                    {errors.Email && errors.Email.type === 'required' && (
-                        <span className={cx('error-message')}>Email cannot be empty !</span>
-                    )}
-                    {errors.Email && errors.Email.type === 'pattern' && (
-                        <span className={cx('error-message')}>Invalid email !</span>
-                    )}
+                    {errors.email && <span className={cx('error-message')}>{errors.email.message}</span>}
                 </div>
                 <div className={cx('form-group')}>
                     <label htmlFor="password" className={cx('form-label')}>
                         Password *
                     </label>
-                    <input
-                        type="password"
-                        className={cx('form-control')}
-                        placeholder="Entered password"
-                        autoComplete="on"
-                        {...register('Password', {
-                            required: true,
-                            minLength: 6,
-                            maxLength: 30,
-                        })}
+                    <Controller
+                        id="password"
+                        name="password"
+                        control={control}
+                        defaultValue=""
+                        rules={{
+                            required: 'Password cannot be empty!',
+                            minLength: {
+                                value: 6,
+                                message: 'Password must be at least 6 characters long',
+                            },
+                            maxLength: {
+                                value: 30,
+                                message: 'Password cannot exceed 30 characters',
+                            },
+                        }}
+                        render={({ field }) => (
+                            <input
+                                {...field}
+                                className={cx('form-control')}
+                                type="password"
+                                placeholder="Enter password"
+                                autoComplete="off"
+                            />
+                        )}
                     />
-                    {errors.Password && errors.Password.type === 'required' && (
-                        <span className={cx('error-message')}>Password cannot be empty !</span>
-                    )}
-                    {errors.Password && errors.Password.type === 'minLength' && (
-                        <span className={cx('error-message')}>Weak password</span>
-                    )}
-                    {errors.Password && errors.Password.type === 'maxLength' && (
-                        <span className={cx('error-message')}>Password up to 30 characters</span>
-                    )}
+                    {errors.password && <span className={cx('error-message')}>{errors.password.message}</span>}
                 </div>
-                <div className={cx('form-group')}>
+                {/* <div className={cx('form-group')}>
                     <label htmlFor="password" className={cx('form-label')}>
                         Confirm Password *
                     </label>
@@ -139,6 +155,32 @@ function Register({ Click, openLogin }) {
                     )}
                     {errors.PasswordAgain && errors.PasswordAgain.type === 'validate' && (
                         <span className={cx('error-message')}>Confirm password does not match !</span>
+                    )}
+                </div> */}
+                <div className={cx('form-group')}>
+                    <label htmlFor="confirm-password" className={cx('form-label')}>
+                        Confirm Password *
+                    </label>
+                    <Controller
+                        name="confirmPassword"
+                        control={control}
+                        defaultValue=""
+                        rules={{
+                            required: 'Password confirmation is required!',
+                            validate: (value) => value === password || 'The passwords do not match!',
+                        }}
+                        render={({ field }) => (
+                            <input
+                                {...field}
+                                className={cx('form-control')}
+                                type="password"
+                                placeholder="Re-Enter password"
+                                autoComplete="off"
+                            />
+                        )}
+                    />
+                    {errors.confirmPassword && (
+                        <span className={cx('error-message')}>{errors.confirmPassword.message}</span>
                     )}
                 </div>
 

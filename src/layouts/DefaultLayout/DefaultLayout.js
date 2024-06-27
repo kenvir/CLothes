@@ -6,7 +6,6 @@ import Footer from '~/layouts/components/Footer/Footer';
 import PartnerLogo from '~/layouts/components/PartnerLogo/PartnerLogo';
 import Menu from '../components/Menu/Menu';
 import MenuMobile from '../components/Menu/MenuMobile';
-import { useState, useEffect } from 'react';
 import ButtonScroll from '~/components/Button/ButtonScroll';
 
 const cx = classNames.bind(styles);

@@ -131,7 +131,7 @@ function Header() {
                                             <Button
                                                 className={cx('button')}
                                                 to="/checkout"
-                                                title="ADD ALL TO CHECKOUT"
+                                                title="ADD ALL TO CART"
                                             ></Button>
                                         </div>
                                     </div>
