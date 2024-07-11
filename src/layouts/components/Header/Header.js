@@ -94,7 +94,10 @@ function Header() {
                     </div>
                     <Search />
                     <div className={cx('heart-cart')}>
-                        <Link to="/favorite" className={cx('heart')}>
+                        <div className={cx('heart-ele')}>
+                            <Link to="/favorite" className={cx('heart')}>
+                                {' '}
+                            </Link>
                             <div className={cx('heart-icon')}>
                                 <BsHeart />
                                 <span className={cx('cart-number')}>
@@ -137,8 +140,11 @@ function Header() {
                                     </div>
                                 </div>
                             </div>
-                        </Link>
-                        <Link to="/cart" className={cx('cart')}>
+                        </div>
+                        <div className={cx('cart-ele')}>
+                            <Link to="/cart" className={cx('cart')}>
+                                {' '}
+                            </Link>
                             <div className={cx('cart-icon')}>
                                 <BsClipboardPlus />
                                 <span className={cx('cart-number')}>
@@ -199,7 +205,7 @@ function Header() {
                                     </div>
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                     </div>
                 </div>
             </div>

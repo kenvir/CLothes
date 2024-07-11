@@ -14,12 +14,22 @@ const listColor = ['Black', 'White', 'Blue', 'Red', 'Beige'];
 const listSize = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
 const listTag = ['Clothing', 'HandBag', 'Skirt', 'Shoes', 'Accessories'];
 
-function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTags, onFilterChange }) {
+function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTags, setCategories }) {
     const [activeCategory, setActiveCategory] = useState();
+    const [category, setCategory] = useState('');
     const [activePrice, setActivePrice] = useState();
     const [activeColor, setActiveColor] = useState();
     const [activeSize, setActiveSize] = useState();
     const [activeTag, setActiveTag] = useState();
+
+    const handleActiveCategory = (index) => {
+        // category ? setActiveCategory(index) : setActiveCategory();
+        // activeCategory ? setActiveCategory() : setActiveCategory(index);
+        setActiveCategory(index);
+
+        console.log('activeCategory', activeCategory);
+        console.log('category', category);
+    };
 
     return (
         <div className={cx('wrapper')}>
@@ -31,6 +41,7 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                             type="text"
                             className={cx('inputSearch')}
                             placeholder="Search ..."
+                            // onChange={(e) => setInput(e.target.value)}
                         />
                         <IoSearch className={cx('icon-search')} />
                     </div>
@@ -60,7 +71,7 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                         <VscDebugRestart
                             onClick={() => {
                                 setActiveCategory('');
-                                onFilterChange('category', '');
+                                // setCategories('');
                             }}
                         />
                     </div>
@@ -72,8 +83,15 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                                     activeCategory !== undefined && activeCategory === i ? 'active' : '',
                                 )}
                                 onClick={() => {
+                                    // check element active -> null va nguoc lai
                                     activeCategory === i ? setActiveCategory(null) : setActiveCategory(i);
-                                    onFilterChange('category', activeCategory === i ? '' : d);
+                                    // handleActiveCategory(i);
+                                    setCategory(d);
+                                    console.log('activeCategory', activeCategory);
+                                    console.log('i', i);
+                                    console.log(activeCategory !== undefined);
+                                    console.log('bool', activeCategory === i);
+                                    console.log('------');
                                 }}
                                 key={i}
                             >
@@ -90,7 +108,6 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                         <VscDebugRestart
                             onClick={() => {
                                 setActivePrice(-1);
-                                onFilterChange('price', '');
                             }}
                         />
                     </div>
@@ -100,7 +117,7 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                                 className={cx('btn', activePrice !== undefined && activePrice === i ? 'active' : null)}
                                 onClick={() => {
                                     activePrice === i ? setActivePrice(null) : setActivePrice(i);
-                                    onFilterChange('price', activePrice === i ? '' : d);
+                                    // handleActivePrice(i);
                                 }}
                                 key={i}
                             >
@@ -117,7 +134,6 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                         <VscDebugRestart
                             onClick={() => {
                                 setActiveColor(-1);
-                                onFilterChange('color', '');
                             }}
                         />
                     </div>
@@ -127,7 +143,7 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                                 className={cx('btn', activeColor !== undefined && activeColor === i ? 'active' : null)}
                                 onClick={() => {
                                     activeColor === i ? setActiveColor(null) : setActiveColor(i);
-                                    onFilterChange('color', activeColor === i ? '' : d);
+                                    // handleActiveColor(i);
                                 }}
                                 key={i}
                             >
@@ -144,7 +160,6 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                         <VscDebugRestart
                             onClick={() => {
                                 setActiveSize(-1);
-                                onFilterChange('size', '');
                             }}
                         />
                     </div>
@@ -157,7 +172,7 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                                 )}
                                 onClick={() => {
                                     activeSize === i ? setActiveSize(null) : setActiveSize(i);
-                                    onFilterChange('size', activeSize === i ? '' : d);
+                                    // handleActiveSize(i);
                                 }}
                                 key={i}
                             >
@@ -174,7 +189,6 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                         <VscDebugRestart
                             onClick={() => {
                                 setActiveTag(-1);
-                                onFilterChange('tag', '');
                             }}
                         />
                     </div>
@@ -187,7 +201,7 @@ function Filter({ isSearch, isRecent, isCategory, isPrice, isColor, isSize, isTa
                                 )}
                                 onClick={() => {
                                     activeTag === i ? setActiveTag(null) : setActiveTag(i);
-                                    onFilterChange('tag', activeTag === i ? '' : d);
+                                    // handleActiveTag(i);
                                 }}
                                 key={i}
                             >

@@ -27,24 +27,50 @@ function Shop() {
     // Call API
     const [productTag, setProductTag] = useState([]);
 
-    const callApi = async () => {
-        const response = await axios({
-            method: 'get',
-            url: `https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/clothes`,
-            type: 'json',
-        });
-
-        if (response.status === 200) {
-            setProductTag(response.data);
-        }
-
-        // console.log(response.data.filter((d) => d.tags.includes()));
-        // console.log(response.data);
-    };
-
     useEffect(() => {
+        const callApi = async () => {
+            const query = new URLSearchParams({
+                category: categories,
+                price,
+                color,
+                size,
+                tag,
+            }).toString();
+
+            const response = await axios.get(
+                `https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/clothes?${query}`,
+            );
+
+            if (response.status === 200) {
+                setProductTag(response.data);
+            }
+        };
+
         callApi();
-    }, []);
+    }, [filter, categories, price, color, size, tag]);
+
+    const handleFilterChange = (filterName, value) => {
+        switch (filterName) {
+            case 'category':
+                setCategories(value);
+                break;
+            case 'price':
+                setPrice(value);
+                break;
+            case 'color':
+                setColor(value);
+                break;
+            case 'size':
+                setSize(value);
+                break;
+            case 'tag':
+                setTag(value);
+                break;
+            default:
+                break;
+        }
+        setFilter((prev) => !prev); // Change filter state to active useEffect
+    };
 
     // Sort Product
     const [sort, setSort] = useState();
@@ -108,18 +134,7 @@ function Shop() {
             <Crumb title="Shop" />
             <div className={cx('content')}>
                 <div className={cx('filter')}>
-                    <Filter
-                        isCategory
-                        isPrice
-                        isColor
-                        isSize
-                        isTags
-                        setCategories={setCategories}
-                        setPrice={setPrice}
-                        setColor={setColor}
-                        setSize={setSize}
-                        setTag={setTag}
-                    />
+                    <Filter isCategory isPrice isColor isSize isTags onFilterChange={handleFilterChange} />
                 </div>
                 {productTag && (
                     <div className={cx('right-shop')}>

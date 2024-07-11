@@ -94,7 +94,7 @@ function Login({ Click, setUser, Close }) {
     return (
         <div className={cx('wrapper')}>
             <Crumb title="Login" />
-            <form className={cx('form')} autoComplete="off" onSubmit={handleSubmit(handleLogin)}>
+            <form className={cx('form')} method='POST' autoComplete="off" onSubmit={handleSubmit(handleLogin)}>
                 <h2 className={cx('form-title')}>Login</h2>
                 <div className={cx('form-group')}>
                     <label htmlFor="email" className={cx('form-label')}>

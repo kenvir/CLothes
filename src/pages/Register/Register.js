@@ -18,10 +18,12 @@ function Register({ Click, openLogin }) {
         control,
         handleSubmit,
         formState: { errors },
+        watch,
     } = useForm();
+    const password = watch('password');
 
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState('');
+    // const [email, setEmail] = useState();
+    // const [password, setPassword] = useState('');
 
     const callAPI = async (data) => {
         // try {
@@ -70,7 +72,7 @@ function Register({ Click, openLogin }) {
     return (
         <div className={cx('wrapper')}>
             <Crumb title="Register" />
-            <form className={cx('form')} onSubmit={handleSubmit(onSubmit)}>
+            <form className={cx('form')} method="POST" onSubmit={handleSubmit(onSubmit)}>
                 <h2 className={cx('form-title')}>Register</h2>
                 <div className={cx('form-group')}>
                     <label htmlFor="email" className={cx('form-label')}>
@@ -91,6 +93,7 @@ function Register({ Click, openLogin }) {
                         render={({ field }) => (
                             <input
                                 {...field}
+                                // value={email}
                                 className={cx('form-control')}
                                 type="email"
                                 placeholder="Example: viet02092001@gmail.com"
@@ -121,42 +124,20 @@ function Register({ Click, openLogin }) {
                             },
                         }}
                         render={({ field }) => (
-                            <input
-                                {...field}
-                                className={cx('form-control')}
-                                type="password"
-                                placeholder="Enter password"
-                                autoComplete="off"
-                            />
+                            <>
+                                <input
+                                    {...field}
+                                    className={cx('form-control')}
+                                    type="password"
+                                    placeholder="Enter password"
+                                    autoComplete="off"
+                                />
+                                {console.log(field.value)}
+                            </>
                         )}
                     />
                     {errors.password && <span className={cx('error-message')}>{errors.password.message}</span>}
                 </div>
-                {/* <div className={cx('form-group')}>
-                    <label htmlFor="password" className={cx('form-label')}>
-                        Confirm Password *
-                    </label>
-                    <input
-                        type="password"
-                        className={cx('form-control')}
-                        placeholder="Re-entered password"
-                        autoComplete="on"
-                        {...register('PasswordAgain', {
-                            required: true,
-                            validate: (val) => {
-                                if (watch('Password') !== val) {
-                                    return 'Your passwords does not match!';
-                                }
-                            },
-                        })}
-                    />
-                    {errors.PasswordAgain && errors.PasswordAgain.type === 'required' && (
-                        <span className={cx('error-message')}>Password again can not be empty !</span>
-                    )}
-                    {errors.PasswordAgain && errors.PasswordAgain.type === 'validate' && (
-                        <span className={cx('error-message')}>Confirm password does not match !</span>
-                    )}
-                </div> */}
                 <div className={cx('form-group')}>
                     <label htmlFor="confirm-password" className={cx('form-label')}>
                         Confirm Password *

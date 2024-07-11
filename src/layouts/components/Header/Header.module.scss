@@ -192,13 +192,6 @@
     width: 100%;
 }
 
-// .row {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     width: 100%;
-// }
-
 .logo {
     padding-right: 15px;
     cursor: pointer;
@@ -237,13 +230,13 @@
     line-height: 9px;
 }
 
-.heart:hover {
+.heart-ele:hover {
     .act-dropdown {
         display: block;
     }
 }
 
-.cart:hover {
+.cart-ele:hover {
     .act-dropdown {
         display: block;
     }
@@ -255,7 +248,7 @@
     position: absolute;
     right: 20px;
     width: min(450px, 100vw);
-    padding-top: 10px;
+    padding-top: 2%;
     display: none;
     // display: block;
     z-index: 999;
@@ -299,12 +292,6 @@
         height: 1px;
         background: black;
     }
-
-    // &__row {
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: space-between;
-    // }
 
     &__list {
         padding-bottom: 10px;
