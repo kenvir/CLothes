@@ -2,14 +2,18 @@ import classNames from 'classnames/bind';
 import style from './Deal.module.scss';
 
 import img1 from '~/assets/imgs/time-bg.jpg';
+import CountdownTimer from '~/components/SaleTimer/SaleTimer';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
 function Deal() {
+    const saleEndTime = '2024-07-31T23:59:59';
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('deal')}>
-                <img className={cx("image-wrapper")} src={img1} alt="bg-deal" />
+                <img className={cx('image-wrapper')} src={img1} alt="bg-deal" />
                 <div className={cx('content')}>
                     <h1 className={cx('content-title')}>Deal Of The Weak</h1>
                     <p className={cx('content-intro')}>
@@ -19,25 +23,11 @@ function Deal() {
                     <span className={cx('content-price')}>
                         $35 / <p className={cx('content-product')}>&nbsp;HanBag</p>
                     </span>
-                    <div className={cx('content-time')}>
-                        <div>
-                            <span>27</span>
-                            <span>DAYS</span>
-                        </div>
-                        <div>
-                            <span>02</span>
-                            <span>HRS</span>
-                        </div>
-                        <div>
-                            <span>37</span>
-                            <span>MINS</span>
-                        </div>
-                        <div>
-                            <span>02</span>
-                            <span>SECS</span>
-                        </div>
-                    </div>
-                    <button className={cx('content-btn')}>SHOP NOW</button>
+                    <CountdownTimer saleEndTime={saleEndTime} />
+                    {console.log(saleEndTime)}
+                    <Link to="/shop" className={cx('content-btn')}>
+                        SHOP NOW
+                    </Link>
                 </div>
             </div>
         </div>
