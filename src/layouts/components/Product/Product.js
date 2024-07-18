@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import style from './Product.module.scss';
 
@@ -10,6 +10,13 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(style);
 
 function Product({ data }) {
+    const [quickView, setQuickView] = useState(false);
+
+    const handleQuickView = () => {
+        setQuickView(!quickView);
+    };
+
+    // console.log(data);
     return (
         <div className={cx('contents')}>
             <div className={cx('content')} key={data.id}>
@@ -21,19 +28,6 @@ function Product({ data }) {
                             {data.sale && data.sale !== '0' && data.sale !== 'null' && (
                                 <div className={cx('product-sale')}>SALE</div>
                             )}
-                            <div className={cx('product-option')}>
-                                <div className={cx('product-option-inner')}>
-                                    <div className={cx('option-icon-wrapper')}>
-                                        <BsClipboard className={cx('option-icon')} />
-                                    </div>
-                                    <div className={cx('option-content')}>
-                                        <span>+ Quick View</span>
-                                    </div>
-                                    <div className={cx('option-shuffle-wrapper')}>
-                                        <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div className={cx('product-text')}>
                             <span className={cx('product-type')}>{data.type}</span>
@@ -45,6 +39,40 @@ function Product({ data }) {
                         </div>
                     </div>
                 </Link>
+                <div className={cx('product-option')}>
+                    <div className={cx('product-option-inner')}>
+                        <div className={cx('option-icon-wrapper')}>
+                            <div onClick={() => (window.location.href = `/cart/${data.id}`)}>
+                                <BsClipboard className={cx('option-icon')} />
+                            </div>
+                        </div>
+                        <div className={cx('option-content')}>
+                            <span onClick={handleQuickView}>+ Quick View</span>
+                            {quickView && (
+                                <div className={cx('quick-view')}>
+                                    <span>
+                                        <span className={cx('quick-view--infor')}>Name:</span> {data.name}
+                                    </span>
+                                    <span>
+                                        <span className={cx('quick-view--infor')}>Brand:</span> {data.brand}
+                                    </span>
+                                    <span>
+                                        <span className={cx('quick-view--infor')}>Type:</span> {data.type}
+                                    </span>
+                                    <span>
+                                        <span className={cx('quick-view--infor')}>Color:</span> {data.color}
+                                    </span>
+                                    <span>
+                                        <span className={cx('quick-view--infor')}>Rating:</span> 4.5* Rating
+                                    </span>
+                                </div>
+                            )}
+                        </div>
+                        <div className={cx('option-shuffle-wrapper')}>
+                            <FontAwesomeIcon className={cx('option-shuffle')} icon={faShuffle} />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

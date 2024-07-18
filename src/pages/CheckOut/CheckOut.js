@@ -12,49 +12,41 @@ import Crumb from '~/components/Crumb/Crumb';
 const cx = classNames.bind(style);
 
 function CheckOut() {
+    // Su dung selector cu the de tranh render lai khong can thiet
+    // const quantity = useSelector((state) => state.cart.quantity);
     const quantity = useSelector((state) => state);
 
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm();
 
     const param = useParams();
 
-    const [productCheckOut, setProductCheckOut] = useState([]);
-    // const [cartCheckOut, setCartCheckOut] = useState([]);
-
-    const callApi = async () => {
-        const response = await axios({
-            method: 'get',
-            url: `https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/clothes`,
-            type: 'json',
-        });
-
-        if (response.status === 200) {
-            setProductCheckOut(response.data.find((d) => d.id === parseInt(param.id)));
-            // setCartCheckOut(response.data)
-        }
-    };
-
-    // const price = [];
-    // console.log(productCheckOut.price);
-    // console.log(price.push(productCheckOut.price));
-    // console.log(price);
-    // const initTotal = 0;
-    // console.log(price.reduce((totals, total) => totals + total, initTotal));
+    const [productCheckOut, setProductCheckOut] = useState(null);
 
     useEffect(() => {
+        const callApi = async () => {
+            const response = await axios({
+                method: 'get',
+                url: `https://6556cd15bd4bcef8b611a0fc.mockapi.io/api/clothes/clothes`,
+                type: 'json',
+            });
+
+            if (response.status === 200) {
+                setProductCheckOut(response.data.find((d) => d.id === parseInt(param.id)));
+            }
+        };
+
         callApi();
-    }, []);
+    }, [param.id]);
 
     return (
         <div className={cx('wrapper')}>
             <Crumb title="Check Out" />
             <div className={cx('container')}>
-                <form action="#" className={cx('checkout-form')} onSubmit={handleSubmit()}>
+                <form className={cx('checkout-form')} onSubmit={handleSubmit()}>
                     <div className={cx('row')}>
                         <div className={cx('form-left')}>
                             <div className={cx('checkout-content')}>
@@ -62,7 +54,7 @@ function CheckOut() {
                                     Click Here To Login
                                 </Link>
                             </div>
-                            <h4 className={cx('bill-title')}>Infor CheckOuts</h4>
+                            <h4 className={cx('bill-title')}>Info Checkouts</h4>
                             <div className={cx('form-group')}>
                                 <label htmlFor="fullName" className={cx('form-label')}>
                                     Full Name <span>*</span>
@@ -75,7 +67,7 @@ function CheckOut() {
                                     })}
                                 />
                                 {errors.FullName && errors.FullName.type === 'required' && (
-                                    <span className={cx('error-message')}>FullName cannot be empty !</span>
+                                    <span className={cx('error-message')}>FullName can not be empty!</span>
                                 )}
                             </div>
                             <div className={cx('form-group')}>
@@ -93,15 +85,15 @@ function CheckOut() {
                                     })}
                                 />
                                 {errors.Email && errors.Email.type === 'required' && (
-                                    <span className={cx('error-message')}>Email cannot be empty !</span>
+                                    <span className={cx('error-message')}>Email can not be empty!</span>
                                 )}
                                 {errors.Email && errors.Email.type === 'pattern' && (
-                                    <span className={cx('error-message')}>Invalid email !</span>
+                                    <span className={cx('error-message')}>Invalid Email!</span>
                                 )}
                             </div>
                             <div className={cx('form-group')}>
                                 <label htmlFor="phone" className={cx('form-label')}>
-                                    Phone <span>*</span>
+                                    Phone Number <span>*</span>
                                 </label>
                                 <input
                                     type="text"
@@ -110,17 +102,16 @@ function CheckOut() {
                                         required: true,
                                         maxLength: 15,
                                         minLength: 9,
-                                        valueAsNumber: false,
                                     })}
                                 />
                                 {errors.PhoneNumber && errors.PhoneNumber.type === 'required' && (
-                                    <span className={cx('error-message')}>Phone number cannot be empty !</span>
+                                    <span className={cx('error-message')}>Phone Number can not be empty !</span>
                                 )}
                                 {errors.PhoneNumber && errors.PhoneNumber.type === 'maxLength' && (
-                                    <span className={cx('error-message')}>Invalid phone number</span>
+                                    <span className={cx('error-message')}>Invalid Phone Number</span>
                                 )}
                                 {errors.PhoneNumber && errors.PhoneNumber.type === 'minLength' && (
-                                    <span className={cx('error-message')}>Invalid phone number</span>
+                                    <span className={cx('error-message')}>Invalid Phone Number</span>
                                 )}
                             </div>
                             <div className={cx('form-group')}>
@@ -135,7 +126,7 @@ function CheckOut() {
                                     })}
                                 />
                                 {errors.Country && errors.Country.type === 'required' && (
-                                    <span className={cx('error-message')}>Country cannot be empty !</span>
+                                    <span className={cx('error-message')}>Country can not be empty!</span>
                                 )}
                             </div>
                             <div className={cx('form-group')}>
@@ -150,12 +141,12 @@ function CheckOut() {
                                     })}
                                 />
                                 {errors.City && errors.City.type === 'required' && (
-                                    <span className={cx('error-message')}>City cannot be empty !</span>
+                                    <span className={cx('error-message')}>City can not be empty!</span>
                                 )}
                             </div>
                             <div className={cx('form-group')}>
                                 <label htmlFor="address" className={cx('form-label')}>
-                                    Street Address <span>*</span>
+                                    Address <span>*</span>
                                 </label>
                                 <input
                                     type="text"
@@ -165,11 +156,11 @@ function CheckOut() {
                                     })}
                                 />
                                 {errors.Address && errors.Address.type === 'required' && (
-                                    <span className={cx('error-message')}>Address cannot be empty !</span>
+                                    <span className={cx('error-message')}>Address can not be empty!</span>
                                 )}
                             </div>
                             <div className={cx('form-group')}>
-                                <label htmlFor="address" className={cx('form-label')}>
+                                <label htmlFor="note" className={cx('form-label')}>
                                     Note
                                 </label>
                                 <textarea type="text" className={cx('form-note')} />
@@ -225,14 +216,14 @@ function CheckOut() {
                                     </div>
                                     <div className={cx('pc-item')}>
                                         <label htmlFor="pc-atm" style={{ color: 'red' }}>
-                                            ATM/ Visa ( Developing more)
+                                            ATM/ Visa (Developing)
                                             <input type="hidden" id="pc-atm" />
                                             <span className={cx('checkmark')} style={{ display: 'none' }}></span>
                                         </label>
                                     </div>
                                     <div className={cx('pc-item')}>
                                         <label htmlFor="pc-momo" style={{ color: 'red' }}>
-                                            Momo ( Developing more)
+                                            Momo (Developing)
                                             <input type="hidden" id="pc-momo" />
                                             <span className={cx('checkmark')} style={{ display: 'none' }}></span>
                                         </label>

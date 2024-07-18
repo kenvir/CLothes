@@ -7,6 +7,7 @@ import Filter from '~/components/Filter/Filter';
 import Product from '~/layouts/components/Product/Product';
 import Crumb from '~/components/Crumb/Crumb';
 import Pagination from '~/components/Pagination/Pagination';
+import { useParams } from 'react-router';
 
 const cx = classNames.bind(style);
 
@@ -23,6 +24,8 @@ function Shop() {
     const [size, setSize] = useState('');
     const [tag, setTag] = useState('');
     const [filter, setFilter] = useState('');
+
+    // Add product to Cart
 
     // Call API
     const [productTag, setProductTag] = useState([]);

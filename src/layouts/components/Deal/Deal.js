@@ -24,7 +24,6 @@ function Deal() {
                         $35 / <p className={cx('content-product')}>&nbsp;HanBag</p>
                     </span>
                     <CountdownTimer saleEndTime={saleEndTime} />
-                    {console.log(saleEndTime)}
                     <Link to="/shop" className={cx('content-btn')}>
                         SHOP NOW
                     </Link>

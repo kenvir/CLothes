@@ -40,7 +40,7 @@ function Cart({ className }) {
         }
     };
 
-    console.log(productCart);
+    // console.log(productCart);
     // const price = [];
     // console.log(productCart.imgs[1].img);
     // console.log(productCart.price);
@@ -65,7 +65,7 @@ function Cart({ className }) {
 
     const handleIncrease = () => {
         quantity++;
-        console.log(quantity);
+        // console.log(quantity);
     };
 
     const handleDecrease = () => {
@@ -73,7 +73,7 @@ function Cart({ className }) {
             quantity = 1;
         } else {
             quantity--;
-            console.log(quantity);
+            // console.log(quantity);
         }
     };
 
@@ -134,7 +134,7 @@ function Cart({ className }) {
                                                                 -
                                                             </span>
                                                             <input type="text" readOnly={true} value={quantity} />
-                                                            {console.log(quantity)}
+                                                            {/* {console.log(quantity)} */}
                                                             <span
                                                                 className={cx('qtybtn')}
                                                                 onClick={() =>

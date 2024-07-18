@@ -20,16 +20,51 @@
     width: 263px;
     margin-bottom: 5%;
     margin: 0 10px 5%;
+    position: relative;
+
+    &:hover {
+        .product-option {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            height: 52px;
+            position: absolute;
+            left: 0;
+            bottom: 63px;
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+            // animation: option 0.5s;
+        }
+    }
 }
 
 .product-card {
     width: 100%;
+    position: relative;
+
+    // &:hover {
+    //     .product-option {
+    //         display: flex;
+    //         flex-wrap: wrap;
+    //         justify-content: center;
+    //         text-align: center;
+    //         width: 100%;
+    //         height: 52px;
+    //         position: absolute;
+    //         left: 0;
+    //         bottom: 63px;
+    //         -webkit-transition: all 0.3s;
+    //         -o-transition: all 0.3s;
+    //         transition: all 0.3s;
+    //         // animation: option 0.5s;
+    //     }
+    // }
 }
 
 .product-item:hover {
-    .product-option {
-        bottom: 0;
-    }
     .product-favorite {
         top: 15px;
         opacity: 1;
@@ -78,18 +113,13 @@
 }
 
 .product-option {
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    height: 52px;
-    left: 0;
-    bottom: -52px;
+    display: none;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
     text-align: center;
+    position: absolute;
+    bottom: 9px;
 }
 
 .product-option-inner {
@@ -97,7 +127,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 74%;
+    width: 80%;
 }
 
 .option-icon-wrapper {
@@ -119,6 +149,29 @@
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+
+    .quick-view {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #d4d4d4;
+        bottom: 90px;
+        padding: 10px;
+        width: 194%;
+        cursor: pointer;
+
+        span {
+            line-height: 22px;
+        }
+
+        &--infor {
+            font-weight: bold;
+        }
+    }
 }
 
 .option-shuffle-wrapper {
@@ -186,6 +239,15 @@
         top: 0;
     }
 }
+
+// @keyframes option {
+//     0% {
+//         bottom: 19%;
+//     }
+//     100% {
+//         bottom: 20%;
+//     }
+// }
 
 @media only screen and (max-width: 1850px) {
     .wrapper {
