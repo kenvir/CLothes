@@ -97,13 +97,13 @@ function Header() {
                         <div className={cx('heart-ele')}>
                             <Link to="/favorite" className={cx('heart')}>
                                 {' '}
+                                <div className={cx('heart-icon')}>
+                                    <BsHeart />
+                                    <span className={cx('cart-number')}>
+                                        <div>1</div>
+                                    </span>
+                                </div>
                             </Link>
-                            <div className={cx('heart-icon')}>
-                                <BsHeart />
-                                <span className={cx('cart-number')}>
-                                    <div>1</div>
-                                </span>
-                            </div>
                             <div className={cx('act-dropdown')}>
                                 <div className={cx('act-dropdown__inner')}>
                                     <img
@@ -144,13 +144,13 @@ function Header() {
                         <div className={cx('cart-ele')}>
                             <Link to="/cart" className={cx('cart')}>
                                 {' '}
+                                <div className={cx('cart-icon')}>
+                                    <BsClipboardPlus />
+                                    <span className={cx('cart-number')}>
+                                        <span>3</span>
+                                    </span>
+                                </div>
                             </Link>
-                            <div className={cx('cart-icon')}>
-                                <BsClipboardPlus />
-                                <span className={cx('cart-number')}>
-                                    <span>3</span>
-                                </span>
-                            </div>
                             <div className={cx('act-dropdown')}>
                                 <div className={cx('act-dropdown__inner')}>
                                     <img

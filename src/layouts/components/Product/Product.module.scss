@@ -32,7 +32,7 @@
             height: 52px;
             position: absolute;
             left: 0;
-            bottom: 63px;
+            bottom: 21%;
             -webkit-transition: all 0.3s;
             -o-transition: all 0.3s;
             transition: all 0.3s;
@@ -44,24 +44,6 @@
 .product-card {
     width: 100%;
     position: relative;
-
-    // &:hover {
-    //     .product-option {
-    //         display: flex;
-    //         flex-wrap: wrap;
-    //         justify-content: center;
-    //         text-align: center;
-    //         width: 100%;
-    //         height: 52px;
-    //         position: absolute;
-    //         left: 0;
-    //         bottom: 63px;
-    //         -webkit-transition: all 0.3s;
-    //         -o-transition: all 0.3s;
-    //         transition: all 0.3s;
-    //         // animation: option 0.5s;
-    //     }
-    // }
 }
 
 .product-item:hover {
