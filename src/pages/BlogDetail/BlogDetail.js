@@ -103,24 +103,24 @@ function BlogDetail() {
                         </div>
                     </div>
                     <div className={cx('blog-post')}>
-                        <Link to="/" className={cx('prev-blog')}>
+                        <Link to={`/blogDetail/${blogDetail.id}`} key={blogDetail.id} className={cx('prev-blog')}>
                             <div className={cx('pb-pic')}>
                                 <IoMdArrowRoundBack className={cx('arrow-right-icon')} />
                                 <img className={cx('img-blog-other')} src={imgBanner} alt="prev-blog" />
                             </div>
                             <div className={cx('pb-text')}>
                                 <span>Previous Post:</span>
-                                <h5>The Personality Trait That Makes People Happier</h5>
+                                <h5>{blogDetail.title}</h5>
                             </div>
                         </Link>
-                        <Link to="/" className={cx('next-blog')}>
+                        <Link to={`/blogDetail/${blogDetail.id}`} className={cx('next-blog')}>
                             <div className={cx('nb-pic')}>
                                 <IoMdArrowRoundForward className={cx('arrow-left-icon')} />
                                 <img className={cx('img-blog-other')} src={img2} alt="next-blog" />
                             </div>
                             <div className={cx('nb-text')}>
                                 <span>Next Post:</span>
-                                <h5>The Personality Trait That Makes People Happier</h5>
+                                <h5>{blogDetail.title}</h5>
                             </div>
                         </Link>
                     </div>

@@ -9,7 +9,6 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { FaFacebookF } from 'react-icons/fa';
 import { BsInstagram, BsTwitter, BsPinterest } from 'react-icons/bs';
 
-import paymentImg from '~/assets/imgs/payment-method.png';
 import logoFooter from '~/assets/imgs/footer-logo.png';
 
 const cx = classNames.bind(style);
@@ -33,8 +32,8 @@ function Footer({ className }) {
                             </Link>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
+                            <li>Address: 8a, ngach 67, ngo Goc De, Hoang Mai, Ha Noi</li>
+                            <li>Phone: +84 346.751.314</li>
                             <li>Email: hello.colorlib@gmail.com</li>
                         </ul>
                         <div className={cx('footer-social')}>
